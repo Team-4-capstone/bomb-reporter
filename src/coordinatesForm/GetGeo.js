@@ -9,11 +9,11 @@ export const GetGeo = (props) => {
                 <option value="grenade">grenade</option>
             </select>
             <label htmlFor="lat"> your lat</label>
-            <input type="text" placeholder={props.lat} id="lat"/>
+            <input type="text" id="lat" value={props.lat}/>
 
 
             <label htmlFor="lon"> your lon</label>
-            <input type="text" placeholder={props.lon}/>
+            <input type="text" value={props.lon}/>
             <label htmlFor="select-size">select size</label>
             <select name="select-size" id="select-size">
                 <option value="S">small</option>
