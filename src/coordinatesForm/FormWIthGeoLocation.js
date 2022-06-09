@@ -2,7 +2,7 @@ import './form.css'
 import React, {useState} from "react";
 
 
-const initialFormData = Object.freeze({
+const initialFormData = {
     category: "",
     lat: "",
     lon: "",
@@ -12,7 +12,7 @@ const initialFormData = Object.freeze({
     color: "",
     quantity: "",
     secondaryColor: "",
-});
+};
 // expecting json to be send to the back
 // {
 //     "category": "string",
