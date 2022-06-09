@@ -15,4 +15,3 @@ root2.render(
     <App2/>
 );
 
-
