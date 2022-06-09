@@ -7,6 +7,18 @@ const initialFormData = Object.freeze({
     extra_details: ""
 });
 
+// expecting json to be send to the back
+// {
+//     "category": "string",
+//     "lat": "string",
+//     "lon": "string",
+//     "moreDetails": "string",
+//     "size": "string",
+//     "img_file_path": "string",
+//     "color": "string",
+//     "quantity": 0,
+//     "secondaryColor": "string"
+// }
 export const FormWIthGeoLocation = (props) => {
     const [formData, updateFormData] = useState(initialFormData);
 
@@ -47,9 +59,8 @@ export const FormWIthGeoLocation = (props) => {
                 <option value="XL">extra large</option>
             </select>
 
-            <label htmlFor="text-area" onChange={handleChange} id="extra_details">Extra details: </label>
-
-            <textarea id="text-area" name="text-area" rows="4" cols="50"/>
+            <label htmlFor="extra_details">Extra details: </label>
+            <textarea id="extra_details" name="extra_details" rows="4" cols="50" onChange={handleChange}/>
             <button onClick={handleSubmit}>Submit</button>
         </form>
     )
