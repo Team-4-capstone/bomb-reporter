@@ -1,6 +1,6 @@
 import './form.css'
 
-export const GetGeo = (props) => {
+export const FormWIthGeoLocation = (props) => {
     return (
         <form>
             <label htmlFor="select-category">Select category</label>
