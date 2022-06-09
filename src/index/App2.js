@@ -1,6 +1,6 @@
 import {Report} from "./Report";
 
-import './App2.css';
+
 import {useState} from "react";
 import {ControlledModal} from "./ControlledModal";
 
