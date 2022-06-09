@@ -1,10 +1,11 @@
-import App2 from "./index/App2";
+
+import {Report} from "./index/Report";
 
 
 
 export default function App() {
 
-    return (<App2>
-        </App2>
+    return (<Report>
+        </Report>
     )
 }

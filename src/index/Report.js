@@ -1,6 +1,6 @@
 import {ControlledModal} from "./ControlledModal";
 import {useState} from "react";
-import './App2.css';
+import './App.css';
 
 export const Report = () => {
 
