@@ -13,27 +13,15 @@ const initialFormData = {
     quantity: "",
     secondaryColor: "",
 };
-// expecting json to be send to the back
-// {
-//     "category": "string",
-//     "lat": "string",
-//     "lon": "string",
-//     "moreDetails": "string",
-//     "size": "string",
-//     "img_file_path": "string",
-//     "color": "string",
-//     "quantity": 0,
-//     "secondaryColor": "string"
-// }
 export const FormWIthGeoLocation = ({lat, lon, onClose}) => {
     const [formData, updateFormData] = useState(initialFormData);
 
     const handleChange = (e) => {
         updateFormData({
             ...formData,
+            [e.target.name]: e.target.value,
+            [e.target.name]: e.target.lat
 
-            // Trimming any whitespace
-            [e.target.name]: e.target.value.trim()
         });
     };
 
@@ -42,18 +30,23 @@ export const FormWIthGeoLocation = ({lat, lon, onClose}) => {
         console.log(formData);
         // ... submit to API or something
     };
+
     return (
         <form>
             <label htmlFor="lat"> your latitude</label>
-            <input type="text" id="lat" name="lat" onChange={handleChange} value={lat ? lat : ""} placeholder="lat"/>
+            <input type="text" id="lat" name="lat" value={lat ? lat : ""} placeholder="lat" onChange={handleChange}/>
 
-            <label htmlFor="lon"> your longitude</label>
-            <input type="text" id="lon" name="lon" onChange={handleChange} value={lon ? lon : ""} placeholder="lon"/>
+            <label htmlFor="lon">lon</label>
+            <input type="text" id="lon" name="lon" value={lon ? lon : ""} placeholder="lon" onChange={handleChange}/>
+
+
             <label htmlFor="color"> Color</label>
             <input type="text" id="color" name="color" onChange={handleChange} placeholder="Color"/>
 
+
             <label htmlFor="secondaryColor"> Secondary Color</label>
-            <input type="text" id="secondaryColor" name="secondaryColor" onChange={handleChange} placeholder="Secondary Color"/>
+            <input type="text" id="secondaryColor" name="secondaryColor" onChange={handleChange}
+                   placeholder="Secondary Color"/>
 
             <label htmlFor="category">Category</label>
             <select id="category" name="category" onChange={handleChange}>
@@ -82,7 +75,6 @@ export const FormWIthGeoLocation = ({lat, lon, onClose}) => {
             <label htmlFor="moreDetails">Extra details: </label>
             <textarea id=" moreDetails" name="moreDetails" rows="4" cols="50" onChange={handleChange}
                       placeholder="extra details..."/>
-
 
 
             <button onClick={handleSubmit}>Submit Form</button>
