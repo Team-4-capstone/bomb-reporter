@@ -15,8 +15,6 @@ export default function Geolocator() {
             setStatus('Locating...');
             navigator.geolocation.getCurrentPosition((position) => {
                 setStatus(null);
-                console.log(position.coords.latitude);
-                console.log(position.coords.longitude);
                 setLat(position.coords.latitude);
                 setLng(position.coords.longitude);
             }, () => {
