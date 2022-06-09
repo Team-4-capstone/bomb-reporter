@@ -1,0 +1,33 @@
+.index {
+    background-color: #5A5560;
+    width: 100%;
+    height: 100em;
+}
+
+.index--h1 {
+    color: #FAED26;
+    font-size: 5em;
+    width: 60%;
+    padding-top: 2em;
+    padding-left: 2em;
+}
+
+.yes {
+    width: 40%;
+    height: 5%;
+}
+
+.no {
+
+    width: 40%;
+    height: 5%;
+}
+
+.container{
+    width: 80%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+}
