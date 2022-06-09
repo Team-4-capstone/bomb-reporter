@@ -16,8 +16,8 @@ const ModalBody = styled.div`
 background-color: white;
 margin: 10% auto;
 padding: 20px;
-width: 50%;
-height: 40%;
+width: 75%;
+height: 80%;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
