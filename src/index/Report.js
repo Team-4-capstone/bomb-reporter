@@ -1,12 +1,8 @@
 import {ControlledModal} from "./ControlledModal";
 import {useState} from "react";
 import './App.css';
-import Geolocator from "../Geolocator";
 
 export const Report = () => {
-    const [lat, setLat] = useState(null);
-    const [lng, setLng] = useState(null);
-    const [status, setStatus] = useState(null);
 
     const [shouldShowModal, setShouldShowModal] = useState(false);
     return (

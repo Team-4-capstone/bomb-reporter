@@ -1,6 +1,7 @@
 import React, {Component} from "react";
-import {render} from "react-dom";
 import {useState} from "react";
+import {GetGeo} from "./GetGeo";
+import './form.css'
 
 export default function Geolocator() {
     const [lat, setLat] = useState(null);
@@ -32,6 +33,9 @@ export default function Geolocator() {
             <p>{status}</p>
             {lat && <p>Latitude: {lat}</p>}
             {lng && <p>Longitude: {lng}</p>}
+            <GetGeo lat={lat}
+                    lon={lng}
+            />
         </div>
 
     )
