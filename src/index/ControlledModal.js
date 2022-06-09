@@ -29,7 +29,7 @@ justify-content: space-between;
 export const ControlledModal = ({shouldShow, onClose, children}) => {
     const [lat, setLat] = useState(null);
     const [lng, setLng] = useState(null);
-    const [status, setStatus] = useState(null);
+
 
     return shouldShow ? (<ModalBackground onclick={onClose}>
             <ModalBody onClick={e => e.stopPropagation()}>

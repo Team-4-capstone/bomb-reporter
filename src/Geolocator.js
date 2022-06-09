@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
+import React, {Component} from "react";
+import {render} from "react-dom";
 import {useState} from "react";
 
 export default function Geolocator() {
@@ -14,6 +14,8 @@ export default function Geolocator() {
             setStatus('Locating...');
             navigator.geolocation.getCurrentPosition((position) => {
                 setStatus(null);
+                console.log(position.coords.latitude);
+                console.log(position.coords.longitude);
                 setLat(position.coords.latitude);
                 setLng(position.coords.longitude);
             }, () => {
@@ -24,13 +26,13 @@ export default function Geolocator() {
 
     return (
 
-<div className="App">
-<button onClick={getLocation}>Get Location</button>
-<h1>Coordinates</h1>
-<p>{status}</p>
-{lat && <p>Latitude: {lat}</p>}
-{lng && <p>Longitude: {lng}</p>}
-</div>
+        <div className="App">
+            <button onClick={getLocation}>Get Location</button>
+            <h1>Coordinates</h1>
+            <p>{status}</p>
+            {lat && <p>Latitude: {lat}</p>}
+            {lng && <p>Longitude: {lng}</p>}
+        </div>
 
     )
 
