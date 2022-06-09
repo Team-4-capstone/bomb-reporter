@@ -1,7 +1,7 @@
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-      "./src/coordinatesForm/FormWithGeoLocation/*.{js}"
+    "./src/***/*.{js,jsx,ts,tsx}",
+    "./src/*.js"
   ],
   theme: {
     extend: {},
