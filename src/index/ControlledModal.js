@@ -17,6 +17,10 @@ background-color: white;
 margin: 10% auto;
 padding: 20px;
 width: 50%;
+height: 40%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
 
 `;
 
@@ -25,8 +29,24 @@ export const ControlledModal = ({shouldShow, onClose, children}) => {
 
     return shouldShow ? (<ModalBackground onclick={onClose}>
             <ModalBody onClick={e => e.stopPropagation()}>
-                <input type="text" placeholder="title"/>
-                <input type="text" />
+                <label htmlFor="select-category">Select category</label>
+                <select name="selectList" id="select-category">
+                    <option value="landmine">landmine</option>
+                    <option value="grenade">grenade</option>
+                </select>
+                <input type="text" placeholder="lat"/>
+                <input type="text" placeholder="lon"/>
+                <label htmlFor="select-size">select size</label>
+                <select name="select-size" id="select-size">
+                    <option value="S">small</option>
+                    <option value="M">medium</option>
+                    <option value="L">large</option>
+                    <option value="XL">extra large</option>
+                </select>
+                <label htmlFor="text-area">Extra details: </label>
+
+                <textarea id="text-area" name="text-area" rows="4" cols="50"/>
+                <button onClick={onClose}>Hide Modal</button>
                 <button onClick={onClose}>Hide Modal</button>
                 {children}
             </ModalBody>
