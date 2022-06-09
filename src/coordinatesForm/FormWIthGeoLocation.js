@@ -8,12 +8,13 @@ export const FormWIthGeoLocation = (props) => {
                 <option value="landmine">landmine</option>
                 <option value="grenade">grenade</option>
             </select>
-            <label htmlFor="lat"> your lat</label>
-            <input type="text" id="lat" value={props.lat}/>
+            <label htmlFor="lat"> your latitude</label>
+            <input type="text" id="lat" onChange={() => props.lat ? props.lat : ""} value={props.lat ? props.lat : ""}/>
+
+            <label htmlFor="lon"> your longitude</label>
+            <input type="text" id="lon" onChange={() => props.lon ? props.lon : ""} value={props.lon ? props.lon : ""}/>
 
 
-            <label htmlFor="lon"> your lon</label>
-            <input type="text" value={props.lon}/>
             <label htmlFor="select-size">select size</label>
             <select name="select-size" id="select-size">
                 <option value="S">small</option>
