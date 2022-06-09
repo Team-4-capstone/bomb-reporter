@@ -1,28 +1,38 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
+import {useState} from "react";
 
+export default function Geolocator() {
+    const [lat, setLat] = useState(null);
+    const [lng, setLng] = useState(null);
+    const [status, setStatus] = useState(null)
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
+    const getLocation = () => {
+        if (!navigator.geolocation) {
+            setStatus('Geolocation is not supported by your browser');
+        } else {
+            setStatus('Locating...');
+            navigator.geolocation.getCurrentPosition((position) => {
+                setStatus(null);
+                setLat(position.coords.latitude);
+                setLng(position.coords.longitude);
+            }, () => {
+                setStatus('Unable to retrieve your location');
+            });
+        }
     }
 
-    componentDidMount() {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            console.log("Latitude is :", position.coords.latitude);
-            console.log("Longitude is :", position.coords.longitude);
-        });
-    }
+    return (
 
-    render() {
-        return (
-            <div>
-                <h4>Using geolocation JavaScript API in React</h4>
-            </div>
-        );
-    }
+<div className="App">
+<button onClick={getLocation}>Get Location</button>
+<h1>Coordinates</h1>
+<p>{status}</p>
+{lat && <p>Latitude: {lat}</p>}
+{lng && <p>Longitude: {lng}</p>}
+</div>
+
+    )
+
+
 }
-
-render(<App />, document.getElementById("root"));

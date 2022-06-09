@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import {useState} from "react";
+import Geolocator from "../Geolocator";
 
 
 const ModalBackground = styled.div`
@@ -25,7 +27,9 @@ justify-content: space-between;
 `;
 
 export const ControlledModal = ({shouldShow, onClose, children}) => {
-
+    const [lat, setLat] = useState(null);
+    const [lng, setLng] = useState(null);
+    const [status, setStatus] = useState(null);
 
     return shouldShow ? (<ModalBackground onclick={onClose}>
             <ModalBody onClick={e => e.stopPropagation()}>
@@ -48,7 +52,10 @@ export const ControlledModal = ({shouldShow, onClose, children}) => {
                 <textarea id="text-area" name="text-area" rows="4" cols="50"/>
                 <button onClick={onClose}>Hide Modal</button>
                 <button onClick={onClose}>Hide Modal</button>
-                {children}
+                <div>
+                    <Geolocator/>
+                </div>
+                {/*{children}*/}
             </ModalBody>
         </ModalBackground>
     ) : null;
