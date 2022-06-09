@@ -1,7 +1,6 @@
 import './form.css'
 import React, {useState} from "react";
 
-
 const initialFormData = {
     category: "",
     lat: "",
@@ -13,6 +12,7 @@ const initialFormData = {
     quantity: "",
     secondaryColor: "",
 };
+
 export const FormWIthGeoLocation = ({lat, lon, onClose}) => {
     const [formData, updateFormData] = useState(initialFormData);
 
@@ -20,7 +20,6 @@ export const FormWIthGeoLocation = ({lat, lon, onClose}) => {
         updateFormData({
             ...formData,
             [e.target.name]: e.target.value,
-            [e.target.name]: e.target.lat
 
         });
     };
@@ -33,12 +32,24 @@ export const FormWIthGeoLocation = ({lat, lon, onClose}) => {
 
     return (
         <form>
-            <label htmlFor="lat"> your latitude</label>
-            <input type="text" id="lat" name="lat" value={lat ? lat : ""} placeholder="lat" onChange={handleChange}/>
+            {/*<label htmlFor="lat"> your latitude</label>*/}
+            {/*<input type="text" name="lat" id="lat" value={lat ? lat : ""} placeholder="lat" onChange={handleChange}/>*/}
+            {/*<label htmlFor="lon">lon</label>*/}
+            {/*<input type="text" id="lon" name="lon" value={lon ? lon : ""} placeholder="lon" onChange={handleChange}/>*/}
 
-            <label htmlFor="lon">lon</label>
-            <input type="text" id="lon" name="lon" value={lon ? lon : ""} placeholder="lon" onChange={handleChange}/>
 
+            <label htmlFor="lat">Lat</label>
+            <span><small>{lat ? 'You can select you latitude from here now' : ''}</small></span>
+            <select id="lat" name="lat" onChange={handleChange}>
+                <option value="">{lat ? '' : 'get your current location'}</option>
+                <option value={lat ? lat : ""}>{lat ? lat : ""}</option>
+            </select>
+            <label htmlFor="lon">Lon</label>
+            <span><small>{lon ? 'You can select you longitude from here now' : ''}</small></span>
+            <select id="lon" name="lon" onChange={handleChange}>
+                <option value="">{lon ? '' : 'get your current location'}</option>
+                <option value={lon ? lon : ""}>{lon ? lon : ""}</option>
+            </select>
 
             <label htmlFor="color"> Color</label>
             <input type="text" id="color" name="color" onChange={handleChange} placeholder="Color"/>
