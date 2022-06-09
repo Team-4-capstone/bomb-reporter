@@ -41,7 +41,7 @@ export const FormWIthGeoLocation = ({lat, lon, onClose}) => {
     }
 
     return (
-        <form>
+        <form className="app">
             {/*<label htmlFor="lat"> your latitude</label>*/}
             {/*<input type="text" name="lat" id="lat" value={lat ? lat : ""} placeholder="lat" onChange={handleChange}/>*/}
             {/*<label htmlFor="lon">lon</label>*/}
@@ -60,6 +60,18 @@ export const FormWIthGeoLocation = ({lat, lon, onClose}) => {
                 <option value="">{lon ? '' : 'get your current location'}</option>
                 <option value={lon ? lon : ""}>{lon ? lon : ""}</option>
             </select>
+
+            <label htmlFor="img_file_path"> Open camera
+            </label>
+            <input
+                id="cameraFileInput"
+                name="img_file_path"
+                type="file"
+                accept="image/*"
+                capture="environment"
+                onChange={handleChange}
+            />
+
 
             <label htmlFor="color"> Color</label>
             <input type="text" id="color" name="color" onChange={handleChange} placeholder="Color"/>
