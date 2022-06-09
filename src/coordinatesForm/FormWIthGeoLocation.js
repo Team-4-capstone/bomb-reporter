@@ -26,12 +26,22 @@ export const FormWIthGeoLocation = ({lat, lon, onClose}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(formData);
-        // ... submit to API or something
-    };
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        };
+        fetch(`http://localhost:8081/api/reports`, options)
+            .then(res => console.log(res.status))
+            .catch(error => {
+                console.log(error)
+            });
+    }
 
     return (
-        <form>
+        <form className="app">
             {/*<label htmlFor="lat"> your latitude</label>*/}
             {/*<input type="text" name="lat" id="lat" value={lat ? lat : ""} placeholder="lat" onChange={handleChange}/>*/}
             {/*<label htmlFor="lon">lon</label>*/}
@@ -39,17 +49,29 @@ export const FormWIthGeoLocation = ({lat, lon, onClose}) => {
 
 
             <label htmlFor="lat">Lat</label>
-            <span><small>{lat ? 'You can select you latitude from here now' : ''}</small></span>
+            <span><small>{lat ? 'You can select you latitude from this options now' : ''}</small></span>
             <select id="lat" name="lat" onChange={handleChange}>
                 <option value="">{lat ? '' : 'get your current location'}</option>
                 <option value={lat ? lat : ""}>{lat ? lat : ""}</option>
             </select>
             <label htmlFor="lon">Lon</label>
-            <span><small>{lon ? 'You can select you longitude from here now' : ''}</small></span>
+            <span><small>{lon ? 'You can select you longitude from this options now' : ''}</small></span>
             <select id="lon" name="lon" onChange={handleChange}>
                 <option value="">{lon ? '' : 'get your current location'}</option>
                 <option value={lon ? lon : ""}>{lon ? lon : ""}</option>
             </select>
+
+            <label htmlFor="img_file_path"> Open camera
+            </label>
+            <input
+                id="cameraFileInput"
+                name="img_file_path"
+                type="file"
+                accept="image/*"
+                capture="environment"
+                onChange={handleChange}
+            />
+
 
             <label htmlFor="color"> Color</label>
             <input type="text" id="color" name="color" onChange={handleChange} placeholder="Color"/>
@@ -75,8 +97,8 @@ export const FormWIthGeoLocation = ({lat, lon, onClose}) => {
                 <option value="">select size</option>
                 <option value="S">small (as a baseball)</option>
                 <option value="M">medium (as a soccer ball)</option>
-                <option value="L">large</option>
-                <option value="XL">extra large ()</option>
+                <option value="L">large (as a vehicle)</option>
+                <option value="XL">extra large (as a truck)</option>
             </select>
 
             <label htmlFor="quantity">Quantity</label>
