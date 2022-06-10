@@ -9,7 +9,7 @@ const initialFormData = {
     size: "",
     color: "",
     quantity: "",
-    secondaryColor: "",
+    secondaryColor: ""
 };
 
 export const FileUploadPage = ({lat, lon, onClose,}) => {
@@ -23,7 +23,7 @@ export const FileUploadPage = ({lat, lon, onClose,}) => {
     const handleChange = (e) => {
         updateFormData({
             ...formData,
-            [e.target.name]: e.target.value,
+            [e.target.name]: e.target.value
 
         });
     };
@@ -31,17 +31,10 @@ export const FileUploadPage = ({lat, lon, onClose,}) => {
 
     //does a fetch request to the backend on form submition
     const onSubmit = async (data) => {
+        console.log(formData.moreDetails)
         const imdData = new FormData();
         imdData.append("file", data.file[0]);
-        const res = await fetch(`http://localhost:8081/api/v1/todo?
-        moreDetails=${formData.moreDetails ? formData.moreDetails : 'N/A'}
-        &latitude=${lat ? lat : 'N/A'}
-        &longitude=${lon ? lon : 'N/A'}
-        &category=${formData.category ? formData.category : 'N/A'}
-        &size=${formData.size ? formData.size : 'N/A'}
-        &color=${formData.color ? formData.color : 'N/A'}
-        &quantity=${formData.quantity ? formData.quantity : 'N/A'}
-        &secondaryColor=${formData.secondaryColor ? formData.secondaryColor : 'N/A'}`,
+        const res = await fetch(`http://localhost:8081/api/v1/todo?moreDetails=${formData.moreDetails ? formData.moreDetails : "N/A"}&latitude=${lat ? lat : 'N/A'}&longitude=${lon ? lon : 'N/A'}&category=${formData.category ? formData.category : 'N/A'}&size=${formData.size ? formData.size : 'NA'}&color=${formData.color ? formData.color : 'N/A'}&quantity=${formData.quantity ? formData.quantity : 'N/A'}&secondaryColor=${formData.secondaryColor ? formData.secondaryColor : 'N/A'}`,
             {
                 method: "POST",
                 body: imdData,
@@ -90,7 +83,7 @@ export const FileUploadPage = ({lat, lon, onClose,}) => {
             <label htmlFor="moreDetails">Extra details: </label>
             <textarea id=" moreDetails" name="moreDetails" rows="4" cols="50" onChange={handleChange}
                       placeholder="extra details..."/>
-            <input type="submit"/>
+            <input type="submit" onClick={handleChange}/>
         </form>
     );
 }
