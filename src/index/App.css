@@ -41,12 +41,6 @@ html, body {
     border-radius: 50%;
 }
 
-.yes:hover {
-    transform: scale(1.5);
-    z-index: 99;
-    background-color: #ddd;
-}
-
 .no {
 
     width: 25%;
@@ -55,8 +49,3 @@ html, body {
     margin-top: 2em;
 }
 
-.no:hover{
-    transform: scale(1.5);
-    z-index: 99;
-    background-color: #ddd;
-}
