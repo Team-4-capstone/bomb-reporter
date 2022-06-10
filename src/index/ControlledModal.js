@@ -31,7 +31,7 @@ export const ControlledModal = ({shouldShow, onClose}) => {
     return shouldShow ? (<ModalBackground onclick={onClose}>
             <ModalBody onClick={e => e.stopPropagation()}>
                 <Geolocator/>
-                <button onClick={onClose}>Hide Modal</button>
+                <button className="close-modal" onClick={onClose}>X</button>
             </ModalBody>
         </ModalBackground>
     ) : null;

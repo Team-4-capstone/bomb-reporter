@@ -49,3 +49,12 @@ html, body {
     margin-top: 2em;
 }
 
+
+.close-modal{
+    background-color: red;
+    color: #fff;
+}
+.close-modal:hover{
+    @apply bg-red-800
+
+}

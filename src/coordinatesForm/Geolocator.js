@@ -25,7 +25,7 @@ export default function Geolocator() {
 
     return (
         <>
-            <button onClick={getLocation}>Get Location</button>
+            <button className="get-location" onClick={getLocation}>Get Location</button>
             <FileUploadPage lat={lat} lon={lng}/>
         </>
 
