@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {useState} from "react";
-import {FormWIthGeoLocation} from "./FormWIthGeoLocation";
 import './form.css'
+import {FileUploadPage} from "./FileUploadPage";
 
 export default function Geolocator() {
     const [lat, setLat] = useState(null);
@@ -26,9 +26,7 @@ export default function Geolocator() {
     return (
         <>
             <button onClick={getLocation}>Get Location</button>
-            <FormWIthGeoLocation lat={lat}
-                                 lon={lng}
-            />
+            <FileUploadPage lat={lat} lon={lng}/>
         </>
 
 
