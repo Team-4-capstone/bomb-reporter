@@ -92,6 +92,7 @@ export const FormWIthGeoLocation = ({lat, lon, onClose}) => {
                 <textarea id=" moreDetails" name="moreDetails" rows="4" cols="50" onChange={handleChange}
                           placeholder="extra details..."/>
                 <FileUploadPage
+                    moreDetails={formData.moreDetails}
                     latitude={formData.lat}
                     longitude={formData.lon}
                     category={formData.category}
