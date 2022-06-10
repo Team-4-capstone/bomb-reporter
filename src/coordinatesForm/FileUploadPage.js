@@ -83,7 +83,7 @@ export const FileUploadPage = ({lat, lon, onClose,}) => {
             <label htmlFor="moreDetails">Extra details: </label>
             <textarea id=" moreDetails" name="moreDetails" rows="4" cols="50" onChange={handleChange}
                       placeholder="extra details..."/>
-            <input type="submit" onClick={handleChange}/>
+            { lat ? <input type="submit" onClick={handleChange}/> : <button type="submit" disabled={true}>must get location first</button>}
         </form>
     );
 }
