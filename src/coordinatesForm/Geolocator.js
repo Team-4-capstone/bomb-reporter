@@ -24,17 +24,13 @@ export default function Geolocator() {
     }
 
     return (
-
-        <div className="App">
+        <>
             <button onClick={getLocation}>Get Location</button>
-            <h1>Coordinates</h1>
-            <p>{status}</p>
-            {lat && <p>Latitude: {lat}</p>}
-            {lng && <p>Longitude: {lng}</p>}
             <FormWIthGeoLocation lat={lat}
                                  lon={lng}
             />
-        </div>
+        </>
+
 
     )
 
