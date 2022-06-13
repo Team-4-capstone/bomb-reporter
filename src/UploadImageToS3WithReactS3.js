@@ -1,12 +1,9 @@
 import React, {useState} from 'react';
 import {uploadFile} from 'react-s3';
+import {ACCESS_KEY, REGION, S3_BUCKET, SECRET_ACCESS_KEY} from "./config";
+
+
 window.Buffer = window.Buffer || require("buffer").Buffer;
-
-const S3_BUCKET = 'oceans2';
-const REGION = 'us-east-2';
-const ACCESS_KEY = 'AKIA5BUWQB4PNAY55UXG';
-const SECRET_ACCESS_KEY = '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';
-
 const config = {
     bucketName: S3_BUCKET,
     region: REGION,
@@ -23,7 +20,7 @@ const UploadImageToS3WithReactS3 = () => {
     }
 
     const handleUpload = async (file) => {
-        uploadFile(file,config)
+        uploadFile(file, config)
             .then(data => console.log(data))
             .catch(err => console.error(err))
     }
