@@ -23,7 +23,7 @@ const UploadImageToS3WithReactS3 = () => {
     }
 
     const handleUpload = async (file) => {
-        uploadFile(file, config)
+        uploadFile(file,config)
             .then(data => console.log(data))
             .catch(err => console.error(err))
     }
