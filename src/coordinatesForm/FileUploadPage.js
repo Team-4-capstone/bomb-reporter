@@ -11,7 +11,6 @@ const initialFormData = {
     quantity: "",
     secondaryColor: ""
 };
-
 export const FileUploadPage = ({lat, lon, onClose,}) => {
 
     // initialize formData and photo submition
@@ -31,14 +30,29 @@ export const FileUploadPage = ({lat, lon, onClose,}) => {
 
     //does a fetch request to the backend on form submition
     const onSubmit = async (data) => {
-        console.log(formData.moreDetails)
-        const imdData = new FormData();
-        imdData.append("file", data.file[0]);
-        const res = await fetch(`http://localhost:8081/api/v1/todo?moreDetails=${formData.moreDetails ? formData.moreDetails : "N/A"}&latitude=${lat ? lat : 'N/A'}&longitude=${lon ? lon : 'N/A'}&category=${formData.category ? formData.category : 'N/A'}&size=${formData.size ? formData.size : 'NA'}&color=${formData.color ? formData.color : 'N/A'}&quantity=${formData.quantity ? formData.quantity : 'N/A'}&secondaryColor=${formData.secondaryColor ? formData.secondaryColor : 'N/A'}`,
-            {
-                method: "POST",
-                body: imdData,
-            }).then((res) => res.status);
+        const objectToFetch = {
+            "category": `${formData ? formData.category : 'N/A'}`,
+            "lat": `${lat ? lat : 'N/A'}`,
+            "lon": `${lon ? lon : 'N/A'}`,
+            "moreDetails": `${formData ? formData.moreDetails : 'N/A'}`,
+            "img_path": `${formData ? formData.img_path : 'N/A'}`,
+            "size": `${formData ? formData.size : 'NA'}`,
+            "color": `${formData ? formData.color : 'N/A'}`,
+            "quantity": `${formData ? formData.quantity : 'N/A'}`,
+            "secondaryColor": `${formData ? formData.secondaryColor : 'N/A'}`
+
+        }
+        const options = {
+            method: objectToFetch,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(objectToFetch),
+        };
+
+        const res = await fetch(`http://localhost:8081/api/reports`, options)
+            .then((res) => res.status)
+
     };
 
     // supplies the report submit form
@@ -83,7 +97,8 @@ export const FileUploadPage = ({lat, lon, onClose,}) => {
             <label htmlFor="moreDetails">Extra details: </label>
             <textarea id=" moreDetails" name="moreDetails" rows="4" cols="50" onChange={handleChange}
                       placeholder="extra details..."/>
-            { lat ? <input type="submit" onClick={handleChange}/> : <button type="submit" disabled={true}>must get location first</button>}
+            {lat ? <input type="submit" onClick={handleChange}/> :
+                <button type="submit" disabled={true}>must get location first</button>}
         </form>
     );
 }
