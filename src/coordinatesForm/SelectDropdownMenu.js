@@ -219,7 +219,10 @@ export const SelectDropdownMenu = ({lat, lon}) => {
                 options={categories} // set list of the data
                 onChange={handleChange} // assign onChange function
                 getOptionLabel={e => (
-                    <span style={{marginLeft: 50}}>{e.label}</span>
+                    <div style={{display: 'flex', alignItems: 'center'}}>
+                        {e.icon}
+                        <span style={{marginLeft: 5}}>{e.label}</span>
+                    </div>
                 )}
             />
 
