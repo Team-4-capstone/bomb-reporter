@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState} from "react";
 import {uploadFile} from "react-s3";
-import {ACCESS_KEY, REGION, S3_BUCKET, SECRET_ACCESS_KEY} from "../config";
+import {ACCESS_KEY, REGION, S3_BUCKET, SECRET_ACCESS_KEY} from "../Config";
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
