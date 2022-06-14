@@ -28,10 +28,10 @@ const config = {
 
 export const FileUploadPage = ({lat, lon, onClose,}) => {
 
-    // set form data to initialFormData
+    // set form data to initialFormData (line 9)
     const [formData, updateFormData] = useState(initialFormData);
 
-    //  set photo values to null
+    //  set photo input values to null
     const [selectedFile, setSelectedFile] = useState(null)
 
 
@@ -42,7 +42,7 @@ export const FileUploadPage = ({lat, lon, onClose,}) => {
     // set AWS photo location to null
     const [responseAwsLocation, setResponseAwsLocation] = useState(null);
 
-    // on input change, get form values based on their names and passed on to initialFormData
+    // on input change, get form values based on their names and passed on to initialFormData (line 9)
     const handleChange = (e) => {
         e.preventDefault()
         updateFormData({
@@ -53,7 +53,7 @@ export const FileUploadPage = ({lat, lon, onClose,}) => {
     };
 
 
-    //does a fetch request to the backend on form submit
+    //does a fetch request to the backend on form submit, grabbing the values from  initialFormData (line 9)
     const onSubmit = async (data) => {
         const objectToFetch = {
             "category": `${formData ? formData.category : 'N/A'}`,
@@ -77,20 +77,19 @@ export const FileUploadPage = ({lat, lon, onClose,}) => {
 
         const res = await fetch(`http://localhost:8081/api/reports`, options)
             .then(res =>
+                //if successfully POST alert("successfully"), else  alert("unsuccessfully")
                 `${res.status === 200 ? alert("successfully") : alert("unsuccessfully")}`
             )
 
     };
 
-    // supplies the report submit form
 
-
-    //get photo values from input field and passed on to hook selectedFile
+    //get photo values from input field and passed on to hook selectedFile (line 35)
     const handleFileInput = (e) => {
         setSelectedFile(e.target.files[0]);
     }
 
-    // does a POST request to AWS Bucket server and sets photo key and photo location
+    // does a POST request to AWS Bucket server and sets photo key and photo location (line 39 and 43)
     const handleUpload = async (file) => {
         uploadFile(file, config)
             .then(data => {
