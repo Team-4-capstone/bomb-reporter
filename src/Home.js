@@ -1,15 +1,28 @@
+import {ControlledModal} from "./index/ControlledModal";
 import {Link} from "react-router-dom"
+import React, {useState} from "react";
+import './index/App.css';
+
 
 export function Home() {
+    const [shouldShowModal, setShouldShowModal] = useState(false);
     return (
         <>
-            <main>
-                <h2>Welcome to the homepage!</h2>
-                <p>You can do this, I believe in you.</p>
+            <main className="index">
+                <ControlledModal
+                    shouldShow={shouldShowModal}
+                    onClose={() => setShouldShowModal(false)}
+                />
+                <div className="container">
+                    <Link to="/report"><button>Rapid Report</button></Link>
+                    {/*<button className=""*/}
+                    {/*        onClick={() => setShouldShowModal(!shouldShowModal)}>*/}
+                    {/*    <span className="btnText">Rapid Report</span>*/}
+                    {/*</button>*/}
+                </div>
             </main>
             <nav>
-                <Link to="/about"><button>Markle Sparkle</button></Link>
-                <Link to="/report">Report</Link>
+                <Link to="/connection">Connection</Link>
             </nav>
         </>
     );
