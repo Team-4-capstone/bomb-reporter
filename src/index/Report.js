@@ -2,6 +2,7 @@ import {ControlledModal} from "./ControlledModal";
 import {useState} from "react";
 import './App.css';
 import React from "react";
+import {Link} from "react-router-dom";
 
 export const Report = () => {
 
@@ -23,6 +24,10 @@ export const Report = () => {
                         onClick={() => console.log("no")}>No
                 </button>
             </div>
+            <nav>
+                <Link to="/">//</Link>
+                <Link to="/about">About</Link>
+            </nav>
 
         </section>
     )
