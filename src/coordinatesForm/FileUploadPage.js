@@ -30,15 +30,15 @@ export const FileUploadPage = ({lat, lon, onClose, category, size, color, quanti
     //does a fetch request to the backend on form submit, grabbing the values from  initialFormData (line 9)
     const onSubmit = async (data) => {
         const objectToFetch = {
-            "category": `${formData ? formData.category : 'N/A'}`,
+            "category": `${category ? category : 'N/A'}`,
             "lat": `${lat ? lat : 'N/A'}`,
             "lon": `${lon ? lon : 'N/A'}`,
             "moreDetails": `${formData ? formData.moreDetails : 'N/A'}`,
             "img_path": `${responseAwsLocation ? responseAwsLocation : 'N/A'}`,
-            "size": `${formData ? formData.size : 'NA'}`,
-            "color": `${formData ? formData.color : 'N/A'}`,
-            "quantity": `${formData ? formData.quantity : 'N/A'}`,
-            "secondaryColor": `${formData ? formData.secondaryColor : 'N/A'}`
+            "size": `${size ? size : 'NA'}`,
+            "color": `${color ? color : 'N/A'}`,
+            "quantity": `${quantity ? quantity : 'N/A'}`,
+            "secondaryColor": `${secColor ? secColor : 'N/A'}`
 
         }
         const options = {
