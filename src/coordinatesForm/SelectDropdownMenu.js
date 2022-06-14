@@ -3,8 +3,10 @@ import Select from 'react-select';
 import {FileUploadPage} from "./FileUploadPage";
 import {ACCESS_KEY, REGION, S3_BUCKET, SECRET_ACCESS_KEY} from "../config";
 import {uploadFile} from "react-s3";
-import {GiFallingBomb, GiGrenade, GiLandMine, GiMissileLauncher, GiMortar} from "react-icons/gi";
-import {FaBomb} from "react-icons/fa";
+import {GiFallingBomb, GiGrenade, GiLandMine, GiMissileLauncher, GiMortar, GiSoccerBall} from "react-icons/gi";
+import {FaBomb, FaTruckMonster} from "react-icons/fa";
+import {IoIosBaseball} from "react-icons/io";
+import {CgAirplane} from "react-icons/cg";
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
@@ -57,29 +59,34 @@ export const SelectDropdownMenu = ({lat, lon}) => {
     const sizes = [
         {
             value: "S",
-            label: "Small"
+            label: "Small",
+            icon: <IoIosBaseball/>
         },
         {
             value: "M",
-            label: "Medium"
+            label: "Medium",
+            icon: <GiSoccerBall/>
         },
         {
             value: "L",
-            label: "Large"
+            label: "Large",
+            icon: <FaTruckMonster/>
         },
         {
             value: "XL",
-            label: "Extra Large/rockets"
+            label: "Extra Large/rockets",
+            icon: <CgAirplane/>
         }
     ];
     const colors = [
         {
             value: "red",
-            label: "red"
+            label: "red",
         },
         {
             value: "blue",
-            label: "blue"
+            label: "blue",
+            color: 'blue'
         },
         {
             value: "yellow",
@@ -216,12 +223,23 @@ export const SelectDropdownMenu = ({lat, lon}) => {
                 value={selectedSize} // set selected value
                 options={sizes} // set list of the data
                 onChange={handleChangeSize} // assign onChange function
+                getOptionLabel={e => (
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                        {e.icon}
+                        <span style={{ marginLeft: 5 }}>{e.label}</span>
+                    </div>
+                )}
             />
             <Select
                 placeholder="Select Color"
                 value={selectedColor} // set selected value
                 options={colors} // set list of the data
                 onChange={handleChangeColors} // assign onChange function
+                getOptionLabel={e => (
+                    <div style={{ display: 'flex', alignItems: 'center', fontSize: '20px', color: 'blue' }}>
+                        <span style={{ marginLeft: 5 }}>{e.label}</span>
+                    </div>
+                )}
             />
 
             <Select
@@ -237,9 +255,9 @@ export const SelectDropdownMenu = ({lat, lon}) => {
                 options={quantity} // set list of the data
                 onChange={handleChangeQuantity} // assign onChange function
                 getOptionLabel={e => (
-                    <div style={{ display: 'flex', alignItems: 'center', fontSize : '200px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center'}}>
                         {e.icon}
-                        <span style={{ marginLeft: 5 }}>{e.text}</span>
+                        <span style={{ marginLeft: 5 }}>{e.label}</span>
                     </div>
                 )}
 
