@@ -26,7 +26,14 @@ export default function Geolocator() {
     return (
         <>
             <button className="get-location" onClick={getLocation}>Get Location</button>
-            <SelectDropdownMenu lat={lat} lon={lng}/>
+            {lat ?
+                // <h1> No vulnerabilities </h1>
+                <div>
+                    <SelectDropdownMenu lat={lat} lon={lng}/>
+                </div>
+                : ""
+            }
+
         </>
 
 

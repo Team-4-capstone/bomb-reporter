@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Select from 'react-select';
 import {FileUploadPage} from "./FileUploadPage";
-import {ACCESS_KEY, REGION, S3_BUCKET, SECRET_ACCESS_KEY} from "../config";
+import {ACCESS_KEY, REGION, S3_BUCKET, SECRET_ACCESS_KEY} from "../Config";
 import {uploadFile} from "react-s3";
 import {GiFallingBomb, GiGrenade, GiLandMine, GiMissileLauncher, GiMortar, GiSoccerBall} from "react-icons/gi";
 import {FaBomb, FaTruckMonster} from "react-icons/fa";
@@ -281,6 +281,15 @@ export const SelectDropdownMenu = ({lat, lon}) => {
 
             />
 
+            {/* 1. Can we use an object component on any page?
+                2. A component for each dropdown?
+                3.
+            */}
+
+            {/*<FastSubmit*/}
+            {/*    lat={lat}*/}
+            {/*    lon={lon}*/}
+            {/*/>*/}
 
             <FileUploadPage
                 lat={lat}

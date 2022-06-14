@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import {useState} from "react";
-import Geolocator from "../coordinatesForm/Geolocator";
+import {SelectDropdownMenu} from "../coordinatesForm/SelectDropdownMenu";
 
 
 const ModalBackground = styled.div`
@@ -30,7 +29,8 @@ export const ControlledModal = ({shouldShow, onClose}) => {
 
     return shouldShow ? (<ModalBackground onclick={onClose}>
             <ModalBody onClick={e => e.stopPropagation()}>
-                <Geolocator/>
+                <SelectDropdownMenu/>
+                {/*<button className={onclick(onClose)}>Add to Report</button>*/}
                 <button className="close-modal" onClick={onClose}>X</button>
             </ModalBody>
         </ModalBackground>
