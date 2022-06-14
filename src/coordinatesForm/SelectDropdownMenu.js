@@ -7,6 +7,7 @@ import {GiFallingBomb, GiGrenade, GiLandMine, GiMissileLauncher, GiMortar, GiSoc
 import {FaBomb, FaTruckMonster} from "react-icons/fa";
 import {IoIosBaseball} from "react-icons/io";
 import {CgAirplane} from "react-icons/cg";
+import {AiFillCreditCard} from "react-icons/ai";
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
@@ -82,19 +83,22 @@ export const SelectDropdownMenu = ({lat, lon}) => {
         {
             value: "red",
             label: "red",
+            icon: <AiFillCreditCard style={{color: "red", background: "red"}}/>
         },
         {
             value: "blue",
             label: "blue",
-            color: 'blue'
+            icon: <AiFillCreditCard style={{color: "blue", background: "blue"}}/>
         },
         {
             value: "yellow",
-            label: "yellow"
+            label: "yellow",
+            icon: <AiFillCreditCard style={{color: "yellow", background: "yellow"}}/>
         },
         {
             value: "black",
-            label: "black"
+            label: "black",
+            icon: <AiFillCreditCard style={{color: "black", background: "black"}}/>
         },
         {
             value: "other",
@@ -105,19 +109,23 @@ export const SelectDropdownMenu = ({lat, lon}) => {
     const secondaryColor = [
         {
             value: "red",
-            label: "red"
+            label: "red",
+            icon: <AiFillCreditCard style={{color: "red", background: "red"}}/>
         },
         {
             value: "blue",
-            label: "blue"
+            label: "blue",
+            icon: <AiFillCreditCard style={{color: "blue", background: "blue"}}/>
         },
         {
             value: "yellow",
-            label: "yellow"
+            label: "yellow",
+            icon: <AiFillCreditCard style={{color: "yellow", background: "yellow"}}/>
         },
         {
             value: "black",
-            label: "black"
+            label: "black",
+            icon: <AiFillCreditCard style={{color: "black", background: "black"}}/>
         },
         {
             value: "other",
@@ -211,10 +219,7 @@ export const SelectDropdownMenu = ({lat, lon}) => {
                 options={categories} // set list of the data
                 onChange={handleChange} // assign onChange function
                 getOptionLabel={e => (
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                        {e.icon}
-                        <span style={{ marginLeft: 5 }}>{e.label}</span>
-                    </div>
+                    <span style={{marginLeft: 50}}>{e.label}</span>
                 )}
             />
 
@@ -224,22 +229,26 @@ export const SelectDropdownMenu = ({lat, lon}) => {
                 options={sizes} // set list of the data
                 onChange={handleChangeSize} // assign onChange function
                 getOptionLabel={e => (
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <div style={{display: 'flex', alignItems: 'center'}}>
                         {e.icon}
-                        <span style={{ marginLeft: 5 }}>{e.label}</span>
+                        <span style={{marginLeft: 5}}>{e.label}</span>
                     </div>
                 )}
             />
+
+
             <Select
                 placeholder="Select Color"
                 value={selectedColor} // set selected value
                 options={colors} // set list of the data
                 onChange={handleChangeColors} // assign onChange function
                 getOptionLabel={e => (
-                    <div style={{ display: 'flex', alignItems: 'center', fontSize: '20px', color: 'blue' }}>
-                        <span style={{ marginLeft: 5 }}>{e.label}</span>
+                    <div style={{display: 'flex', alignItems: 'center'}}>
+                        {e.icon}
+                        <span style={{marginLeft: 5}}>{e.label}</span>
                     </div>
                 )}
+
             />
 
             <Select
@@ -247,6 +256,12 @@ export const SelectDropdownMenu = ({lat, lon}) => {
                 value={selectedSecondaryColor} // set selected value
                 options={secondaryColor} // set list of the data
                 onChange={handleChangeSecondaryColors} // assign onChange function
+                getOptionLabel={e => (
+                    <div style={{display: 'flex', alignItems: 'center'}}>
+                        {e.icon}
+                        <span style={{marginLeft: 5}}>{e.label}</span>
+                    </div>
+                )}
             />
 
             <Select
@@ -255,9 +270,9 @@ export const SelectDropdownMenu = ({lat, lon}) => {
                 options={quantity} // set list of the data
                 onChange={handleChangeQuantity} // assign onChange function
                 getOptionLabel={e => (
-                    <div style={{ display: 'flex', alignItems: 'center'}}>
+                    <div style={{display: 'flex', alignItems: 'center'}}>
                         {e.icon}
-                        <span style={{ marginLeft: 5 }}>{e.label}</span>
+                        <span style={{marginLeft: 5}}>{e.label}</span>
                     </div>
                 )}
 
