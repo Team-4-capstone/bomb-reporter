@@ -1,7 +1,6 @@
 import {ControlledModal} from "./ControlledModal";
 import {useState} from "react";
 import './App.css';
-import UploadImageToS3WithReactS3 from "../UploadImageToS3WithReactS3";
 import React from "react";
 
 export const Report = () => {
@@ -10,8 +9,6 @@ export const Report = () => {
     return (
         <section className="index">
             <h1 className="index--h1">Do you want to make a rapid report?</h1>
-
-            <UploadImageToS3WithReactS3/>
                 <ControlledModal
                     shouldShow={shouldShowModal}
                     onClose={() => setShouldShowModal(false)}
