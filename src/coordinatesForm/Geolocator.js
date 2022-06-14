@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {useState} from "react";
 import './form.css'
-import {FileUploadPage} from "./FileUploadPage";
+import {SelectDropdownMenu} from "./SelectDropdownMenu";
 
 export default function Geolocator() {
     const [lat, setLat] = useState(null);
@@ -26,7 +26,7 @@ export default function Geolocator() {
     return (
         <>
             <button className="get-location" onClick={getLocation}>Get Location</button>
-            <FileUploadPage lat={lat} lon={lng}/>
+            <SelectDropdownMenu lat={lat} lon={lng}/>
         </>
 
 
