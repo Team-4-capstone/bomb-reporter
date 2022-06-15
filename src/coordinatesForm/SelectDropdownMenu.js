@@ -8,6 +8,7 @@ import {FaBomb, FaTruckMonster} from "react-icons/fa";
 import {IoIosBaseball} from "react-icons/io";
 import {CgAirplane} from "react-icons/cg";
 import {AiFillCreditCard} from "react-icons/ai";
+import {useDataSource} from "../useDataSource";
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
@@ -20,10 +21,17 @@ const config = {
     secretAccessKey: SECRET_ACCESS_KEY,
 }
 
-//
+const localStorageResource = key => () => {
+    return localStorage.getItem(key)
+}
 
+export const SelectDropdownMenu = () => {
 
-export const SelectDropdownMenu = ({lat, lon}) => {
+    const lat = useDataSource(localStorageResource('lat'));
+    const lon = useDataSource(localStorageResource('lon'));
+
+    console.log(lat, lon);
+
     const categories = [
         {
             value: "aerial_bombs",
