@@ -3,6 +3,7 @@ import {useState} from "react";
 import './form.css'
 import {SelectDropdownMenu} from "./SelectDropdownMenu";
 import {ControlledModal} from "../index/ControlledModal";
+import log from "tailwindcss/lib/util/log";
 
 
 export default function Geolocator() {
@@ -25,6 +26,35 @@ export default function Geolocator() {
                 setStatus(null);
                 setLat(position.coords.latitude);
                 setLng(position.coords.longitude);
+                const objectToFetch = {
+                    "category": 'N/A',
+                    "lat": position.coords.latitude,
+                    "lon": position.coords.longitude,
+                    "moreDetails": 'N/A',
+                    "img_path": 'N/A',
+                    "size": 'NA',
+                    "color": 'N/A',
+                    "quantity": 'N/A',
+                    "secondaryColor": 'N/A'
+
+                }
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(objectToFetch),
+                };
+
+                console.log(options)
+                const res = fetch(`http://localhost:8081/api/reports`, options)
+                    .then(res => res.json())
+                    .then(json => {
+                        console.log(json)
+
+                        localStorage.setItem("PUT", JSON.stringify(json));
+                    })
+
             }, () => {
                 setStatus('Unable to retrieve your location');
             });
@@ -40,7 +70,7 @@ export default function Geolocator() {
             />
 
             {lat ? <button className="" disabled={false}
-                    onClick={() => setShouldShowModal(!shouldShowModal)}>
+                           onClick={() => setShouldShowModal(!shouldShowModal)}>
                 <span className="btnText">Add More Details</span>
             </button> : ""}
         </>

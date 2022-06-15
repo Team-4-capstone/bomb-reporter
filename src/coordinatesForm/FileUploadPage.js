@@ -1,5 +1,10 @@
 import React from 'react';
 import {useState} from "react";
+import {useDataSource} from "../useDataSource";
+
+const localStorageResource = key => () => {
+    return localStorage.getItem(key)
+}
 
 export const FileUploadPage = ({lat, lon, onClose, category, size, color, quantity, secColor, responseAwsLocation}) => {
     // initial form values
@@ -14,6 +19,8 @@ export const FileUploadPage = ({lat, lon, onClose, category, size, color, quanti
 
     // set form data to initialFormData (line 9)
     const [formData, updateFormData] = useState(initialFormData);
+
+    const put = useDataSource(localStorageResource('PUT'));
 
     // on input change, get form values based on their names and passed on to initialFormData (line 9)
     const handleChange = (e) => {
@@ -41,15 +48,14 @@ export const FileUploadPage = ({lat, lon, onClose, category, size, color, quanti
 
         }
         const options = {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(objectToFetch),
         };
-
-        console.log(options)
-        const res = await fetch(`http://localhost:8081/api/reports`, options)
+        console.log(put)
+        const res = await fetch(`http://localhost:8081/api/reports/${put}`, options)
             .then(res =>
                 //if successfully POST alert("successfully"), else  alert("unsuccessfully")
                 `${res.status === 200 ? alert("successfully") : alert("unsuccessfully")}`
