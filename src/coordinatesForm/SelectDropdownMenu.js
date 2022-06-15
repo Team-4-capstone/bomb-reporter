@@ -30,8 +30,6 @@ export const SelectDropdownMenu = () => {
     const lat = useDataSource(localStorageResource('lat'));
     const lon = useDataSource(localStorageResource('lon'));
 
-    console.log(lat, lon);
-
     const categories = [
         {
             value: "aerial_bombs",

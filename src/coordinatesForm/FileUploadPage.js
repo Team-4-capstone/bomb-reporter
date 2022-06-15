@@ -12,7 +12,6 @@ export const FileUploadPage = ({lat, lon, onClose, category, size, color, quanti
         secondaryColor: secColor
     };
 
-    console.log(initialFormData)
     // set form data to initialFormData (line 9)
     const [formData, updateFormData] = useState(initialFormData);
 
@@ -49,6 +48,7 @@ export const FileUploadPage = ({lat, lon, onClose, category, size, color, quanti
             body: JSON.stringify(objectToFetch),
         };
 
+        console.log(options)
         const res = await fetch(`http://localhost:8081/api/reports`, options)
             .then(res =>
                 //if successfully POST alert("successfully"), else  alert("unsuccessfully")
