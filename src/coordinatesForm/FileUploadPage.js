@@ -68,8 +68,9 @@ export const FileUploadPage = ({lat, lon, onClose, category, size, color, quanti
             <label htmlFor="moreDetails">Extra details: </label>
             <textarea id=" moreDetails" name="moreDetails" rows="4" cols="50" onChange={handleChange}
                       placeholder="extra details..."/>
+            {responseAwsLocation ? "" : <h3>Please submit a photo first!</h3>}
             {responseAwsLocation ? <input type="submit" onClick={onSubmit}/> :
-                <button type="submit" disabled={true}>Please submit a photo first !</button>}
+                <button type="submit" disabled={true}>Submit</button>}
         </form>
     );
 }
