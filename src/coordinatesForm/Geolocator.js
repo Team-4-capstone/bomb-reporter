@@ -4,6 +4,7 @@ import './form.css'
 import {SelectDropdownMenu} from "./SelectDropdownMenu";
 import {ControlledModal} from "../index/ControlledModal";
 import log from "tailwindcss/lib/util/log";
+import MapBox from "../Mapbox/MapBox";
 
 
 export default function Geolocator() {
@@ -60,19 +61,19 @@ export default function Geolocator() {
             });
         }
     }
-
     return (
         <>
-            <button className="get-location" onClick={getLocation}>Get Location</button>
+            <button className="bg-ukrBlue text-ukrYellow drop-shadow-xl" onClick={getLocation}>Get Location</button>
             <ControlledModal
                 shouldShow={shouldShowModal}
                 onClose={() => setShouldShowModal(false)}
             />
 
-            {lat ? <button className="" disabled={false}
+            {lat ? <button className="animate-bounce my-2" disabled={false}
                            onClick={() => setShouldShowModal(!shouldShowModal)}>
                 <span className="btnText">Add More Details</span>
             </button> : ""}
+            <MapBox lat={lat} lng={lng}/>
         </>
     )
 }
