@@ -87,55 +87,85 @@ export const SelectDropdownMenu = () => {
     ];
     const colors = [
         {
-            value: "red",
-            label: "red",
-            icon: <AiFillCreditCard style={{color: "red", background: "red"}}/>
+            value: "green",
+            label: "Green",
+            icon: <AiFillCreditCard style={{color: "green", background: "green"}}/>
         },
         {
-            value: "blue",
-            label: "blue",
-            icon: <AiFillCreditCard style={{color: "blue", background: "blue"}}/>
+            value: "tan",
+            label: "Tan",
+            icon: <AiFillCreditCard style={{color: "#DBAE86", background: "#DBAE86"}}/>
         },
         {
-            value: "yellow",
-            label: "yellow",
-            icon: <AiFillCreditCard style={{color: "yellow", background: "yellow"}}/>
+            value: "gray",
+            label: "Gray",
+            icon: <AiFillCreditCard style={{color: "gray", background: "gray"}}/>
+        },
+        {
+            value: "brown",
+            label: "Brown",
+            icon: <AiFillCreditCard style={{color: "#8B572A", background: "#8B572A"}}/>
         },
         {
             value: "black",
-            label: "black",
+            label: "Black",
             icon: <AiFillCreditCard style={{color: "black", background: "black"}}/>
         },
         {
+            value: "white",
+            label: "White",
+            icon: <AiFillCreditCard style={{color: "white", background: "white"}}/>
+        },
+        {
+            value: "yellow",
+            label: "Yellow",
+            icon: <AiFillCreditCard style={{color: "yellow", background: "yellow"}}/>
+        },
+        {
             value: "other",
-            label: "other"
+            label: "Other"
         }
     ];
 
     const secondaryColor = [
         {
-            value: "red",
-            label: "red",
-            icon: <AiFillCreditCard style={{color: "red", background: "red"}}/>
+            value: "green",
+            label: "Green",
+            icon: <AiFillCreditCard style={{color: "green", background: "green"}}/>
         },
         {
-            value: "blue",
-            label: "blue",
-            icon: <AiFillCreditCard style={{color: "blue", background: "blue"}}/>
+            value: "tan",
+            label: "Tan",
+            icon: <AiFillCreditCard style={{color: "#DBAE86", background: "#DBAE86"}}/>
         },
         {
-            value: "yellow",
-            label: "yellow",
-            icon: <AiFillCreditCard style={{color: "yellow", background: "yellow"}}/>
+            value: "gray",
+            label: "Gray",
+            icon: <AiFillCreditCard style={{color: "gray", background: "gray"}}/>
+        },
+        {
+            value: "brown",
+            label: "Brown",
+            icon: <AiFillCreditCard style={{color: "#8B572A", background: "#8B572A"}}/>
         },
         {
             value: "black",
-            label: "black",
+            label: "Black",
             icon: <AiFillCreditCard style={{color: "black", background: "black"}}/>
         },
         {
+            value: "white",
+            label: "White",
+            icon: <AiFillCreditCard style={{color: "white", background: "white"}}/>
+        },
+        {
+            value: "yellow",
+            label: "Yellow",
+            icon: <AiFillCreditCard style={{color: "yellow", background: "yellow"}}/>
+        },
+        {
             value: "other",
-            label: "other"
+            label: "Other"
         }
     ];
 
