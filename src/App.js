@@ -8,7 +8,7 @@ import {Register} from "./Register"
 export default function App() {
     return (
         <div className="App">
-            <h1>BOMB</h1>
+            <></>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="connection" element={<Connection />} />
