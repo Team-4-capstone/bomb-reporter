@@ -28,10 +28,8 @@ export const FileUploadPage = ({lat, lon, onClose, category, size, color, quanti
         updateFormData({
             ...formData,
             [e.target.name]: e.target.value
-
         });
     };
-
 
     //does a fetch request to the backend on form submit, grabbing the values from  initialFormData (line 9)
     const onSubmit = async (data) => {
@@ -47,6 +45,7 @@ export const FileUploadPage = ({lat, lon, onClose, category, size, color, quanti
             "secondaryColor": `${secColor ? secColor : 'N/A'}`
 
         }
+
         const options = {
             method: 'PUT',
             headers: {
@@ -54,20 +53,14 @@ export const FileUploadPage = ({lat, lon, onClose, category, size, color, quanti
             },
             body: JSON.stringify(objectToFetch),
         };
-        console.log(put)
+
+        //TODO: Need to create a success response after form submit (Alert or setState)
         const res = await fetch(`http://localhost:8081/api/reports/${put}`, options)
             .then(res =>
                 //if successfully POST alert("successfully"), else  alert("unsuccessfully")
                 `${res.status === 200 ? alert("successfully") : alert("unsuccessfully")}`
             )
-
     };
-
-
-
-    // does a POST request to AWS Bucket server and sets photo key and photo location (line 39 and 43)
-
-
 
     return (
         <form className="upload" onSubmit={e => (e.preventDefault(), handleChange)}>

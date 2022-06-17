@@ -1,5 +1,4 @@
 import {Marker} from "react-map-gl";
-import {useEffect, useState} from "react";
 import bomblogo from "../Mapbox/LogoWeb.png";
 
 export const Markers = (report) => {
@@ -17,6 +16,4 @@ export const Markers = (report) => {
                 </>
             ))}
         </>) : <p>loading</p>
-
-
 };

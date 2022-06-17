@@ -12,7 +12,6 @@ import {useDataSource} from "../useDataSource";
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
-
 // AWS configuration
 const config = {
     bucketName: S3_BUCKET,
@@ -29,7 +28,6 @@ export const SelectDropdownMenu = () => {
 
     const lat = useDataSource(localStorageResource('lat'));
     const lon = useDataSource(localStorageResource('lon'));
-
     const categories = [
         {
             value: "aerial_bombs",
@@ -85,6 +83,7 @@ export const SelectDropdownMenu = () => {
             icon: <CgAirplane/>
         }
     ];
+
     const colors = [
         {
             value: "green",
@@ -190,7 +189,6 @@ export const SelectDropdownMenu = () => {
 
     const [selectedColor, setSelectedColor] = useState(null);
 
-
     const [selectedSecondaryColor, setSelectedSecondaryColor] = useState(null);
 
     const [selectedQuantity, setSelectedQuantity] = useState(null);
@@ -201,10 +199,8 @@ export const SelectDropdownMenu = () => {
     // set AWS photo key to null
     const [responseAwsKey, setResponseAwsKey] = useState(null);
 
-
     // set AWS photo location to null
     const [responseAwsLocation, setResponseAwsLocation] = useState(null);
-
 
     // handle onChange event of the dropdown
     const handleChange = e => {
@@ -228,11 +224,11 @@ export const SelectDropdownMenu = () => {
         setSelectedSecondaryColor(e);
     }
 
-
     //get photo values from input field and passed on to hook selectedFile (line 35)
     const handleFileInput = (e) => {
         setSelectedFile(e.target.files[0]);
     }
+
     const handleUpload = async (file) => {
         uploadFile(file, config)
             .then(data => {
@@ -275,7 +271,6 @@ export const SelectDropdownMenu = () => {
                 )}
             />
 
-
             <Select
                 placeholder="Select Color"
                 value={selectedColor} // set selected value
@@ -287,7 +282,6 @@ export const SelectDropdownMenu = () => {
                         <span style={{marginLeft: 5}}>{e.label}</span>
                     </div>
                 )}
-
             />
 
             <Select
@@ -314,18 +308,7 @@ export const SelectDropdownMenu = () => {
                         <span style={{marginLeft: 5}}>{e.label}</span>
                     </div>
                 )}
-
             />
-
-            {/* 1. Can we use an object component on any page?
-                2. A component for each dropdown?
-                3.
-            */}
-
-            {/*<FastSubmit*/}
-            {/*    lat={lat}*/}
-            {/*    lon={lon}*/}
-            {/*/>*/}
 
             <FileUploadPage
                 lat={lat}
@@ -338,6 +321,5 @@ export const SelectDropdownMenu = () => {
                 responseAwsLocation={responseAwsLocation ? responseAwsKey : null}
             />
         </div>
-
     );
 }

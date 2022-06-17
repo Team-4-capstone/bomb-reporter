@@ -4,7 +4,6 @@ import './form.css'
 import {ControlledModal} from "../index/ControlledModal";
 import MapBox from "../Mapbox/MapBox";
 
-
 export default function Geolocator() {
     const [lat, setLat] = useState(null);
     const [lng, setLng] = useState(null);
@@ -35,8 +34,8 @@ export default function Geolocator() {
                     "color": 'N/A',
                     "quantity": 'N/A',
                     "secondaryColor": 'N/A'
-
                 }
+
                 const options = {
                     method: 'POST',
                     headers: {
@@ -44,19 +43,18 @@ export default function Geolocator() {
                     },
                     body: JSON.stringify(objectToFetch),
                 };
+
                 const res = fetch(`http://localhost:8081/api/reports`, options)
                     .then(res => res.json())
                     .then(json => {
-                        console.log(json)
-
                         localStorage.setItem("PUT", JSON.stringify(json));
                     })
-
             }, () => {
                 setStatus('Unable to retrieve your location');
             });
         }
     }
+
     return (
         <>
             <button className="bg-ukrBlue text-ukrYellow drop-shadow-xl" onClick={getLocation}>Get Location</button>

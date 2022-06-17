@@ -7,8 +7,8 @@ import {Register} from "./Register"
 
 export default function App() {
     return (
-        <div className="App">
-            <></>
+        <div className="App fill-window">
+            <><h1 className="index">Future Banner</h1></>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="connection" element={<Connection />} />

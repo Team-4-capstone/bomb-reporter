@@ -1,0 +1,57 @@
+/* Old color: #b58ecc, #5de6de*/
+
+.noselect {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    background-color: #5de6de;
+    background-image: linear-gradient(250deg, #2563eb 0%, #eab308  74%);
+    border: none;
+    border-radius: 50%;
+    transition: 200ms;
+}
+
+/*button svg {*/
+/*    fill: white;*/
+/*    width: 30px;*/
+/*    height: 30px;*/
+/*    position: absolute;*/
+/*    transform: translateX(-50%) translateY(-50%);*/
+/*}*/
+
+.noselect:before {
+    content: 'Home';
+    position: center;
+    transform: translateX(-65%) translateY(45px);
+    font-size: 15px;
+    transition: 200ms;
+    color: transparent;
+    font-weight: bold;
+}
+
+.noselect:hover {
+    box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+    width: 80px;
+    height: 80px;
+
+}
+
+.noselect:hover::before {
+    color: #5A5560;
+}
+
+.noselect:hover svg {
+    animation: bounce 2s infinite linear;
+}
+
+@keyframes bounce {
+    0% {transform: translateX(-50%) translateY(-50%)}
+    25% {transform: translateX(-50%) translateY(-65%)}
+    50% {transform: translateX(-50%) translateY(-50%)}
+    75% {transform: translateX(-50%) translateY(-35%)}
+    100% {transform: translateX(-50%) translateY(-50%)}
+}
+
+.noselect:focus {
+    outline: none;
+}

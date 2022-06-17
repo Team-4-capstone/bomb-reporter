@@ -6,11 +6,9 @@ export function Connection() {
     return (
         <>
             <main>
-
                    <MapBox/>
             </main>
             <nav>
-                <Link to="/">Home</Link>
                 <Link to="/report">Report</Link>
             </nav>
         </>

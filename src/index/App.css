@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:700);
 
+/*colors: #FAED26, #46344E, #5A5560, #9D8D8F, #9B786F */
 
 html, body {
     background: #FBC02D;
@@ -23,7 +24,6 @@ html, body {
 
 }
 
-
 .container {
     padding: 10px;
     width: 100%;
@@ -35,25 +35,18 @@ html, body {
     align-items: center;
 }
 
-.yes {
-    width: 25%;
-    height: 8em;
-    border-radius: 50%;
-}
-
-.no {
-
-    width: 25%;
-    height: 8em;
-    border-radius: 50%;
-    margin-top: 2em;
-}
-
-
 .close-modal{
     background-color: red;
     color: #fff;
 }
 .close-modal:hover{
-    /*@apply bg-red-800*/
+    @apply bg-red-800
+}
+
+.fill-window {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
 }
