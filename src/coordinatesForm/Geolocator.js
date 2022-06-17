@@ -58,13 +58,13 @@ export default function Geolocator() {
 
     return (
         <>
-            <button className="location-btn" onClick={getLocation}>Submit Location</button>
+            <button className="location-btn my-3" onClick={getLocation}>Submit Location</button>
             <ControlledModal
                 shouldShow={shouldShowModal}
                 onClose={() => setShouldShowModal(false)}
             />
 
-            {lat ? <div className="add-deets">
+            {lat ? <div className="add-deets mb-3">
                         <button className="wave" disabled={false}
                                onClick={() => setShouldShowModal(!shouldShowModal)}>
                             <span className="btnText">ADD MORE DETAILS</span>

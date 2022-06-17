@@ -24,10 +24,10 @@ export function Home() {
                 </Link>
             </main>
             <div className="fill-window flex justify-center">
-                <nav className="fixed bottom-10">
+                <nav className=" fixed bottom-10">
                     <button className="noselect">
-                        <IconContext.Provider value={{ color: "#5A5560", className: "global-class-name", size: "2em"}}>
-                            <Link to="/connection">
+                        <IconContext.Provider value={{color: "#5A5560", size: "2em"}}>
+                            <Link className="animate-bounce" to="/connection">
                                 <HiChevronDoubleDown/>
                             </Link>
                         </IconContext.Provider>
