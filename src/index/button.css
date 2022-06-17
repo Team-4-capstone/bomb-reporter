@@ -1,7 +1,7 @@
 /* Old color: #b58ecc, #5de6de*/
 /* Button for page transition*/
 
-.noselect {
+.noselect, .noselectRep {
     width: 60px;
     height: 60px;
     cursor: pointer;
@@ -21,17 +21,26 @@
     display: block;
 }
 
-.noselect:hover {
+.noselectRep::before {
+    content: 'Report';
+    font-size: 15px;
+    transition: 200ms;
+    color: transparent;
+    font-weight: bold;
+    display: block;
+}
+
+.noselect:hover, .noselectRep:hover {
     /*box-shadow: 0 1px 5px rgba(0,0,0,0.2);*/
     width: 80px;
     height: 80px;
 }
 
-.noselect:hover::before {
+.noselect:hover::before, .noselectRep:hover::before {
     color: #5A5560;
 }
 
-.noselect:hover {
+.noselect:hover, .noselectRep:hover {
     animation: bounce 2s infinite linear;
 }
 

@@ -38,7 +38,7 @@ export default function MapBox(props) {
     }, [props.lat, props.lng]);
 
     return props.lng ? (
-        <Map padding="20"
+        <Map
             {...viewport}
             style={{height: 400}}
             mapStyle="mapbox://styles/mapbox/streets-v9">
