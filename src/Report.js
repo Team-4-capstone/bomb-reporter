@@ -22,12 +22,6 @@ export function Report() {
                             </Link>
                         </IconContext.Provider>
                     </button>
-                    {/*<IconContext.Provider value={{ color: "#5A5560", className: "global-class-name", size: "3em"}}>*/}
-
-                    {/*    <Link to="/connection">*/}
-                    {/*        <HiChevronDoubleDown/>*/}
-                    {/*    </Link>*/}
-                    {/*</IconContext.Provider>*/}
                 </nav>
             </div>
         </>

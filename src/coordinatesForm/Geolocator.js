@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import {useState} from "react";
-import './form.css'
+import './form.css';
+import '../index/button.css';
 import {ControlledModal} from "../index/ControlledModal";
 import MapBox from "../Mapbox/MapBox";
 
@@ -57,16 +58,18 @@ export default function Geolocator() {
 
     return (
         <>
-            <button className="bg-ukrBlue text-ukrYellow drop-shadow-xl" onClick={getLocation}>Get Location</button>
+            <button className="location-btn" onClick={getLocation}>Submit Location</button>
             <ControlledModal
                 shouldShow={shouldShowModal}
                 onClose={() => setShouldShowModal(false)}
             />
 
-            {lat ? <button className="animate-bounce my-2" disabled={false}
-                           onClick={() => setShouldShowModal(!shouldShowModal)}>
-                <span className="btnText">Add More Details</span>
-            </button> : ""}
+            {lat ? <div className="add-deets">
+                        <button className="wave" disabled={false}
+                               onClick={() => setShouldShowModal(!shouldShowModal)}>
+                            <span className="btnText">ADD MORE DETAILS</span>
+                        </button>
+                    </div> : ""}
             <MapBox lat={lat} lng={lng}/>
         </>
     )

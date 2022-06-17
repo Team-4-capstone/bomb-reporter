@@ -17,14 +17,3 @@
     flex-direction: column;
     justify-content: space-evenly;
 }
-
-.get-location{
-    background-color: green;
-    color: #fff;
-    font-size: 1em;
-}
-
-.get-location:hover{
-    background-color: greenyellow;
-    color: #000;
-}
