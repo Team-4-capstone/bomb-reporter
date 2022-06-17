@@ -49,10 +49,7 @@ export default function MapBox(props) {
             <DataSource getDataFunc={getServerData('http://localhost:8081/api/reports')} resourceName="reports">
                 <Markers/>
             </DataSource>
-            <Marker longitude={props.lng}
-                    latitude={props.lat}
-                    anchor="bottom">
-            </Marker>
+
 
 
         </Map>
@@ -71,10 +68,6 @@ export default function MapBox(props) {
             <DataSource getDataFunc={getServerData('http://localhost:8081/api/reports')} resourceName="reports">
                 <Markers/>
             </DataSource>
-            <Marker longitude={23.32}
-                    latitude={24.32}
-                    anchor="bottom">
-            </Marker>
 
 
         </Map>)
