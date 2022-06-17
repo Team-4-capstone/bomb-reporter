@@ -12,8 +12,3 @@ root.render(
     </React.StrictMode>
 );
 
-// const root2 = ReactDOM.createRoot(document.getElementById('index'));
-// root2.render(
-//     <App2/>
-// );
-

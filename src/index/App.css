@@ -55,6 +55,5 @@ html, body {
     color: #fff;
 }
 .close-modal:hover{
-    @apply bg-red-800
-
+    /*@apply bg-red-800*/
 }

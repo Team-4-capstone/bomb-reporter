@@ -25,7 +25,6 @@ export function Report() {
 
             </main>
             <nav>
-                <Link to="/">Home</Link>
                 <Link to="/connection">Connection</Link>
             </nav>
         </>

@@ -1,44 +1,99 @@
-import React, { useRef, useEffect, useState } from 'react';
-import mapboxgl from '!mapbox-gl';  // eslint-disable-line import/no-webpack-loader-syntax
+import React, {useRef, useEffect, useState} from 'react';
+import mapboxgl from 'mapbox-gl';  // eslint-disable-line import/no-webpack-loader-syntax
+import Map, {Marker} from "react-map-gl";
+import bomblogo from "./LogoWeb.png";
+import {MAPBOX} from "../Config";
+import axios from "axios";
+import {DataSource} from "../DataSource";
+import {Markers} from "../coordinatesForm/Markers";
 
-mapboxgl.accessToken =""
+mapboxgl.accessToken = MAPBOX;
 
+const getServerData = url => async () => {
+    const response = await axios.get(url);
+    return response.data;
 
-export default function MapBox() {
-    const mapContainer = useRef(null);
-    const map = useRef(null);
-    const [lng, setLng] = useState(33.5);
-    const [lat, setLat] = useState(49);
-    const [zoom, setZoom] = useState(9);
-
-    useEffect(() => {
-        if (map.current) return; // initialize map only once
-        map.current = new mapboxgl.Map({
-            container: mapContainer.current,
-            style: 'mapbox://styles/mapbox/streets-v11',
-            center: [lng, lat],
-            zoom: zoom
-        });
-    });
-
-    useEffect(() => {
-        if (!map.current) return; // wait for map to initialize
-        map.current.on('move', () => {
-            setLng(map.current.getCenter().lng.toFixed(4));
-            setLat(map.current.getCenter().lat.toFixed(4));
-            setZoom(map.current.getZoom().toFixed(2));
-        });
-    });
-
-    return (
-        <div>
-            <div className="sidebar">
-                Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
-            </div>
-            <div ref={mapContainer} className="map-container" />
-        </div>
-    );
 }
+
+export default function MapBox(props) {
+    const [viewport, setViewport] = useState(() => ({
+                width: "100vw",
+                height: "100vh",
+                latitude: props.lat,
+                longitude: props.lng,
+                zoom: 8,
+            }
+        )
+    );
+
+    useEffect(() => {
+        if (props.lat) {
+            setViewport({
+                width: "100vw",
+                height: "100vh",
+                latitude: props.lat,
+                longitude: props.lng,
+                zoom: 8,
+            })
+        }
+    }, [props.lat, props.lng]);
+
+
+    return props.lng ? (
+        <Map
+            {...viewport}
+
+            style={{height: 400}}
+            // map.flyTo={{center: [props.lng, props.lat]};
+            mapStyle="mapbox://styles/mapbox/streets-v9">
+            <DataSource getDataFunc={getServerData('http://localhost:8081/api/reports')} resourceName="reports">
+                <Markers/>
+            </DataSource>
+
+
+
+        </Map>
+    ) : (
+        <Map
+            initialViewState={{
+                latitude: 48.3794,
+                longitude: 31.1656,
+                zoom: 4
+            }
+            }
+
+            style={{height: 400}}
+            // map.flyTo={{center: [props.lng, props.lat]};
+            mapStyle="mapbox://styles/mapbox/streets-v9">
+            <DataSource getDataFunc={getServerData('http://localhost:8081/api/reports')} resourceName="reports">
+                <Markers/>
+            </DataSource>
+
+
+        </Map>)
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

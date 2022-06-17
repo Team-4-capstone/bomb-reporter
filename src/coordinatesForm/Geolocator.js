@@ -1,8 +1,8 @@
-import React, {Component, useEffect} from "react";
+import React, {useEffect} from "react";
 import {useState} from "react";
 import './form.css'
-import {SelectDropdownMenu} from "./SelectDropdownMenu";
 import {ControlledModal} from "../index/ControlledModal";
+import MapBox from "../Mapbox/MapBox";
 
 
 export default function Geolocator() {
@@ -25,24 +25,51 @@ export default function Geolocator() {
                 setStatus(null);
                 setLat(position.coords.latitude);
                 setLng(position.coords.longitude);
+                const objectToFetch = {
+                    "category": 'N/A',
+                    "lat": position.coords.latitude,
+                    "lon": position.coords.longitude,
+                    "moreDetails": 'N/A',
+                    "img_path": 'N/A',
+                    "size": 'NA',
+                    "color": 'N/A',
+                    "quantity": 'N/A',
+                    "secondaryColor": 'N/A'
+
+                }
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(objectToFetch),
+                };
+                const res = fetch(`http://localhost:8081/api/reports`, options)
+                    .then(res => res.json())
+                    .then(json => {
+                        console.log(json)
+
+                        localStorage.setItem("PUT", JSON.stringify(json));
+                    })
+
             }, () => {
                 setStatus('Unable to retrieve your location');
             });
         }
     }
-
     return (
         <>
-            <button className="get-location" onClick={getLocation}>Get Location</button>
+            <button className="bg-ukrBlue text-ukrYellow drop-shadow-xl" onClick={getLocation}>Get Location</button>
             <ControlledModal
                 shouldShow={shouldShowModal}
                 onClose={() => setShouldShowModal(false)}
             />
 
-            {lat ? <button className="" disabled={false}
-                    onClick={() => setShouldShowModal(!shouldShowModal)}>
+            {lat ? <button className="animate-bounce my-2" disabled={false}
+                           onClick={() => setShouldShowModal(!shouldShowModal)}>
                 <span className="btnText">Add More Details</span>
             </button> : ""}
+            <MapBox lat={lat} lng={lng}/>
         </>
     )
 }
