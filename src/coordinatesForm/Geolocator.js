@@ -1,9 +1,7 @@
-import React, {Component, useEffect} from "react";
+import React, {useEffect} from "react";
 import {useState} from "react";
 import './form.css'
-import {SelectDropdownMenu} from "./SelectDropdownMenu";
 import {ControlledModal} from "../index/ControlledModal";
-import log from "tailwindcss/lib/util/log";
 import MapBox from "../Mapbox/MapBox";
 
 
@@ -46,8 +44,6 @@ export default function Geolocator() {
                     },
                     body: JSON.stringify(objectToFetch),
                 };
-
-                console.log(options)
                 const res = fetch(`http://localhost:8081/api/reports`, options)
                     .then(res => res.json())
                     .then(json => {
