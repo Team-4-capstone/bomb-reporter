@@ -1,3 +1,5 @@
+
+
 module.exports = {
   content: [
     "./src/***/*.{js,jsx,ts,tsx}",
@@ -5,7 +7,11 @@ module.exports = {
     'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}'
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'lato': ['Lato', 'serif']
+      }
+    },
     colors: {
       'ukrBlue':'#0057B7',
       'ukrYellow':'#FFDD00',
