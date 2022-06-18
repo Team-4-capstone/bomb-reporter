@@ -6,6 +6,7 @@ import {MAPBOX} from "../Config";
 import axios from "axios";
 import {DataSource} from "../DataSource";
 import {Markers} from "../coordinatesForm/Markers";
+import {Clusters} from './Clusters'
 
 mapboxgl.accessToken = MAPBOX;
 
@@ -44,11 +45,16 @@ export default function MapBox(props) {
             {...viewport}
 
             style={{height: 400}}
+
             // map.flyTo={{center: [props.lng, props.lat]};
-            mapStyle="mapbox://styles/mapbox/streets-v9">
+            mapStyle="mapbox://styles/mapbox/streets-v9"
+
+        >
+
             <DataSource getDataFunc={getServerData('http://localhost:8081/api/reports')} resourceName="reports">
                 <Markers/>
             </DataSource>
+            <Clusters/>
 
 
 
