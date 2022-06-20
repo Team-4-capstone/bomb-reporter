@@ -74,10 +74,11 @@ export default function Geolocator() {
             </>
         ) :
         <>
-            <button className="inline-block h-72 w-72 rounded-full text-gray-700  border-solid bg-gradient-to-r from-yellow-400 to-blue-600
+
+            {/*className="inline-block h-72 w-72 rounded-full text-gray-700  border-solid bg-gradient-to-r from-yellow-400 to-blue-600
                 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium
-    text-2xl px-5 py-2.5 text-center mr-2 mb-2"
-                    onClick={getLocation}>Submit Location
+    text-2xl px-5 py-2.5 text-center mr-2 mb-2"*/}
+            <button onClick={getLocation}><img src="Lesser_Coat_of_Arms_of_Ukraine.svg" alt="Blah"/>
             </button>
         </>
 
