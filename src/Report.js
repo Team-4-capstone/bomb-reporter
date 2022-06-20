@@ -10,7 +10,7 @@ export function Report() {
 
     return (
         <>
-            <main className="index mx-5">
+            <main className="index flex h-full justify-center">
                     <Geolocator/>
             </main>
             <div className="fill-window flex justify-center">
