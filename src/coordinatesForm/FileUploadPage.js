@@ -7,6 +7,7 @@ const localStorageResource = key => () => {
 }
 
 export const FileUploadPage = ({lat, lon, onClose, category, size, color, quantity, secColor, responseAwsLocation}) => {
+
     // initial form values
     const initialFormData = {
         category: category,
@@ -16,6 +17,7 @@ export const FileUploadPage = ({lat, lon, onClose, category, size, color, quanti
         quantity: quantity,
         secondaryColor: secColor
     };
+
 
     // set form data to initialFormData (line 9)
     const [formData, updateFormData] = useState(initialFormData);
@@ -62,14 +64,11 @@ export const FileUploadPage = ({lat, lon, onClose, category, size, color, quanti
             )
     };
 
-    return (
-        <form className="upload" onSubmit={e => (e.preventDefault(), handleChange)}>
-            <label htmlFor="moreDetails">Extra details: </label>
-            <textarea id=" moreDetails" name="moreDetails" rows="4" cols="50" onChange={handleChange}
+    return quantity ? (
+        <form className="upload mt-4 mb-4" onSubmit={e => (e.preventDefault(), handleChange)}>
+            <textarea className="mb-4" id=" moreDetails" name="moreDetails" rows="4" cols="50" onChange={handleChange}
                       placeholder="extra details..."/>
-            {responseAwsLocation ? "" : <h3>Please submit a photo first!</h3>}
-            {responseAwsLocation ? <input type="submit" onClick={onSubmit}/> :
-                <button type="submit" disabled={true}>Submit</button>}
+            <input type="submit" onClick={onSubmit}/>
         </form>
-    );
+    ) : " ";
 }

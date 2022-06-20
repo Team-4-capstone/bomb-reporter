@@ -9,6 +9,7 @@ import {IoIosBaseball} from "react-icons/io";
 import {CgAirplane} from "react-icons/cg";
 import {AiFillCreditCard} from "react-icons/ai";
 import {useDataSource} from "../useDataSource";
+import styled from "styled-components";
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
@@ -240,25 +241,29 @@ export const SelectDropdownMenu = () => {
     }
 
     return (
-        <div className="dropdowns-container upload">
-            <input type="file" onChange={handleFileInput} crossOrigin="anonymous" required/>
-            {lat ?
-                <button onClick={() => handleUpload(selectedFile)}> upload photo</button> :
-                <button disabled={true}> Please get you location first</button>}
-            <Select
-                placeholder="Select Category"
-                value={selectedOptionCategory} // set selected value
-                options={categories} // set list of the data
-                onChange={handleChange} // assign onChange function
-                getOptionLabel={e => (
-                    <div style={{display: 'flex', alignItems: 'center'}}>
-                        {e.icon}
-                        <span style={{marginLeft: 5}}>{e.label}</span>
-                    </div>
-                )}
-            />
+        <div className="dropdowns-container upload flex justify-between mt-4">
+            <div className="mb-5">
+                <input type="file"
+                       onChange={handleFileInput} crossOrigin="anonymous" required/>
+                <button onClick={() => handleUpload(selectedFile)}> upload photo</button>
 
-            <Select
+            </div>
+            {responseAwsLocation ?
+
+                <Select
+                    placeholder="Select Category"
+                    value={selectedOptionCategory} // set selected value
+                    options={categories} // set list of the data
+                    onChange={handleChange} // assign onChange function
+                    getOptionLabel={e => (
+                        <div style={{display: 'flex', alignItems: 'center'}}>
+                            {e.icon}
+                            <span style={{marginLeft: 5}}>{e.label}</span>
+                        </div>
+                    )}
+                /> : ""}
+
+            {selectedOptionCategory ? <Select
                 placeholder="Select Size"
                 value={selectedSize} // set selected value
                 options={sizes} // set list of the data
@@ -269,46 +274,51 @@ export const SelectDropdownMenu = () => {
                         <span style={{marginLeft: 5}}>{e.label}</span>
                     </div>
                 )}
-            />
+            /> : ""}
 
-            <Select
-                placeholder="Select Color"
-                value={selectedColor} // set selected value
-                options={colors} // set list of the data
-                onChange={handleChangeColors} // assign onChange function
-                getOptionLabel={e => (
-                    <div style={{display: 'flex', alignItems: 'center'}}>
-                        {e.icon}
-                        <span style={{marginLeft: 5}}>{e.label}</span>
-                    </div>
-                )}
-            />
+            {responseAwsLocation ?
+                <Select
+                    placeholder="Select Color"
+                    value={selectedColor} // set selected value
+                    options={colors} // set list of the data
+                    onChange={handleChangeColors} // assign onChange function
+                    getOptionLabel={e => (
+                        <div style={{display: 'flex', alignItems: 'center'}}>
+                            {e.icon}
+                            <span style={{marginLeft: 5}}>{e.label}</span>
+                        </div>
+                    )}
+                /> : ""}
 
-            <Select
-                placeholder="Select Secondary Color"
-                value={selectedSecondaryColor} // set selected value
-                options={secondaryColor} // set list of the data
-                onChange={handleChangeSecondaryColors} // assign onChange function
-                getOptionLabel={e => (
-                    <div style={{display: 'flex', alignItems: 'center'}}>
-                        {e.icon}
-                        <span style={{marginLeft: 5}}>{e.label}</span>
-                    </div>
-                )}
-            />
 
-            <Select
-                placeholder="Select Quantity"
-                value={selectedQuantity} // set selected value
-                options={quantity} // set list of the data
-                onChange={handleChangeQuantity} // assign onChange function
-                getOptionLabel={e => (
-                    <div style={{display: 'flex', alignItems: 'center'}}>
-                        {e.icon}
-                        <span style={{marginLeft: 5}}>{e.label}</span>
-                    </div>
-                )}
-            />
+            {responseAwsLocation ?
+                <Select
+                    placeholder="Select Secondary Color"
+                    value={selectedSecondaryColor} // set selected value
+                    options={secondaryColor} // set list of the data
+                    onChange={handleChangeSecondaryColors} // assign onChange function
+                    getOptionLabel={e => (
+                        <div style={{display: 'flex', alignItems: 'center'}}>
+                            {e.icon}
+                            <span style={{marginLeft: 5}}>{e.label}</span>
+                        </div>
+                    )}
+                /> : ""}
+
+
+            {responseAwsLocation ?
+                <Select
+                    placeholder="Select Quantity"
+                    value={selectedQuantity} // set selected value
+                    options={quantity} // set list of the data
+                    onChange={handleChangeQuantity} // assign onChange function
+                    getOptionLabel={e => (
+                        <div style={{display: 'flex', alignItems: 'center'}}>
+                            {e.icon}
+                            <span style={{marginLeft: 5}}>{e.label}</span>
+                        </div>
+                    )}
+                /> : ""}
 
             <FileUploadPage
                 lat={lat}
@@ -317,8 +327,8 @@ export const SelectDropdownMenu = () => {
                 size={selectedSize ? selectedSize.value : 'NA'}
                 color={selectedColor ? selectedColor.value : 'N/A'}
                 secColor={selectedSecondaryColor ? selectedSecondaryColor.value : 'N/A'}
-                quantity={selectedQuantity ? selectedQuantity.value : 'N/A'}
-                responseAwsLocation={responseAwsLocation ? responseAwsKey : null}
+                quantity={selectedQuantity ? selectedQuantity.value : null}
+                responseAwsLocation={responseAwsLocation ? responseAwsLocation : null}
             />
         </div>
     );
