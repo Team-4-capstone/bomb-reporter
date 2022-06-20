@@ -40,9 +40,9 @@
     color: #5A5560;
 }
 
-.noselect:hover, .noselectRep:hover {
-    animation: bounce 2s infinite linear;
-}
+/*.noselect:hover, .noselectRep:hover {*/
+/*    animation: bounce 2s infinite linear;*/
+/*}*/
 
 @keyframes bounce {
     0% {transform: translateX(-55%) translateY(-50%)}
