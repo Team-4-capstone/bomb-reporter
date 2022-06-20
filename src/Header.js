@@ -7,7 +7,7 @@ function Header() {
 
     return (
         <nav id="header" className="relative sticky top-0 z-50 grid grid-cols-2
-        sticky bg-ukrBlue opacity-80 p-2 md:px-3">
+        sticky bg-ukrBlue p-2 md:px-3">
 
             {/*Left*/}
             <Link className="no-underline" to="/">

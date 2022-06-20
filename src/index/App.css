@@ -50,18 +50,18 @@ html, body {
     overflow: hidden;
 }
 
-#nav-text {
-    text-shadow: 3px 2px 2px black;
-}
+/*#nav-text {*/
+/*    text-shadow: 3px 2px 2px black;*/
+/*}*/
 
-#bombLogo {
-    filter: drop-shadow(3px 2px 2px black);
-}
+/*#bombLogo {*/
+/*    filter: drop-shadow(3px 2px 2px black);*/
+/*}*/
 
-#dropDownDots {
-    filter: drop-shadow(3px 2px 2px black);
-}
+/*#dropDownDots {*/
+/*    filter: drop-shadow(3px 2px 2px black);*/
+/*}*/
 
-#header {
-    filter: drop-shadow(0.50em 0.20em 0.3em);
-}
+/*#header {*/
+/*    filter: drop-shadow(0.50em 0.20em 0.3em);*/
+/*}*/
