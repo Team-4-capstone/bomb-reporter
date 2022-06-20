@@ -9,9 +9,10 @@ export function Connection() {
     return (
         <>
             <main>
-
+                <div className="m-10">
+                    <MapBox/>
+                </div>
                 <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-
                         <Card className="rounded overflow-hidden shadow-lg"
                             imgAlt="Meaningful alt text for an image that is not purely decorative"
                             imgSrc="https://flowbite.com/docs/images/blog/image-1.jpg"
@@ -45,10 +46,6 @@ export function Connection() {
                             Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
                         </p>
                     </Card>
-
-                </div>
-                <div className="m-10">
-                    <MapBox/>
                 </div>
             </main>
             <div className="fill-window flex justify-center">
