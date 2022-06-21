@@ -10,6 +10,7 @@ export function Connection() {
         <>
             <main>
                 <div className="m-10">
+                    <h1 className="text-ukrYellow text-center bg-ukrBlue h-20 flex justify-center items-center m-0">Previously Reported Explosive Hazards:</h1>
                     <MapBox/>
                 </div>
                 <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">

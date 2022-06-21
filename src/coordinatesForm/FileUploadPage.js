@@ -78,7 +78,7 @@ export const FileUploadPage = ({lat, lon, onClose, category, size, color, quanti
         <form className="upload mt-4 mb-4" onSubmit={e => (e.preventDefault(), handleChange)}>
             <textarea className="mb-4" id=" moreDetails" name="moreDetails" rows="4" cols="50" onChange={handleChange}
                       placeholder="extra details..."/>
-            <input type="submit" onClick={onSubmit}/>
+            <input className="bg-ukrBlue text-white shadow-btn" type="submit" onClick={onSubmit}/>
         </form>
     ) : " ";
 }

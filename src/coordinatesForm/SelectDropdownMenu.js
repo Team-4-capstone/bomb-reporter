@@ -260,15 +260,24 @@ export const SelectDropdownMenu = () => {
         setResponseAwsLocation("");
         setResponseAwsKey("");
     }
+
+    // <button className="wave" disabled={false}
+    //         onClick={() => setShouldShowModal(!shouldShowModal)}>
+    //     <span className="btnText">ADD MORE DETAILS</span>
+    // </button>
     return (
         <div className="dropdowns-container upload flex justify-between mt-4">
             <div className="mb-5">
-                <input type="file"
+                <input
+                    type="file"
                        onChange={handleFileInput} crossOrigin="anonymous" required/>
-                <button onClick={() => handleUpload(selectedFile)}> upload photo</button>
+                <button
+                    className="bg-ukrBlue text-white shadow-btn"
+                    onClick={() => handleUpload(selectedFile)}> upload photo</button>
 
-                {responseAwsLocation ? <img className="w-1/2 h-50 mt-4"
-                                            src={responseAwsLocation} alt="responseAWS"/>
+                {responseAwsLocation ? <div className="relative mt-2 h-[250px]"><img className="fill-window"
+                       src={responseAwsLocation} alt="responseAWS"/>
+                    </div>
                     : ""}
 
             </div>
