@@ -1,27 +1,22 @@
-import {DataSource} from "./DataSource";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import logo from './Mapbox/LogoWeb.png'
-import log from "tailwindcss/lib/util/log";
-import {Card, ListGroup} from "flowbite-react";
-
-// import React from "@types/react";
+import {DataSource} from "./DataSource";
+import React from "react";
+import {getServerData} from "./Mapbox/MapBox";
+import {Cities} from "./Mapbox/Cities";
 
 function InfoCard() {
     const [reports, setreports] = useState([])
     const url = 'http://localhost:8081/api/reports';
-
     useEffect(() => {
         axios.get(url)
             .then(res => {
-                console.log(res.data);
                 setreports(res.data);
             })
             .catch(err => {
                 console.log(err);
             })
     }, []);
-
 
     return (
         reports.map((report) => (
@@ -37,6 +32,9 @@ function InfoCard() {
                              xmlns="http://www.w3.org/2000/svg">
                         </svg>
                     </a>
+                    <DataSource getDataFunc={getServerData('https://www.mapquestapi.com/geocoding/v1/reverse?key=G1moSFJkXvMTf7kCVqTOPMh1SxtvJaGi&location='+ report.location.latitude+'%2C'+report.location.longitude+'&outFormat=json&thumbMaps=false')} resourceName="prop">
+                        <Cities/>
+                    </DataSource>
                 </div>
             </div>)))
 
