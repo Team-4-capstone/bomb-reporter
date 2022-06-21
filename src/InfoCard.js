@@ -26,7 +26,7 @@ function InfoCard() {
     return (
         reports.map((report) => (
             <div key={report.id} className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-t-lg w-40" src="{report.description.img_path}" alt=""/>
+                    <img className="rounded-t-lg h-40 w-full" src={report.description.img_path} alt="photo of reported UXO"/>
                 <div className="p-5">
                     <p>Category: {report.category.category}</p>
                     <p>Location: Latitude: {report.location.latitude} Longitude: {report.location.longitude}</p>
@@ -35,9 +35,6 @@ function InfoCard() {
                         More Details
                         <svg className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
                              xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                  clip-rule="evenodd"></path>
                         </svg>
                     </a>
                 </div>
