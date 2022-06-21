@@ -2,6 +2,7 @@ import React from 'react';
 import {useState} from "react";
 import {useDataSource} from "../useDataSource";
 
+
 const localStorageResource = key => () => {
     return localStorage.getItem(key)
 }
@@ -33,6 +34,7 @@ export const FileUploadPage = ({lat, lon, onClose, category, size, color, quanti
         });
     };
 
+
     //does a fetch request to the backend on form submit, grabbing the values from  initialFormData (line 9)
     const onSubmit = async (data) => {
         const objectToFetch = {
@@ -59,8 +61,16 @@ export const FileUploadPage = ({lat, lon, onClose, category, size, color, quanti
         //TODO: Need to create a success response after form submit (Alert or setState)
         const res = await fetch(`http://localhost:8081/api/reports/${put}`, options)
             .then(res =>
-                //if successfully POST alert("successfully"), else  alert("unsuccessfully")
-                `${res.status === 200 ? alert("successfully") : alert("unsuccessfully")}`
+                    //if successfully POST alert("successfully"), else  alert("unsuccessfully")
+                {
+                    if (res.status === 200) {
+                        alert("report submitted successfully")
+                        window.location = 'connection'
+                    } else {
+                        alert("error saving your report")
+                        window.location = '/'
+                    }
+                }
             )
     };
 
