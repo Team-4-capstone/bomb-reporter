@@ -7,13 +7,13 @@ export const Markers = (report) => {
     return report.reports ? (
         <>
             {report.reports.map((item, i) => (
-                <>
+
                     <Marker key={report.reports[i].id} longitude={report.reports[i].location.longitude}
                             latitude={report.reports[i].location.latitude}
                             anchor="bottom">
                         <img className="h-10" src={bomblogo}/>
                     </Marker>
-                </>
+
             ))}
         </>) : <p>loading</p>
 };
