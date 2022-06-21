@@ -5,12 +5,13 @@ import {Report} from "./Report";
 import {Login} from "./Login"
 import {Register} from "./Register"
 import Header from "./Header";
+import React from "react";
 
 
 export default function App() {
     return (
         <div className="App fill-window">
-            <Header/>
+            <Header className="sm:invisible"/>
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="connection" element={<Connection/>}/>

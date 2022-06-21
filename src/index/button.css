@@ -116,7 +116,7 @@
 .btnTxt{
     position: absolute;
     z-index: 1;
-    color: white;
+    color: #FFDD00;
     font-size: 15px;
     letter-spacing: 8px;
 }

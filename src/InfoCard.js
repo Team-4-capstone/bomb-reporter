@@ -3,7 +3,8 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import logo from './Mapbox/LogoWeb.png'
 import log from "tailwindcss/lib/util/log";
-import {Card} from "flowbite-react";
+import {Card, ListGroup} from "flowbite-react";
+
 // import React from "@types/react";
 
 function InfoCard() {
@@ -25,13 +26,25 @@ function InfoCard() {
     return (
         reports.map((report) => (
             <Card key={report.id} className="rounded overflow-hidden shadow-lg"
-                  imgAlt="Meaningful alt text for an image that is not purely decorative"
-                  imgSrc="https://flowbite.com/docs/images/blog/image-1.jpg">
-                <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                </h5>
-                <p className="font-normal text-gray-700 dark:text-gray-400">
-                    Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-                </p>
+                  imgAlt="Meaningful alt text for an image that is not purely decorative" style={{width:314}}
+                  imgSrc={report.description.img_path}>
+                <div className="w-150">
+                    <ListGroup>
+                        <ListGroup.Item>
+                            Category: {report.category.category}
+                        </ListGroup.Item>
+                        <ListGroup.Item>
+                            <p>Location: Latitude: {report.location.latitude} Longitude: {report.location.longitude}</p>
+                        </ListGroup.Item>
+                        <ListGroup.Item>
+                            Messages
+                        </ListGroup.Item>
+                        <ListGroup.Item>
+                            Download
+                        </ListGroup.Item>
+                    </ListGroup>
+                </div>
             </Card>)))
 }
+
 export default InfoCard;

@@ -8,7 +8,7 @@ import Geolocator from "./coordinatesForm/Geolocator";
 export function Home() {
     return (
         <>
-            <main className="index flex h-full justify-center">
+            <main className="index flex h-full justify-center mt-10">
                     <Geolocator/>
             </main>
             <div className="fill-window flex justify-center">

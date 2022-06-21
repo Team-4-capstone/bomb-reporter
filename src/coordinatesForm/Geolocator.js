@@ -69,7 +69,7 @@ export default function Geolocator() {
                     return prevIndex + 1;
                 })
             };
-            setInterval(timer, 1000);
+            setInterval(timer, 1500);
             return () => { clearInterval(timer)}
         }, [placheHolderText.length]);
 
@@ -81,14 +81,14 @@ export default function Geolocator() {
                     onClose={() => setShouldShowModal(false)}
                 />
 
-                <h4 className="bg-ukrBlue text-ukrYellow">Submitted report by current location successfully!
-                    Would you like to add extra details?
+                <h4 className="text-ukrYellow text-2xl">Your location has been submitted!
+                    Would you like to add more details?
                 </h4>
                 {lat ? <div className="add-deets mb-3">
 
                         <button className="wave" disabled={false}
                                 onClick={() => setShouldShowModal(!shouldShowModal)}>
-                            <span className="btnText">ADD MORE DETAILS</span>
+                            <span className="btnText">ADD DETAILS</span>
                         </button>
                     </div>
                     :
