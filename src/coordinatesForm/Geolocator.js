@@ -57,6 +57,23 @@ export default function Geolocator() {
         }
     }
 
+    const placheHolderText = ['швидкий звіт', 'швидкий звіт', 'Rapid Report','Rapid Report']
+        const [index, setindex] = useState(0);
+
+        useEffect(() => {
+            const timer = () => {
+                setindex(prevIndex => {
+                    if (prevIndex === placheHolderText.length -1){
+                        return 0;
+                    }
+                    return prevIndex + 1;
+                })
+            };
+            setInterval(timer, 1000);
+            return () => { clearInterval(timer)}
+        }, [placheHolderText.length]);
+
+
     return lat ? (
             <>
                 <ControlledModal
@@ -85,7 +102,7 @@ export default function Geolocator() {
 
             <button onClick={getLocation} className="inline-block h-72 w-72 rounded-full text-gray-700  border-solid bg-gradient-to-r from-yellow-400 to-blue-600
                 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium
-    text-2xl px-5 py-2.5 text-center mr-2 mb-2"><h2>Rapid Report</h2>
+    text-2xl px-5 py-2.5 text-center mr-2 mb-2"><h2>{placheHolderText[index]}</h2>
             </button>
         </>
 
