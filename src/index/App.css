@@ -1,8 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:700);
 
+/*      'ukrBlue':'#0057B7',
+      'ukrYellow':'#FFDD00',*/
+/*colors: Yellow - #FAED26, Brown Purple - #46344E, Gray - #5A5560, Beige Gray - #9D8D8F, #9B786F */
+/*Yellow background #FBC02D*/
 
 html, body {
-    background: #FBC02D;
+    background-image: url(360_F_489358243_oJKsX627y6lcR6vyRb9pjYFUgfsiIgV1.jpg);
+    background-size: cover;
     font-family: Roboto, serif;
     height: 100%;
     width: 100%;
@@ -23,7 +28,6 @@ html, body {
 
 }
 
-
 .container {
     padding: 10px;
     width: 100%;
@@ -35,25 +39,33 @@ html, body {
     align-items: center;
 }
 
-.yes {
-    width: 25%;
-    height: 8em;
-    border-radius: 50%;
-}
-
-.no {
-
-    width: 25%;
-    height: 8em;
-    border-radius: 50%;
-    margin-top: 2em;
-}
-
-
 .close-modal{
     background-color: red;
     color: #fff;
 }
 .close-modal:hover{
-    /*@apply bg-red-800*/
+    @apply bg-red-800
 }
+
+.fill-window {
+    height: 100%;
+    /*position: absolute;*/
+    width: 100%;
+    overflow: hidden;
+}
+
+/*#nav-text {*/
+/*    text-shadow: 3px 2px 2px black;*/
+/*}*/
+
+/*#bombLogo {*/
+/*    filter: drop-shadow(3px 2px 2px black);*/
+/*}*/
+
+/*#dropDownDots {*/
+/*    filter: drop-shadow(3px 2px 2px black);*/
+/*}*/
+
+/*#header {*/
+/*    filter: drop-shadow(0.50em 0.20em 0.3em);*/
+/*}*/

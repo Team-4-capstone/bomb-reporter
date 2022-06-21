@@ -1,9 +1,10 @@
 import React, {useEffect} from "react";
 import {useState} from "react";
-import './form.css'
+import './form.css';
+import '../index/button.css';
 import {ControlledModal} from "../index/ControlledModal";
 import MapBox from "../Mapbox/MapBox";
-
+import './Lesser_Coat_of_Arms_of_Ukraine.svg'
 
 export default function Geolocator() {
     const [lat, setLat] = useState(null);
@@ -35,8 +36,8 @@ export default function Geolocator() {
                     "color": 'N/A',
                     "quantity": 'N/A',
                     "secondaryColor": 'N/A'
-
                 }
+
                 const options = {
                     method: 'POST',
                     headers: {
@@ -44,34 +45,50 @@ export default function Geolocator() {
                     },
                     body: JSON.stringify(objectToFetch),
                 };
+
                 const res = fetch(`http://localhost:8081/api/reports`, options)
                     .then(res => res.json())
                     .then(json => {
-                        console.log(json)
-
                         localStorage.setItem("PUT", JSON.stringify(json));
                     })
-
             }, () => {
                 setStatus('Unable to retrieve your location');
             });
         }
     }
-    return (
-        <>
-            <button className="bg-ukrBlue text-ukrYellow drop-shadow-xl" onClick={getLocation}>Get Location</button>
-            <ControlledModal
-                shouldShow={shouldShowModal}
-                onClose={() => setShouldShowModal(false)}
-            />
 
-            {lat ? <button className="animate-bounce my-2" disabled={false}
-                           onClick={() => setShouldShowModal(!shouldShowModal)}>
-                <span className="btnText">Add More Details</span>
-            </button> : ""}
-            <MapBox lat={lat} lng={lng}/>
+    return lat ? (
+            <>
+                <ControlledModal
+                    shouldShow={shouldShowModal}
+                    onClose={() => setShouldShowModal(false)}
+                />
+
+                <h4 className="bg-ukrBlue text-ukrYellow">Submitted report by current location successfully!
+                    Would you like to add extra details?
+                </h4>
+                {lat ? <div className="add-deets mb-3">
+
+                        <button className="wave" disabled={false}
+                                onClick={() => setShouldShowModal(!shouldShowModal)}>
+                            <span className="btnText">ADD MORE DETAILS</span>
+                        </button>
+                    </div>
+                    :
+                    ""}
+
+                <MapBox lat={lat} lng={lng}/>
+            </>
+        ) :
+        <>
+
+
+            <button onClick={getLocation} className="inline-block h-72 w-72 rounded-full text-gray-700  border-solid bg-gradient-to-r from-yellow-400 to-blue-600
+                hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium
+    text-2xl px-5 py-2.5 text-center mr-2 mb-2"><h2>Rapid Report</h2>
+            </button>
         </>
-    )
+
 }
 
 

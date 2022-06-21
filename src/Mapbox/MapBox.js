@@ -12,7 +12,6 @@ mapboxgl.accessToken = MAPBOX;
 const getServerData = url => async () => {
     const response = await axios.get(url);
     return response.data;
-
 }
 
 export default function MapBox(props) {
@@ -38,13 +37,10 @@ export default function MapBox(props) {
         }
     }, [props.lat, props.lng]);
 
-
     return props.lng ? (
         <Map
             {...viewport}
-
             style={{height: 400}}
-            // map.flyTo={{center: [props.lng, props.lat]};
             mapStyle="mapbox://styles/mapbox/streets-v9">
             <DataSource getDataFunc={getServerData('http://localhost:8081/api/reports')} resourceName="reports">
                 <Markers/>
@@ -59,61 +55,13 @@ export default function MapBox(props) {
                 latitude: 48.3794,
                 longitude: 31.1656,
                 zoom: 4
-            }
+                }
             }
 
             style={{height: 400}}
-            // map.flyTo={{center: [props.lng, props.lat]};
             mapStyle="mapbox://styles/mapbox/streets-v9">
             <DataSource getDataFunc={getServerData('http://localhost:8081/api/reports')} resourceName="reports">
                 <Markers/>
             </DataSource>
-
-
         </Map>)
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

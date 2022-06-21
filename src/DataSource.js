@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-
 export const DataSource = ({ getDataFunc = () =>{}, resourceName, children }) => {
     const [state, setState] = useState(null);
 
@@ -17,7 +16,6 @@ export const DataSource = ({ getDataFunc = () =>{}, resourceName, children }) =>
                 if (React.isValidElement(child)) {
                     return React.cloneElement(child, { [ resourceName]: state});
                 }
-
                 return child;
             })}
         </>

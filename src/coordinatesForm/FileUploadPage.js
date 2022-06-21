@@ -2,11 +2,13 @@ import React from 'react';
 import {useState} from "react";
 import {useDataSource} from "../useDataSource";
 
+
 const localStorageResource = key => () => {
     return localStorage.getItem(key)
 }
 
 export const FileUploadPage = ({lat, lon, onClose, category, size, color, quantity, secColor, responseAwsLocation}) => {
+
     // initial form values
     const initialFormData = {
         category: category,
@@ -16,6 +18,7 @@ export const FileUploadPage = ({lat, lon, onClose, category, size, color, quanti
         quantity: quantity,
         secondaryColor: secColor
     };
+
 
     // set form data to initialFormData (line 9)
     const [formData, updateFormData] = useState(initialFormData);
@@ -28,7 +31,6 @@ export const FileUploadPage = ({lat, lon, onClose, category, size, color, quanti
         updateFormData({
             ...formData,
             [e.target.name]: e.target.value
-
         });
     };
 
@@ -47,6 +49,7 @@ export const FileUploadPage = ({lat, lon, onClose, category, size, color, quanti
             "secondaryColor": `${secColor ? secColor : 'N/A'}`
 
         }
+
         const options = {
             method: 'PUT',
             headers: {
@@ -54,29 +57,28 @@ export const FileUploadPage = ({lat, lon, onClose, category, size, color, quanti
             },
             body: JSON.stringify(objectToFetch),
         };
-        console.log(put)
+
+        //TODO: Need to create a success response after form submit (Alert or setState)
         const res = await fetch(`http://localhost:8081/api/reports/${put}`, options)
             .then(res =>
-                //if successfully POST alert("successfully"), else  alert("unsuccessfully")
-                `${res.status === 200 ? alert("successfully") : alert("unsuccessfully")}`
+                    //if successfully POST alert("successfully"), else  alert("unsuccessfully")
+                {
+                    if (res.status === 200) {
+                        alert("report submitted successfully")
+                        window.location = 'connection'
+                    } else {
+                        alert("error saving your report")
+                        window.location = '/'
+                    }
+                }
             )
-
     };
 
-
-
-    // does a POST request to AWS Bucket server and sets photo key and photo location (line 39 and 43)
-
-
-
-    return (
-        <form className="upload" onSubmit={e => (e.preventDefault(), handleChange)}>
-            <label htmlFor="moreDetails">Extra details: </label>
-            <textarea id=" moreDetails" name="moreDetails" rows="4" cols="50" onChange={handleChange}
+    return quantity ? (
+        <form className="upload mt-4 mb-4" onSubmit={e => (e.preventDefault(), handleChange)}>
+            <textarea className="mb-4" id=" moreDetails" name="moreDetails" rows="4" cols="50" onChange={handleChange}
                       placeholder="extra details..."/>
-            {responseAwsLocation ? "" : <h3>Please submit a photo first!</h3>}
-            {responseAwsLocation ? <input type="submit" onClick={onSubmit}/> :
-                <button type="submit" disabled={true}>Submit</button>}
+            <input className="bg-ukrBlue text-white shadow-btn" type="submit" onClick={onSubmit}/>
         </form>
-    );
+    ) : " ";
 }

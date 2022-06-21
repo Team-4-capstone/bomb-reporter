@@ -18,13 +18,7 @@
     justify-content: space-evenly;
 }
 
-.get-location{
-    background-color: green;
-    color: #fff;
-    font-size: 1em;
-}
+/*.preview-img:hover{*/
+/*    transition: 1s ease;*/
 
-.get-location:hover{
-    background-color: greenyellow;
-    color: #000;
-}
+/*}*/
