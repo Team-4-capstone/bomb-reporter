@@ -63,12 +63,18 @@ export default function Geolocator() {
                     onClose={() => setShouldShowModal(false)}
                 />
 
+                <h4 className="bg-ukrBlue text-ukrYellow">Submitted report by current location successfully!
+                    Would you like to add extra details?
+                </h4>
                 {lat ? <div className="add-deets mb-3">
-                    <button className="wave" disabled={false}
-                            onClick={() => setShouldShowModal(!shouldShowModal)}>
-                        <span className="btnText">ADD MORE DETAILS</span>
-                    </button>
-                </div> : ""}
+
+                        <button className="wave" disabled={false}
+                                onClick={() => setShouldShowModal(!shouldShowModal)}>
+                            <span className="btnText">ADD MORE DETAILS</span>
+                        </button>
+                    </div>
+                    :
+                    ""}
 
                 <MapBox lat={lat} lng={lng}/>
             </>
