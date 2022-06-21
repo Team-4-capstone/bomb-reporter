@@ -1,15 +1,23 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Select from 'react-select';
 import {FileUploadPage} from "./FileUploadPage";
 import {ACCESS_KEY, REGION, S3_BUCKET, SECRET_ACCESS_KEY} from "../Config";
 import {uploadFile} from "react-s3";
-import {GiFallingBomb, GiGrenade, GiLandMine, GiMissileLauncher, GiMortar, GiSoccerBall} from "react-icons/gi";
+import {
+    GiConfirmed,
+    GiFallingBomb,
+    GiGrenade,
+    GiLandMine,
+    GiMissileLauncher,
+    GiMortar,
+    GiSoccerBall
+} from "react-icons/gi";
 import {FaBomb, FaTruckMonster} from "react-icons/fa";
 import {IoIosBaseball} from "react-icons/io";
 import {CgAirplane} from "react-icons/cg";
 import {AiFillCreditCard} from "react-icons/ai";
 import {useDataSource} from "../useDataSource";
-import styled from "styled-components";
+import {BsFillTrashFill} from "react-icons/bs";
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
@@ -203,6 +211,11 @@ export const SelectDropdownMenu = () => {
     // set AWS photo location to null
     const [responseAwsLocation, setResponseAwsLocation] = useState(null);
 
+
+    // set AWS photo location to null
+    const [show2ndPartForm, setShow2ndPartForm] = useState(false);
+
+
     // handle onChange event of the dropdown
     const handleChange = e => {
         setSelectedOptionCategory(e);
@@ -233,13 +246,20 @@ export const SelectDropdownMenu = () => {
     const handleUpload = async (file) => {
         uploadFile(file, config)
             .then(data => {
-                alert("thanks for your report!")
                 setResponseAwsKey(data.key)
                 setResponseAwsLocation(data.location)
             })
             .catch(err => console.error(err))
     }
+    const confirmPhoto = () => {
+        setShow2ndPartForm(true)
+    }
 
+    const cancelConfirmPhoto = () => {
+        setShow2ndPartForm(false);
+        setResponseAwsLocation("");
+        setResponseAwsKey("");
+    }
     return (
         <div className="dropdowns-container upload flex justify-between mt-4">
             <div className="mb-5">
@@ -247,8 +267,21 @@ export const SelectDropdownMenu = () => {
                        onChange={handleFileInput} crossOrigin="anonymous" required/>
                 <button onClick={() => handleUpload(selectedFile)}> upload photo</button>
 
+                {responseAwsLocation ? <img className="w-1/2 h-50 mt-4"
+                                            src={responseAwsLocation} alt="responseAWS"/>
+                    : ""}
+
             </div>
-            {responseAwsLocation ?
+
+            {responseAwsLocation ? <div className="flex justify-evenly mx-auto mb-4">
+                    <span onClick={confirmPhoto}>Confirm Photo
+                        <GiConfirmed className="ml-2" style={{color: "green"}}/></span>
+                    <span className="ml-4" onClick={cancelConfirmPhoto}>Remove Photo
+                        <BsFillTrashFill className="ml-2" style={{color: "red"}}/></span>
+
+                </div>
+                : ""}
+            {show2ndPartForm === true ?
 
                 <Select
                     placeholder="Select Category"
@@ -263,7 +296,7 @@ export const SelectDropdownMenu = () => {
                     )}
                 /> : ""}
 
-            {selectedOptionCategory ? <Select
+            {show2ndPartForm === true ? <Select
                 placeholder="Select Size"
                 value={selectedSize} // set selected value
                 options={sizes} // set list of the data
@@ -276,7 +309,7 @@ export const SelectDropdownMenu = () => {
                 )}
             /> : ""}
 
-            {responseAwsLocation ?
+            {show2ndPartForm === true ?
                 <Select
                     placeholder="Select Color"
                     value={selectedColor} // set selected value
@@ -291,7 +324,7 @@ export const SelectDropdownMenu = () => {
                 /> : ""}
 
 
-            {responseAwsLocation ?
+            {show2ndPartForm === true ?
                 <Select
                     placeholder="Select Secondary Color"
                     value={selectedSecondaryColor} // set selected value
@@ -306,7 +339,7 @@ export const SelectDropdownMenu = () => {
                 /> : ""}
 
 
-            {responseAwsLocation ?
+            {show2ndPartForm === true ?
                 <Select
                     placeholder="Select Quantity"
                     value={selectedQuantity} // set selected value
