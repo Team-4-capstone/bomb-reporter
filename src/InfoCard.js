@@ -4,6 +4,9 @@ import {DataSource} from "./DataSource";
 import React from "react";
 import {getServerData} from "./Mapbox/MapBox";
 import {Cities} from "./Mapbox/Cities";
+import Map, {Marker} from "react-map-gl";
+import {Markers} from "./coordinatesForm/Markers";
+import bomblogo from "./Mapbox/LogoWeb.png";
 
 function InfoCard() {
     const [reports, setreports] = useState([])
@@ -20,11 +23,11 @@ function InfoCard() {
 
     return (
         reports.map((report) => (
-            <div key={report.id} className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-t-lg h-40 w-full" src={report.description.img_path} alt="photo of reported UXO"/>
+            <div key={report.id}
+                 className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <img className="rounded-t-lg h-40 w-full" src={report.description.img_path}
+                     alt="photo of reported UXO"/>
                 <div className="p-5">
-                    <p>Category: {report.category.category}</p>
-                    <p>Location: Latitude: {report.location.latitude} Longitude: {report.location.longitude}</p>
                     <a href="#"
                        className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         More Details
@@ -32,33 +35,51 @@ function InfoCard() {
                              xmlns="http://www.w3.org/2000/svg">
                         </svg>
                     </a>
-                    <DataSource getDataFunc={getServerData('https://www.mapquestapi.com/geocoding/v1/reverse?key=G1moSFJkXvMTf7kCVqTOPMh1SxtvJaGi&location='+ report.location.latitude+'%2C'+report.location.longitude+'&outFormat=json&thumbMaps=false')} resourceName="prop">
+                    <DataSource
+                        getDataFunc={getServerData('https://www.mapquestapi.com/geocoding/v1/reverse?key=G1moSFJkXvMTf7kCVqTOPMh1SxtvJaGi&location=' + report.location.latitude + '%2C' + report.location.longitude + '&outFormat=json&thumbMaps=false')}
+                        resourceName="prop">
                         <Cities/>
                     </DataSource>
+                    <Map
+                        initialViewState={{
+                            latitude: report.location.latitude,
+                            longitude: report.location.longitude,
+                            zoom: 12
+                        }
+                        }
+
+                        style={{height: 400}}
+                        mapStyle="mapbox://styles/mapbox/streets-v9">
+                            <Marker key={report.id} longitude={report.location.longitude}
+                                    latitude={report.location.latitude}
+                                    anchor="bottom">
+                            </Marker>
+
+                    </Map>
                 </div>
             </div>)))
 
 
-            // <Card key={report.id} className="rounded overflow-hidden shadow-lg"
-            //       imgAlt="Meaningful alt text for an image that is not purely decorative" style={{width:314}}
-            //       imgSrc={report.description.img_path}>
-            //     <div className="w-150">
-            //         <ListGroup>
-            //             <ListGroup.Item>
-            //                 Category: {report.category.category}
-            //             </ListGroup.Item>
-            //             <ListGroup.Item>
-            //                 <p>Location: Latitude: {report.location.latitude} Longitude: {report.location.longitude}</p>
-            //             </ListGroup.Item>
-            //             <ListGroup.Item>
-            //                 Messages
-            //             </ListGroup.Item>
-            //             <ListGroup.Item>
-            //                 Download
-            //             </ListGroup.Item>
-            //         </ListGroup>
-            //     </div>
-            // </Card>)))
+    // <Card key={report.id} className="rounded overflow-hidden shadow-lg"
+    //       imgAlt="Meaningful alt text for an image that is not purely decorative" style={{width:314}}
+    //       imgSrc={report.description.img_path}>
+    //     <div className="w-150">
+    //         <ListGroup>
+    //             <ListGroup.Item>
+    //                 Category: {report.category.category}
+    //             </ListGroup.Item>
+    //             <ListGroup.Item>
+    //                 <p>Location: Latitude: {report.location.latitude} Longitude: {report.location.longitude}</p>
+    //             </ListGroup.Item>
+    //             <ListGroup.Item>
+    //                 Messages
+    //             </ListGroup.Item>
+    //             <ListGroup.Item>
+    //                 Download
+    //             </ListGroup.Item>
+    //         </ListGroup>
+    //     </div>
+    // </Card>)))
 }
 
 export default InfoCard;
