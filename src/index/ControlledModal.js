@@ -5,7 +5,7 @@ const ModalBackground = styled.div`
 position: fixed;
 z-index: 1;
 left: 0;
-top: 4;
+top: 0;
 width: 100%;
 height: 100%;
 overflow: auto;
@@ -16,7 +16,7 @@ const ModalBody = styled.div`
 background-color: white;
 margin: 10% auto;
 padding: 20px;
-width: 75%;
+width: 90%;
 height: auto;
 display: flex;
 flex-direction: column;
