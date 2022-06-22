@@ -5,6 +5,7 @@ import React from "react";
 import {getServerData} from "./Mapbox/MapBox";
 import {Cities} from "./Mapbox/Cities";
 import Map, {Marker, Source, Layer} from "react-map-gl";
+import {AiTwotoneCheckCircle} from "react-icons/ai";
 
 
 const layerStyle = {
@@ -28,7 +29,6 @@ function InfoCard() {
                 console.log(err);
             })
     }, []);
-
 
 
     return (
@@ -64,15 +64,26 @@ function InfoCard() {
                         <Source id="my-data" type="geojson" data={{
                             type: 'FeatureCollection',
                             features: [
-                                {type: 'Feature', geometry: {type: 'Point', coordinates: [report.location.longitude, report.location.latitude]}}
+                                {type: 'Feature',
+                                    geometry: {
+                                        type: 'Point',
+                                        coordinates: [report.location.longitude, report.location.latitude]
+                                    }
+                                }
                             ]
                         }}>
                             <Layer {...layerStyle} />
                         </Source>
                     </Map>
+
+                    <div className="flex col-auto mt-4 justify-center">
+                        <AiTwotoneCheckCircle style={{color: 'rgba(255, 0, 0, 0.6)', height: 30, width: 70}}/> <h2 className="p-0 m-0 w-1/2">- Danger
+                        Zone (381 meters)</h2>
+
+                    </div>
                 </div>
             </div>
-)))
+        )))
 
 
 //
