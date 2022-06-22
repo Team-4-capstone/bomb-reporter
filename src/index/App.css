@@ -6,8 +6,9 @@
 /*Yellow background #FBC02D*/
 
 html, body {
-    background-image: url(360_F_489358243_oJKsX627y6lcR6vyRb9pjYFUgfsiIgV1.jpg);
+    /*background-image: url(360_F_489358243_oJKsX627y6lcR6vyRb9pjYFUgfsiIgV1.jpg);*/
     background-size: cover;
+    background-color: rgba(220,220,220, .5);
     font-family: Roboto, serif;
     height: 100%;
     width: 100%;

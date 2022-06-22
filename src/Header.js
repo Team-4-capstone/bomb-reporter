@@ -6,13 +6,12 @@ function Header() {
 
 
     return (
-        <nav id="header" className="relative sticky top-0 z-50
-        sticky bg-ukrBlue p-2 md:px-3">
+        <nav id="header" className="relative sticky top-0 z-50 sticky bg-ukrBlue p-2 md:px-3">
 
             {/*Left*/}
             <Link className="no-underline" to="/">
                 <div className="relative flex items-center my-auto h-10 px-10">
-                    <img id="bombLogo" className="h-10 cursor-pointer mr-72" src={bomblogo} alt="bomb logo with ukraine colors"/>
+                    <img id="bombLogo" className="h-10 cursor-pointer" src={bomblogo} alt="bomb logo with ukraine colors"/>
                     <div className="pl-4 z-50"><p id="nav-text" className="sm:text-3xl dropshadowtext font-lato text-ukrYellow">Bomb Reporter</p></div>
                 </div>
             </Link>

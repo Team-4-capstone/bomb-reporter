@@ -5,10 +5,12 @@ import {IconContext} from "react-icons";
 import {HiChevronDoubleDown} from "react-icons/hi";
 import {Carousel, Card} from "flowbite-react";
 import InfoCard from "./InfoCard";
+import Header from "./Header";
 
 export function Connection() {
     return (
         <>
+            <Header/>
             <main>
                 <div className="m-10">
                     <h1 className="text-ukrYellow text-center bg-ukrBlue h-20 flex justify-center items-center m-0">Previously Reported Explosive Hazards:</h1>
