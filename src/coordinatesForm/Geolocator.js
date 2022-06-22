@@ -69,7 +69,7 @@ export default function Geolocator() {
                     return prevIndex + 1;
                 })
             };
-            setInterval(timer, 1500);
+            setInterval(timer, 3000);
             return () => { clearInterval(timer)}
         }, [placheHolderText.length]);
 
