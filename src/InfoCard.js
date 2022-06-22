@@ -11,8 +11,8 @@ const layerStyle = {
     id: 'point',
     type: 'circle',
     paint: {
-        'circle-radius': 10,
-        'circle-color': 'red'
+        'circle-radius': 20,
+        'circle-color': 'rgba(255, 0, 0, 0.4)'
     }
 };
 
@@ -51,12 +51,13 @@ function InfoCard() {
                         <Cities/>
                     </DataSource>
                     <Map
-                        initialViewState={{
+                        viewState={{
                             latitude: report.location.latitude,
                             longitude: report.location.longitude,
-                            zoom: 12
+                            zoom: 10
                         }
                         }
+
 
                         style={{height: 400}}
                         mapStyle="mapbox://styles/mapbox/streets-v9">
