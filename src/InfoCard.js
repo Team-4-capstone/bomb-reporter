@@ -4,7 +4,7 @@ import {DataSource} from "./DataSource";
 import React from "react";
 import {getServerData} from "./Mapbox/MapBox";
 import {Cities} from "./Mapbox/Cities";
-import Map, {Marker, Source, Layer} from "react-map-gl";
+import Map, {Marker, Source, Layer, GeolocateControl} from "react-map-gl";
 import {AiTwotoneCheckCircle} from "react-icons/ai";
 
 
