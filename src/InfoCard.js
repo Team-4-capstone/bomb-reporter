@@ -4,9 +4,17 @@ import {DataSource} from "./DataSource";
 import React from "react";
 import {getServerData} from "./Mapbox/MapBox";
 import {Cities} from "./Mapbox/Cities";
-import Map, {Marker} from "react-map-gl";
-import {Markers} from "./coordinatesForm/Markers";
-import bomblogo from "./Mapbox/LogoWeb.png";
+import Map, {Marker, Source, Layer} from "react-map-gl";
+
+
+const layerStyle = {
+    id: 'point',
+    type: 'circle',
+    paint: {
+        'circle-radius': 10,
+        'circle-color': 'red'
+    }
+};
 
 function InfoCard() {
     const [reports, setreports] = useState([])
@@ -20,6 +28,8 @@ function InfoCard() {
                 console.log(err);
             })
     }, []);
+
+
 
     return (
         reports.map((report) => (
@@ -50,17 +60,22 @@ function InfoCard() {
 
                         style={{height: 400}}
                         mapStyle="mapbox://styles/mapbox/streets-v9">
-                            <Marker key={report.id} longitude={report.location.longitude}
-                                    latitude={report.location.latitude}
-                                    anchor="bottom">
-                            </Marker>
-
+                        <Source id="my-data" type="geojson" data={{
+                            type: 'FeatureCollection',
+                            features: [
+                                {type: 'Feature', geometry: {type: 'Point', coordinates: [report.location.longitude, report.location.latitude]}}
+                            ]
+                        }}>
+                            <Layer {...layerStyle} />
+                        </Source>
                     </Map>
                 </div>
-            </div>)))
+            </div>
+)))
 
 
-    // <Card key={report.id} className="rounded overflow-hidden shadow-lg"
+//
+//     <Card key={report.id} className="rounded overflow-hidden shadow-lg"
     //       imgAlt="Meaningful alt text for an image that is not purely decorative" style={{width:314}}
     //       imgSrc={report.description.img_path}>
     //     <div className="w-150">
