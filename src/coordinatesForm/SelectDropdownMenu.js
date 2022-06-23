@@ -271,7 +271,7 @@ export const SelectDropdownMenu = () => {
 
                 <div className="container">
                     <div className="button-wrap">
-                        <label className="button" htmlFor="upload">Upload File</label>
+                        <label className="button" htmlFor="upload">{selectedFile ? selectedFile.name : "upload"}</label>
                         <input id="upload" type="file"
                                onChange={handleFileInput} crossOrigin="anonymous" required/>
                         <button
