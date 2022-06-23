@@ -44,8 +44,6 @@ export default function MapBox(props) {
                 <Markers/>
             </DataSource>
 
-            <GeolocateControl/>
-
         </Map>
     ) : (
         <Map

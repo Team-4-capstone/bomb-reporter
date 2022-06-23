@@ -81,9 +81,9 @@ export default function Geolocator() {
                     onClose={() => setShouldShowModal(false)}
                 />
 
-                <h4 className="text-ukrYellow text-2xl">Your location has been submitted!
+                <h3 className="text-ukrYellow text-center bg-ukrBlue h-20 flex justify-center items-center m-0 mb-4">Your location has been submitted!
                     Would you like to add more details?
-                </h4>
+                </h3>
                 {lat ? <div className="add-deets mb-3">
 
                         <button className="wave" disabled={false}

@@ -268,15 +268,22 @@ export const SelectDropdownMenu = () => {
     return (
         <div className="dropdowns-container upload flex justify-between mt-4">
             <div className="mb-5">
-                <input
-                    type="file"
-                       onChange={handleFileInput} crossOrigin="anonymous" required/>
-                <button
-                    className="bg-ukrBlue text-white shadow-btn"
-                    onClick={() => handleUpload(selectedFile)}> upload photo</button>
+
+                <div className="container">
+                    <div className="button-wrap">
+                        <label className="button" htmlFor="upload">Upload File</label>
+                        <input id="upload" type="file"
+                               onChange={handleFileInput} crossOrigin="anonymous" required/>
+                        <button
+                            className="text-white shadow-btn"
+                            onClick={() => handleUpload(selectedFile)}> upload photo
+                        </button>
+                    </div>
+                </div>
 
                 {responseAwsLocation ? <div className="relative mt-2 h-[250px]"><img className="fill-window"
-                       src={responseAwsLocation} alt="responseAWS"/>
+                                                                                     src={responseAwsLocation}
+                                                                                     alt="responseAWS"/>
                     </div>
                     : ""}
 

@@ -18,7 +18,44 @@
     justify-content: space-evenly;
 }
 
-/*.preview-img:hover{*/
-/*    transition: 1s ease;*/
+.container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+}
+input[type="file"] {
+    position: absolute;
+    z-index: -1;
+    top: 15px;
+    left: 20px;
+    font-size: 17px;
+    color: #b8b8b8;
+}
+.button-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: 60%;
+    align-items: center;
+    margin: auto;
 
-/*}*/
+}
+.button {
+    display: inline-block;
+    background-color: #1d6355;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #ffffff;
+    text-align: center;
+    font-size: 15px;
+    padding: 8px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-right: 20px;
+}
+.button:hover {
+    background-color: #00ab97;
+}

@@ -28,7 +28,7 @@ export const ControlledModal = ({shouldShow, onClose}) => {
     return shouldShow ? (<ModalBackground onclick={onClose}>
             <ModalBody onClick={e => e.stopPropagation()}>
                 <SelectDropdownMenu/>
-                <button className="close-modal mt-5" onClick={onClose}>X</button>
+                <button className="text-white shadow-btn-modal" onClick={onClose}>X</button>
             </ModalBody>
         </ModalBackground>
     ) : null;

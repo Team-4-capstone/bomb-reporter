@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import MapBox from "./Mapbox/MapBox";
 import {IconContext} from "react-icons";
 import {HiChevronDoubleDown} from "react-icons/hi";
-import {Carousel, Card} from "flowbite-react";
 import InfoCard from "./InfoCard";
 import Header from "./Header";
 
