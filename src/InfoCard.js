@@ -6,6 +6,7 @@ import {getServerData} from "./Mapbox/MapBox";
 import {Cities} from "./Mapbox/Cities";
 import Map, {Marker, Source, Layer, GeolocateControl} from "react-map-gl";
 import {AiTwotoneCheckCircle} from "react-icons/ai";
+import Modal from "./Modal";
 
 
 const layerStyle = {
@@ -20,6 +21,8 @@ const layerStyle = {
 function InfoCard() {
     const [reports, setreports] = useState([])
     const url = 'http://localhost:8081/api/reports';
+    const [isOpen, setIsOpen] = useState(false);
+
     useEffect(() => {
         axios.get(url)
             .then(res => {
@@ -38,13 +41,6 @@ function InfoCard() {
                 <img className="rounded-t-lg h-40 w-full" src={report.description.img_path}
                      alt="photo of reported UXO"/>
                 <div className="p-5">
-                    <a href="#"
-                       className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        More Details
-                        <svg className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
-                             xmlns="http://www.w3.org/2000/svg">
-                        </svg>
-                    </a>
                     <DataSource
                         getDataFunc={getServerData('https://www.mapquestapi.com/geocoding/v1/reverse?key=G1moSFJkXvMTf7kCVqTOPMh1SxtvJaGi&location=' + report.location.latitude + '%2C' + report.location.longitude + '&outFormat=json&thumbMaps=false')}
                         resourceName="prop">
@@ -79,8 +75,10 @@ function InfoCard() {
                     <div className="flex col-auto mt-4 justify-center">
                         <AiTwotoneCheckCircle style={{color: 'rgba(255, 0, 0, 0.6)', height: 30, width: 70}}/> <h2 className="p-0 m-0 w-1/2">- Danger
                         Zone (381 meters)</h2>
-
                     </div>
+                    <Modal>
+                        {report.category.category}
+                    </Modal>
                 </div>
             </div>
         )))
