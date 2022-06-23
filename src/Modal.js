@@ -4,7 +4,7 @@ import {useState} from "react";
 
 const ModalBackground = styled.div`
 position: fixed;
-z-index: 1;
+z-index: 4;
 left: 0;
 top: 0;
 width: 100%;
@@ -30,29 +30,25 @@ function Modal({children}) {
 
     return (
         <>
-            <a href="#" onClick={() => setShouldShow(true)}
-               className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                More Details
-                <svg className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
-                     xmlns="http://www.w3.org/2000/svg">
-                </svg>
-            </a>
+            <div className="flex justify-center">
+                <button className="text-white shadow-btn w-24 mt-4" onClick={() => setShouldShow(true)}>
+                    More Details
+                </button>
+            </div>
             {shouldShow && (
                 <ModalBackground>
                     <ModalBody onClick={(e) => e.stopPropagation()}>
                         {children}
-                        <a href="#" onClick={() => setShouldShow(false)}
-                           className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <button className="text-white shadow-btn mt-[16px]" onClick={() => setShouldShow(false)}>
                             Close
-                            <svg className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
-                                 xmlns="http://www.w3.org/2000/svg">
-                            </svg>
-                        </a>
-                        *Nomenclature of item only available once report has been verified and item is properly identified by an expert
+                        </button>
+                        *Nomenclature of item only available once report has been verified and item is properly
+                        identified by an expert
                     </ModalBody>
                 </ModalBackground>
             )}
         </>
     );
 }
+
 export default Modal;

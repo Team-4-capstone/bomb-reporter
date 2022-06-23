@@ -34,15 +34,20 @@ function InfoCard() {
     }, []);
 
     const modalContent = (report) => {
-        console.log(report.status.status);
-        console.log(typeof report.status.status);
         return (
             <div>
-                <p>Report Status: {report.status.status}</p>
-                <p>Nomenclature: </p>
-                <p>Category: {report.category.category}</p>
-                <p>Location (Latitude, Longitude): ({report.location.latitude}, {report.location.longitude})</p>
-                <p></p>
+                <div className="flex justify-center">
+                    <img className="max-w-full w-auto h-60" src ={report.description.img_path} alt="picture of reported UXO"/>
+                </div>
+                <ul className="more_details_list">
+                    <li>Report Status: {report.status.status}</li>
+                    <li>Nomenclature: </li>
+                    <li>Category: {report.category.category}</li>
+                    <li>Location (Latitude, Longitude): ({report.location.latitude}, {report.location.longitude})</li>
+                    <li>Description: {report.description.size}, {report.description.color}</li>
+                    <li>Quantity: {report.description.quantity}</li>
+                    <li>Secondary Color: {report.description.secondaryColor}</li>
+                </ul>
             </div>
         )
     }
@@ -87,10 +92,9 @@ function InfoCard() {
                         </Source>
                     </Map>
 
-                    <div className="flex col-auto mt-4 justify-center">
-                        <AiTwotoneCheckCircle style={{color: 'rgba(255, 0, 0, 0.6)', height: 30, width: 70}}/> <h2
-                        className="p-0 m-0 w-1/2">- Danger
-                        Zone (381 meters)</h2>
+                    <div className="flex col-auto mt-4 just items-center">
+                        <AiTwotoneCheckCircle style={{color: 'rgba(255, 0, 0, 0.6)', height: 30, width: 70}}/>
+                        <h3 className="p-0 m-0 w-full">Danger Zone (381 meters)</h3>
                     </div>
                     <Modal>
                         {modalContent(report)}
