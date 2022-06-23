@@ -33,6 +33,7 @@ function InfoCard() {
                 console.log(err);
             })
     }, []);
+
     const modalContent = (report) => {
         return (
             <div>
@@ -60,7 +61,7 @@ function InfoCard() {
                      alt="photo of reported UXO"/>
                 <div className="p-5">
                     <DataSource
-                        getDataFunc={getServerData(`https://www.mapquestapi.com/geocoding/v1/reverse?key=${QUESTKEY}&location=` + report.location.latitude + '%2C' + report.location.longitude + '&outFormat=json&thumbMaps=false')}
+                        getDataFunc={getServerData('https://www.mapquestapi.com/geocoding/v1/reverse?key=G1moSFJkXvMTf7kCVqTOPMh1SxtvJaGi&location=' + report.location.latitude + '%2C' + report.location.longitude + '&outFormat=json&thumbMaps=false')}
                         resourceName="prop">
                         <Cities/>
                     </DataSource>
@@ -78,7 +79,8 @@ function InfoCard() {
                         <Source id="my-data" type="geojson" data={{
                             type: 'FeatureCollection',
                             features: [
-                                {type: 'Feature',
+                                {
+                                    type: 'Feature',
                                     geometry: {
                                         type: 'Point',
                                         coordinates: [report.location.longitude, report.location.latitude]
@@ -90,12 +92,12 @@ function InfoCard() {
                         </Source>
                     </Map>
 
-                    <div className="flex col-auto mt-4 justify-center">
-                        <AiTwotoneCheckCircle style={{color: 'rgba(255, 0, 0, 0.6)', height: 30, width: 70}}/> <h2 className="p-0 m-0 w-1/2">- Danger
-                        Zone (381 meters)</h2>
+                    <div className="flex col-auto mt-4 just items-center">
+                        <AiTwotoneCheckCircle style={{color: 'rgba(255, 0, 0, 0.6)', height: 30, width: 70}}/>
+                        <h3 className="p-0 m-0 w-full">Danger Zone (381 meters)</h3>
                     </div>
                     <Modal>
-                        {report.category.category}
+                        {modalContent(report)}
                     </Modal>
                 </div>
             </div>
