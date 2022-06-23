@@ -1,15 +1,13 @@
 import React, {useRef, useEffect, useState} from 'react';
 import mapboxgl from 'mapbox-gl';  // eslint-disable-line import/no-webpack-loader-syntax
-import Map, {Marker} from "react-map-gl";
-import bomblogo from "./LogoWeb.png";
+import Map, {GeolocateControl, Marker} from "react-map-gl";
 import {MAPBOX} from "../Config";
 import axios from "axios";
 import {DataSource} from "../DataSource";
 import {Markers} from "../coordinatesForm/Markers";
-
 mapboxgl.accessToken = MAPBOX;
 
-const getServerData = url => async () => {
+export const getServerData = url => async () => {
     const response = await axios.get(url);
     return response.data;
 }
@@ -46,7 +44,7 @@ export default function MapBox(props) {
                 <Markers/>
             </DataSource>
 
-
+            <GeolocateControl/>
 
         </Map>
     ) : (
@@ -63,5 +61,7 @@ export default function MapBox(props) {
             <DataSource getDataFunc={getServerData('http://localhost:8081/api/reports')} resourceName="reports">
                 <Markers/>
             </DataSource>
+
+            <GeolocateControl trackUserLocation={true} showUserHeading={true}/>
         </Map>)
 }
