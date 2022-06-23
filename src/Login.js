@@ -1,25 +1,41 @@
 import {Link, Route} from "react-router-dom"
 import React, {useState} from "react";
 import './index/App.css';
+import PropTypes from "prop-types";
 
-export function Login() {
+
+//TODO: NEEDS POST REQUEST FROM BACKEND TO SEND LOG IN CREDENTIALS
+async function loginUser(credentials) {
+    return fetch('http://localhost:8080/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(credentials)
+    })
+        .then(data => data.json())
+}
+
+export function Login({ setToken }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = event => {
-        event.preventDefault(); // 👈️ prevent page refresh
 
-        // 👇️ access input values here
-        console.log('username 👉️', username);
-        console.log('password 👉️', password);
-    };
+    const handleSubmitLogIn = async e => {
+        e.preventDefault();
+        const token = await loginUser({
+            username,
+            password
+        });
+        setToken(token);
+    }
     return (
         <>
             <main className="index">
                 <div className="w-full max-w-xs mt-20">
 
                     <h1>Log in</h1>
-                    <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+                    <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmitLogIn}>
 
 
                         <div className="mb-4">
@@ -99,3 +115,7 @@ export function Login() {
         </>
     );
 }
+
+Login.propTypes = {
+    setToken: PropTypes.func.isRequired
+};
