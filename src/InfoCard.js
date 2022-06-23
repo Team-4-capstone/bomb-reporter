@@ -39,7 +39,7 @@ function InfoCard() {
         return (
             <div>
                 <p>Report Status: {report.status.status}</p>
-                <p>Nomenclature (Available only if report is verified): </p>
+                <p>Nomenclature: </p>
                 <p>Category: {report.category.category}</p>
                 <p>Location (Latitude, Longitude): ({report.location.latitude}, {report.location.longitude})</p>
                 <p></p>

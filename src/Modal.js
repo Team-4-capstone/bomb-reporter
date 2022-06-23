@@ -48,6 +48,7 @@ function Modal({children}) {
                                  xmlns="http://www.w3.org/2000/svg">
                             </svg>
                         </a>
+                        *Nomenclature of item only available once report has been verified and item is properly identified by an expert
                     </ModalBody>
                 </ModalBackground>
             )}
