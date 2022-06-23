@@ -7,8 +7,9 @@ import {Cities} from "./Mapbox/Cities";
 import Map, {Marker, Source, Layer, GeolocateControl} from "react-map-gl";
 import {AiTwotoneCheckCircle} from "react-icons/ai";
 import Modal from "./Modal";
+import {MAPQUEST} from "./Config";
 
-
+const QUESTKEY = MAPQUEST;
 const layerStyle = {
     id: 'point',
     type: 'circle',
@@ -33,7 +34,6 @@ function InfoCard() {
             })
     }, []);
 
-
     return (
         reports.map((report) => (
             <div key={report.id}
@@ -42,7 +42,7 @@ function InfoCard() {
                      alt="photo of reported UXO"/>
                 <div className="p-5">
                     <DataSource
-                        getDataFunc={getServerData('https://www.mapquestapi.com/geocoding/v1/reverse?key=G1moSFJkXvMTf7kCVqTOPMh1SxtvJaGi&location=' + report.location.latitude + '%2C' + report.location.longitude + '&outFormat=json&thumbMaps=false')}
+                        getDataFunc={getServerData(`https://www.mapquestapi.com/geocoding/v1/reverse?key=${QUESTKEY}&location=` + report.location.latitude + '%2C' + report.location.longitude + '&outFormat=json&thumbMaps=false')}
                         resourceName="prop">
                         <Cities/>
                     </DataSource>
