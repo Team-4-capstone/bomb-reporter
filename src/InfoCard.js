@@ -33,6 +33,24 @@ function InfoCard() {
                 console.log(err);
             })
     }, []);
+    const modalContent = (report) => {
+        return (
+            <div>
+                <div className="flex justify-center">
+                    <img className="max-w-full w-auto h-60" src ={report.description.img_path} alt="picture of reported UXO"/>
+                </div>
+                <ul className="more_details_list">
+                    <li>Report Status: {report.status.status}</li>
+                    <li>Nomenclature: </li>
+                    <li>Category: {report.category.category}</li>
+                    <li>Location (Latitude, Longitude): ({report.location.latitude}, {report.location.longitude})</li>
+                    <li>Description: {report.description.size}, {report.description.color}</li>
+                    <li>Quantity: {report.description.quantity}</li>
+                    <li>Secondary Color: {report.description.secondaryColor}</li>
+                </ul>
+            </div>
+        )
+    }
 
     return (
         reports.map((report) => (
