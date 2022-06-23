@@ -14,7 +14,7 @@ background-color: rgb(0,0,0,0.5);
 `;
 
 const ModalBody = styled.div`
-background-color: white;
+background-color: rgba(220,220,220);
 margin: 10% auto;
 padding: 20px;
 width: 90%;
