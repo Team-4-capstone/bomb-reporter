@@ -115,9 +115,9 @@ function InfoCard() {
 
     return (
         reports.map((report) => (
-            <div key={report.id}
+            <div key={report.id} style={{border: "outset"}}
                  className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <img className="rounded-t-lg h-40 w-full" src={report.description.img_path}
+                <img className="rounded-t-lg h-64 w-full" src={report.description.img_path}
                      alt="photo of reported UXO"/>
                 <div className="p-5">
                     {/*<DataSource*/}
