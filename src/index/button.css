@@ -44,23 +44,6 @@
     animation: bounce 2s infinite linear;
 }
 
-@keyframes bounce {
-    0% {
-        transform: translateX(-55%) translateY(-50%)
-    }
-    25% {
-        transform: translateX(-55%) translateY(-65%)
-    }
-    50% {
-        transform: translateX(-55%) translateY(-50%)
-    }
-    75% {
-        transform: translateX(-55%) translateY(-35%)
-    }
-    100% {
-        transform: translateX(-55%) translateY(-50%)
-    }
-}
 
 
 /* Button for Submitting location on Report Page*/
