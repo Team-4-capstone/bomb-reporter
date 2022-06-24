@@ -66,7 +66,9 @@ function InfoCard() {
             };
             onSubmit(report)
         }
+
         return report ? (
+
             <div>
                 <div className="flex justify-center">
                     <img className="w-auto h-60" src={report.description.img_path} alt="picture of reported UXO"/>
@@ -88,18 +90,21 @@ function InfoCard() {
                         <>
                             {
                                 report.posts.map((item, i) => (
-                                    <p className="bg-white">{report.posts[i].content}</p>
+                                    <div key={report.id}>
 
+                                        <p className="text-xs italic text-right">{report.posts[i].createdAt}</p>
+                                        <p className="bg-white mb-10">{report.posts[i].content}</p>
+                                    </div>
 
                                 ))
                             } </>) : <p>{report.posts.content}</p>}
-
 
                     <form className="upload mt-4 mb-4" onSubmit={event => event.preventDefault()}>
             <textarea className="mb-4 mt-4" id=" moreDetails" name="moreDetails" rows="4" cols="50"
                       onChange={event => setComments(event.target.value)}
                       placeholder="Add comments... ex: Possible UXO identification"/>
-                        <button className=" mx-auto w-1/4 bg-ukrBlue text-white shadow-btn" type="submit" onClick={handleChange}>
+                        <button className=" mx-auto w-1/4 bg-ukrBlue text-white shadow-btn" type="submit"
+                                onClick={handleChange}>
                             Add Comment
                         </button>
                     </form>
