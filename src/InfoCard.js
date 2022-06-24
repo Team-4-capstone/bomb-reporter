@@ -57,9 +57,9 @@ function InfoCard() {
                             //if successfully POST alert("successfully"), else  alert("unsuccessfully")
                         {
                             if (res.status === 200) {
-                                alert("report submitted successfully")
+                                alert("Comment added successfully")
                             } else {
-                                alert("error saving your report")
+                                alert("error")
                             }
                         }
                     )
@@ -71,7 +71,7 @@ function InfoCard() {
                 <div className="flex justify-center">
                     <img className="w-auto h-60" src={report.description.img_path} alt="picture of reported UXO"/>
                 </div>
-                <ul className="more_details_list">
+                <ul className="more_details_list mb-20">
                     <li>Report Status: {report.status.status}</li>
                     <li>Nomenclature:</li>
                     <li>Category: {report.category.category}</li>
@@ -79,27 +79,31 @@ function InfoCard() {
                     <li>Description: {report.description.size}, {report.description.color}</li>
                     <li>Quantity: {report.description.quantity}</li>
                     <li>Secondary Color: {report.description.secondaryColor}</li>
-                    <li>comments:</li>
+                </ul>
+                <div className="text-center mt-35 border-solid border-black w-1/2 mx-auto">
+                    <h3>Comments:</h3>
 
 
                     {report.posts ? (
                         <>
                             {
                                 report.posts.map((item, i) => (
-                                    <p>{report.posts[i].content}</p>
+                                    <p className="bg-white">{report.posts[i].content}</p>
 
 
                                 ))
                             } </>) : <p>{report.posts.content}</p>}
+                </div>
 
 
-                    <form className="upload mt-4 mb-4" onSubmit={event => event.preventDefault()}>
-            <textarea className="mb-4" id=" moreDetails" name="moreDetails" rows="4" cols="50"
+                <form className="upload mt-4 mb-4" onSubmit={event => event.preventDefault()}>
+            <textarea className="mb-4 mt-4" id=" moreDetails" name="moreDetails" rows="4" cols="50"
                       onChange={event => setComments(event.target.value)}
                       placeholder="Add comments... ex: Possible UXO identification"/>
-                        <input className="bg-ukrBlue text-white shadow-btn" type="submit" onClick={handleChange}/>
-                    </form>
-                </ul>
+                    <button className=" w-1/2 bg-ukrBlue text-white shadow-btn" type="submit" onClick={handleChange}>
+                        Add Comment
+                    </button>
+                </form>
             </div>
         ) : <p>loading</p>
     }

@@ -38,7 +38,7 @@ function Modal({children}) {
                 <ModalBackground>
                     <ModalBody onClick={(e) => e.stopPropagation()}>
                         {children}
-                        <button className="text-white shadow-btn mt-[16px]" onClick={() => setShouldShow(false)}>
+                        <button className=" w-1/2 text-white shadow-btn mt-[16px]" onClick={() => setShouldShow(false)}>
                             Close
                         </button>
                         *Nomenclature of item only available once report has been verified and item is properly
