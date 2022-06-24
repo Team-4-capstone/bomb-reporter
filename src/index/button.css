@@ -40,9 +40,9 @@
     color: #5A5560;
 }
 
-/*.noselect:hover, .noselectRep:hover {*/
-/*    animation: bounce 2s infinite linear;*/
-/*}*/
+.noselect:hover, .noselectRep:hover {
+    animation: bounce 2s infinite linear;
+}
 
 @keyframes bounce {
     0% {
@@ -118,10 +118,6 @@
     text-decoration: none;
     overflow: hidden;
 }
-
-/*.add-deets:hover .wave {*/
-/*    top: -120px;*/
-/*}*/
 
 .btnTxt {
     position: absolute;
