@@ -38,7 +38,7 @@ function InfoCard() {
         return (
             <div>
                 <div className="flex justify-center">
-                    <img className="max-w-full w-auto h-60" src ={report.description.img_path} alt="picture of reported UXO"/>
+                    <img className="w-auto h-60" src ={report.description.img_path} alt="picture of reported UXO"/>
                 </div>
                 <ul className="more_details_list">
                     <li>Report Status: {report.status.status}</li>
@@ -61,7 +61,7 @@ function InfoCard() {
                      alt="photo of reported UXO"/>
                 <div className="p-5">
                     <DataSource
-                        getDataFunc={getServerData('https://www.mapquestapi.com/geocoding/v1/reverse?key=G1moSFJkXvMTf7kCVqTOPMh1SxtvJaGi&location=' + report.location.latitude + '%2C' + report.location.longitude + '&outFormat=json&thumbMaps=false')}
+                        getDataFunc={getServerData(`https://www.mapquestapi.com/geocoding/v1/reverse?key=${QUESTKEY}&location=` + report.location.latitude + '%2C' + report.location.longitude + '&outFormat=json&thumbMaps=false')}
                         resourceName="prop">
                         <Cities/>
                     </DataSource>
@@ -94,7 +94,7 @@ function InfoCard() {
 
                     <div className="flex col-auto mt-4 just items-center">
                         <AiTwotoneCheckCircle style={{color: 'rgba(255, 0, 0, 0.6)', height: 30, width: 70}}/>
-                        <h3 className="p-0 m-0 w-full">Danger Zone (381 meters)</h3>
+                        <h3 className="p-0 m-0 w-full">Danger Area (381 meters)</h3>
                     </div>
                     <Modal>
                         {modalContent(report)}
