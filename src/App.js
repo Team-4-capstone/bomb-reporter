@@ -29,10 +29,11 @@ export default function App() {
 `;
     return (
         isLoading ?
-
-            // If page is still loading then splash screen
+            <div className="grid h-screen place-items-center mr-80">
+            {/*If page is still loading then splash screen*/}
             <PacmanLoader color={'#36D7B7'} isLoading={isLoading}
-                          css={override} size={150} /> :
+                          css={override} size={150} />
+            </div>:
 
         <div className="App fill-window">
 
