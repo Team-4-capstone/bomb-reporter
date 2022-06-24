@@ -8,6 +8,8 @@ import Map, {Marker, Source, Layer, GeolocateControl} from "react-map-gl";
 import {AiTwotoneCheckCircle} from "react-icons/ai";
 import Modal from "./Modal";
 import {MAPQUEST} from "./Config";
+import bomblogo from "./Mapbox/LogoWeb.png";
+import log from "tailwindcss/lib/util/log";
 
 const QUESTKEY = MAPQUEST;
 const layerStyle = {
@@ -23,6 +25,8 @@ function InfoCard() {
     const [reports, setreports] = useState([])
     const url = 'http://localhost:8081/api/reports';
     const [isOpen, setIsOpen] = useState(false);
+    const [comments, setComments] = useState(null);
+    const [reportId, setReportId] = useState(null);
 
     useEffect(() => {
         axios.get(url)
@@ -33,24 +37,71 @@ function InfoCard() {
                 console.log(err);
             })
     }, []);
-
     const modalContent = (report) => {
-        return (
+
+        const handleChange = () => {
+            const onSubmit = (report) => {
+                const objectToFetch = {
+                    "comments": comments
+                }
+
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(objectToFetch),
+                };
+                const res = fetch(`http://localhost:8081/api/reports/posts?id=${report.id}`, options)
+                    .then(res =>
+                            //if successfully POST alert("successfully"), else  alert("unsuccessfully")
+                        {
+                            if (res.status === 200) {
+                                alert("report submitted successfully")
+                            } else {
+                                alert("error saving your report")
+                            }
+                        }
+                    )
+            };
+            onSubmit(report)
+        }
+        return report ? (
             <div>
                 <div className="flex justify-center">
-                    <img className="w-auto h-60" src ={report.description.img_path} alt="picture of reported UXO"/>
+                    <img className="w-auto h-60" src={report.description.img_path} alt="picture of reported UXO"/>
                 </div>
                 <ul className="more_details_list">
                     <li>Report Status: {report.status.status}</li>
-                    <li>Nomenclature: </li>
+                    <li>Nomenclature:</li>
                     <li>Category: {report.category.category}</li>
                     <li>Location (Latitude, Longitude): ({report.location.latitude}, {report.location.longitude})</li>
                     <li>Description: {report.description.size}, {report.description.color}</li>
                     <li>Quantity: {report.description.quantity}</li>
                     <li>Secondary Color: {report.description.secondaryColor}</li>
+                    <li>comments:</li>
+
+
+                    {report.posts ? (
+                        <>
+                            {
+                                report.posts.map((item, i) => (
+                                    <p>{report.posts[i].content}</p>
+
+
+                                ))
+                            } </>) : <p>{report.posts.content}</p>}
+
+
+                    <form className="upload mt-4 mb-4" onSubmit={event => event.preventDefault()}>
+            <textarea className="mb-4" id=" moreDetails" name="moreDetails" rows="4" cols="50"
+                      onChange={event => setComments(event.target.value)}
+                      placeholder="Add comments... ex: Possible UXO identification"/>
+                        <input className="bg-ukrBlue text-white shadow-btn" type="submit" onClick={handleChange}/>
+                    </form>
                 </ul>
             </div>
-        )
+        ) : <p>loading</p>
     }
 
     return (
@@ -60,11 +111,11 @@ function InfoCard() {
                 <img className="rounded-t-lg h-40 w-full" src={report.description.img_path}
                      alt="photo of reported UXO"/>
                 <div className="p-5">
-                    <DataSource
-                        getDataFunc={getServerData(`https://www.mapquestapi.com/geocoding/v1/reverse?key=${QUESTKEY}&location=` + report.location.latitude + '%2C' + report.location.longitude + '&outFormat=json&thumbMaps=false')}
-                        resourceName="prop">
-                        <Cities/>
-                    </DataSource>
+                    {/*<DataSource*/}
+                    {/*    getDataFunc={getServerData(`https://www.mapquestapi.com/geocoding/v1/reverse?key=${QUESTKEY}&location=` + report.location.latitude + '%2C' + report.location.longitude + '&outFormat=json&thumbMaps=false')}*/}
+                    {/*    resourceName="prop">*/}
+                    {/*    <Cities/>*/}
+                    {/*</DataSource>*/}
                     <Map
                         viewState={{
                             latitude: report.location.latitude,
@@ -104,8 +155,8 @@ function InfoCard() {
         )))
 
 
-//
-//     <Card key={report.id} className="rounded overflow-hidden shadow-lg"
+    //
+    // <Card key={report.id} className="rounded overflow-hidden shadow-lg"
     //       imgAlt="Meaningful alt text for an image that is not purely decorative" style={{width:314}}
     //       imgSrc={report.description.img_path}>
     //     <div className="w-150">

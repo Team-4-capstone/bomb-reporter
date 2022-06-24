@@ -44,7 +44,7 @@ export function Register() {
                                 type="text"
                                 name="username"
                                 placeholder="Username"
-                                onChange={event => setUsername(event.target.value)}
+
                                 required
                             />
                         </div>

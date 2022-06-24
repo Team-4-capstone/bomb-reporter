@@ -27,7 +27,6 @@ justify-content: space-between;
 function Modal({children}) {
     const [shouldShow, setShouldShow] = useState(false);
 
-
     return (
         <>
             <div className="flex justify-center">
