@@ -80,7 +80,7 @@ function InfoCard() {
                     <li>Quantity: {report.description.quantity}</li>
                     <li>Secondary Color: {report.description.secondaryColor}</li>
                 </ul>
-                <div className="text-center mt-35 border-solid border-black w-1/2 mx-auto">
+                <div className="text-center mt-35 border-solid border-black w-1/2 mx-auto p-4">
                     <h3>Comments:</h3>
 
 
@@ -93,17 +93,17 @@ function InfoCard() {
 
                                 ))
                             } </>) : <p>{report.posts.content}</p>}
-                </div>
 
 
-                <form className="upload mt-4 mb-4" onSubmit={event => event.preventDefault()}>
+                    <form className="upload mt-4 mb-4" onSubmit={event => event.preventDefault()}>
             <textarea className="mb-4 mt-4" id=" moreDetails" name="moreDetails" rows="4" cols="50"
                       onChange={event => setComments(event.target.value)}
                       placeholder="Add comments... ex: Possible UXO identification"/>
-                    <button className=" w-1/2 bg-ukrBlue text-white shadow-btn" type="submit" onClick={handleChange}>
-                        Add Comment
-                    </button>
-                </form>
+                        <button className=" mx-auto w-1/4 bg-ukrBlue text-white shadow-btn" type="submit" onClick={handleChange}>
+                            Add Comment
+                        </button>
+                    </form>
+                </div>
             </div>
         ) : <p>loading</p>
     }
@@ -157,29 +157,6 @@ function InfoCard() {
                 </div>
             </div>
         )))
-
-
-    //
-    // <Card key={report.id} className="rounded overflow-hidden shadow-lg"
-    //       imgAlt="Meaningful alt text for an image that is not purely decorative" style={{width:314}}
-    //       imgSrc={report.description.img_path}>
-    //     <div className="w-150">
-    //         <ListGroup>
-    //             <ListGroup.Item>
-    //                 Category: {report.category.category}
-    //             </ListGroup.Item>
-    //             <ListGroup.Item>
-    //                 <p>Location: Latitude: {report.location.latitude} Longitude: {report.location.longitude}</p>
-    //             </ListGroup.Item>
-    //             <ListGroup.Item>
-    //                 Messages
-    //             </ListGroup.Item>
-    //             <ListGroup.Item>
-    //                 Download
-    //             </ListGroup.Item>
-    //         </ListGroup>
-    //     </div>
-    // </Card>)))
 }
 
 export default InfoCard;

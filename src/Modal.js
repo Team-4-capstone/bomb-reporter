@@ -38,11 +38,11 @@ function Modal({children}) {
                 <ModalBackground>
                     <ModalBody onClick={(e) => e.stopPropagation()}>
                         {children}
-                        <button className=" w-1/2 text-white shadow-btn mt-[16px]" onClick={() => setShouldShow(false)}>
+                        <button className=" w-3/4 mx-auto text-white shadow-btn mt-[16px]" onClick={() => setShouldShow(false)}>
                             Close
                         </button>
-                        *Nomenclature of item only available once report has been verified and item is properly
-                        identified by an expert
+                        <p className="mb-0 mt-10 text-center">*Nomenclature of item only available once report has been verified and item is properly
+                        identified by an expert</p>
                     </ModalBody>
                 </ModalBackground>
             )}
