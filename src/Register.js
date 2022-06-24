@@ -8,18 +8,34 @@ import {Report} from "./Report";
 import {Login} from "./Login";
 
 export function Register() {
-    const [username, setUsername] = useState('');
+    const [lastName, setLastname] = useState('');
+    const [firstName, setFirstName] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
 
     const handleSubmit = event => {
-        event.preventDefault(); // 👈️ prevent page refresh
-
-        // 👇️ access input values here
-        console.log('username 👉️', username);
-        console.log('password 👉️', password);
-
+        event.preventDefault();
         console.log('password 👉️', email);
+        const objectToFetch = {
+            "firstName": firstName,
+            "lastName": lastName,
+            "email": email,
+            "password": password
+        }
+
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(objectToFetch),
+        };
+
+        const res = fetch(`http://localhost:8081/api/registration`, options)
+            .then(res => res.json())
+            .then(json => {
+                console.log(json)
+            })
 
     };
     return (
@@ -40,11 +56,22 @@ export function Register() {
                                 className="shadow appearance-none border
                                  rounded w-full py-2 px-1 text-gray-700 leading-tight
                                  focus:outline-none focus:shadow-outline"
-                                id="username"
+                                id="first-name"
                                 type="text"
-                                name="username"
-                                placeholder="Username"
-                                onChange={event => setUsername(event.target.value)}
+                                name="first-name"
+                                placeholder="first-name"
+                                onChange={event => setFirstName(event.target.value)}
+                                required
+                            />
+                            <input
+                                className="shadow appearance-none border
+                                 rounded w-full py-2 px-1 text-gray-700 leading-tight
+                                 focus:outline-none focus:shadow-outline"
+                                id="last-name"
+                                type="text"
+                                name="last-name"
+                                placeholder="last-name"
+                                onChange={event => setLastname(event.target.value)}
                                 required
                             />
                         </div>
