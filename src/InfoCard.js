@@ -103,7 +103,7 @@ function InfoCard() {
             <textarea className="mb-4 mt-4" id=" moreDetails" name="moreDetails" rows="4" cols="50"
                       onChange={event => setComments(event.target.value)}
                       placeholder="Add comments... ex: Possible UXO identification"/>
-                        <button className=" mx-auto w-1/4 bg-ukrBlue text-white shadow-btn" type="submit"
+                        <button className="cursor-pointer mx-auto w-1/4 bg-ukrBlue text-white shadow-btn" type="submit"
                                 onClick={handleChange}>
                             Add Comment
                         </button>

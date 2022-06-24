@@ -30,7 +30,7 @@ function Modal({children}) {
     return (
         <>
             <div className="flex justify-center">
-                <button className="text-white shadow-btn w-24 mt-4" onClick={() => setShouldShow(true)}>
+                <button className="text-white shadow-btn w-24 mt-4 cursor-pointer" onClick={() => setShouldShow(true)}>
                     More Details
                 </button>
             </div>
@@ -38,7 +38,7 @@ function Modal({children}) {
                 <ModalBackground>
                     <ModalBody onClick={(e) => e.stopPropagation()}>
                         {children}
-                        <button className=" w-3/4 mx-auto text-white shadow-btn mt-[16px]" onClick={() => setShouldShow(false)}>
+                        <button className="cursor-pointer w-3/4 mx-auto text-white shadow-btn mt-[16px]" onClick={() => setShouldShow(false)}>
                             Close
                         </button>
                         <p className="mb-0 mt-10 text-center">*Nomenclature of item only available once report has been verified and item is properly
