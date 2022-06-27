@@ -4,8 +4,7 @@ import {Connection} from "./Connection";
 import {Report} from "./Report";
 import {Login} from "./Login"
 import {Register} from "./Register"
-import React , { useState, useEffect } from "react";
-import PacmanLoader from "react-spinners/PacmanLoader";
+import React from "react";
 
 export default function App() {
 
