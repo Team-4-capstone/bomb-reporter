@@ -5,6 +5,8 @@ import {Report} from "./Report";
 import {Login} from "./Login"
 import {Register} from "./Register"
 import React from "react";
+import CollapsibleAbout from "./CollapsibleAbout";
+
 
 export default function App() {
 
@@ -18,6 +20,7 @@ export default function App() {
                 <Route path="report" element={<Report/>}/>
                 <Route path="login" element={<Login/>}/>
                 <Route path="register" element={<Register/>}/>
+                <Route path="CollapsibleAbout" element={<CollapsibleAbout/>}/>
                 <Route
                     path="*"
                     element={
