@@ -4,11 +4,13 @@ import './index/App.css';
 import { HiChevronDoubleDown } from 'react-icons/hi';
 import { IconContext } from "react-icons";
 import Geolocator from "./coordinatesForm/Geolocator";
+import {Splash} from './splash';
 
 export function Home() {
     return (
         <>
-            <main className="index flex h-full justify-center">
+            <Splash/>
+            <main className="index flex h-full ">
                     <Geolocator/>
             </main>
             <div className="fill-window flex justify-center">

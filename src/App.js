@@ -10,30 +10,30 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 
 
 export default function App() {
-    // Loading state
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-
-        // Wait for 3 seconds
-        setTimeout(() => {
-            setIsLoading(false);
-        }, 1000);
-    }, []);
-
-    // Custom css for loader
-    const override = `
-  display: block;
-  margin: 0 auto;
-  border-color: red;
-`;
+//     // Loading state
+//     const [isLoading, setIsLoading] = useState(true);
+//
+//     useEffect(() => {
+//
+//         // Wait for 3 seconds
+//         setTimeout(() => {
+//             setIsLoading(false);
+//         }, 1000);
+//     }, []);
+//
+//     // Custom css for loader
+//     const override = `
+//   display: block;
+//   margin: 0 auto;
+//   border-color: red;
+// `;
     return (
-        isLoading ?
-            <div className="grid h-screen place-items-center mr-80">
-            {/*If page is still loading then splash screen*/}
-            <PacmanLoader color={'#36D7B7'} isLoading={isLoading}
-                          css={override} size={150} />
-            </div>:
+        // isLoading ?
+        //     <div className="grid h-screen place-items-center mr-80">
+        //     {/*If page is still loading then splash screen*/}
+        //     <PacmanLoader color={'#36D7B7'} isLoading={isLoading}
+        //                   css={override} size={150} />
+        //     </div>:
 
         <div className="App fill-window">
 

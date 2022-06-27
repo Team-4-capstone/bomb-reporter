@@ -100,11 +100,11 @@ export default function Geolocator() {
             </>
         ) :
         <>
-
-            <div className="grid h-screen place-items-center">
+            <div className="grid h-screen place-content-center place-items-center">
+                <div className="text-3xl mb-5"> Submit your location below <br/> if you have found a bomb. </div>
                 <button onClick={getLocation} className="cursor-pointer inline-block h-72 w-72 rounded-full text-gray-700  border-solid bg-gradient-to-r from-yellow-400 to-blue-600
                 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium
-    text-2xl px-5 py-2.5 text-center mr-2 mb-2"><h2>{placheHolderText[index]}</h2>
+    text-2xl px-5 py-2.5 text-center mb-2"><h2>{placheHolderText[index]}</h2>
                 </button>
             </div>
         </>
