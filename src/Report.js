@@ -5,11 +5,16 @@ import './index/button.css';
 import Geolocator from "./coordinatesForm/Geolocator";
 import {IconContext} from "react-icons";
 import {HiChevronDoubleDown} from "react-icons/hi";
+import CollapsibleAbout from "./CollapsibleAbout";
+
+
+
 
 export function Report() {
 
     return (
         <>
+            <CollapsibleAbout/>
             <main className="index flex h-full justify-center">
                     <Geolocator/>
             </main>
