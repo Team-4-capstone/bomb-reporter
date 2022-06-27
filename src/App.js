@@ -2,10 +2,13 @@ import {Routes, Route} from "react-router-dom";
 import {Home} from "./Home.js";
 import {Connection} from "./Connection";
 import {Report} from "./Report";
-import {Login} from "./Login"
-import {Register} from "./Register"
+import {Login} from "./Login" ;
+import {Register} from "./Register" ;
+import CollapsibleAbout from "./CollapsibleAbout";
+import Header from "./Header";
 import React , { useState, useEffect } from "react";
 import PacmanLoader from "react-spinners/PacmanLoader";
+
 
 export default function App() {
 
@@ -19,6 +22,7 @@ export default function App() {
                 <Route path="report" element={<Report/>}/>
                 <Route path="login" element={<Login/>}/>
                 <Route path="register" element={<Register/>}/>
+                <Route path="CollapsibleAbout" element={<CollapsibleAbout/>}/>
                 <Route
                     path="*"
                     element={
