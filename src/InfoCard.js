@@ -57,7 +57,13 @@ function InfoCard() {
                             //if successfully POST alert("successfully"), else  alert("unsuccessfully")
                         {
                             if (res.status === 200) {
-                                alert("Comment added successfully")
+                                axios.get(url)
+                                    .then(res => {
+                                        setreports(res.data);
+                                    })
+                                    .catch(err => {
+                                        console.log(err);
+                                    })
                             } else {
                                 alert("error")
                             }
