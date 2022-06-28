@@ -2,7 +2,7 @@ import {Routes, Route} from "react-router-dom";
 import {Home} from "../pages/Home.js";
 import {Connection} from "../pages/Connection";
 import {Report} from "../pages/Report";
-import {Login} from "../pages/Login"
+import {Login} from "../Login"
 import {Register} from "../pages/Register"
 import React from "react";
 import CollapsibleAbout from "../utils/CollapsibleAbout";

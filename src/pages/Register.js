@@ -5,7 +5,7 @@ import {useState} from "react";
 import {Home} from "./Home";
 import {Connection} from "./Connection";
 import {Report} from "./Report";
-import {Login} from "./Login";
+import {Login} from "../Login";
 import Header from "../utils/Header";
 
 export function Register() {

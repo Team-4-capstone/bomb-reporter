@@ -1,7 +1,7 @@
 import {Link, Route} from "react-router-dom"
 import React, {useState} from "react";
-import '../css/App.css';
-import Header from "../utils/Header";
+import './css/App.css';
+import Header from "./utils/Header";
 
 export function Login() {
     const [username, setUsername] = useState('');
