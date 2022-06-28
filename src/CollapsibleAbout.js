@@ -24,6 +24,8 @@ function Collapsible() {
                       Click this I promise you will be happy!
                         <br/><br/>
                       <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ ">THIS</a>
+                      <p> or </p>
+                      <a href="https://www.misterrogers.org/">THAT</a>
                   </p>
                 </div>
             </div>

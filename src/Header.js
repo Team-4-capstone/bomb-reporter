@@ -38,11 +38,11 @@ function Header() {
         )
     }
 
-    const HamburgerMenu = <CgMenu size='30px' color='#FFDD00' className="absolute right-4 cursor-pointer"
+    const HamburgerMenu = <CgMenu size='30px' color='#FFDD00' className="absolute right-6 cursor-pointer"
                                   onClick={() =>
                                       setOpen(!open)}/>
 
-    const CloseHamburgerButton = <CgClose size='30px' color='#FFDD00' className="absolute right-4 cursor-pointer"
+    const CloseHamburgerButton = <CgClose size='30px' color='#FFDD00' className="absolute right-6 cursor-pointer"
                                           onClick={() =>
                                               setOpen(!open)}/>
 
@@ -64,7 +64,7 @@ function Header() {
             {/*Hamburger Menu Open and Close*/}
             {open ? CloseHamburgerButton : HamburgerMenu}
             {open && navLinks()}
-            <GiFrenchFries className={"absolute right-0"}/>
+            <GiFrenchFries className={"absolute right-0 fill-yellow-300 text-2xl"}/>
         </nav>
     )
 }

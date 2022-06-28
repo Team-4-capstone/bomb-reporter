@@ -1,5 +1,4 @@
 import React , { useState, useEffect } from "react";
-// import PacmanLoader from "react-spinners/PacmanLoader";
 
 function LoadingMessage() {
     return (
@@ -32,7 +31,7 @@ export function Splash() {
 
     return (
         isLoading ?
-            <div className="grid h-screen place-items-center mr-80">
+            <div className="grid fill-window h-screen place-items-center mr-80">
                 {/*If page is still loading then splash screen*/}
                 <LoadingMessage isLoading={isLoading}/>
             </div>: null

@@ -14,7 +14,7 @@ export function Home() {
             <main className="index flex h-full ">
                     <Geolocator/>
             </main>
-            <div className="fill-window flex justify-center">
+            <div className="flex justify-center">
                 <nav className="fixed bottom-10">
                     <button className="h-20 w-20 rounded-full border-solid border-solid bg-gradient-to-r from-yellow-400 to-blue-600 text-gray-600 font-bold">HOME
                         <IconContext.Provider value={{color: "#5A5560", size: "2.2em"}}>

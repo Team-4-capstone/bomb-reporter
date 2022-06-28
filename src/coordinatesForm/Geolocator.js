@@ -83,7 +83,7 @@ export default function Geolocator() {
                     onClose={() => setShouldShowModal(false)}
                 />
 
-                <h3 className="text-ukrYellow text-center bg-ukrBlue h-20 flex justify-center items-center m-0 mb-4">Your
+                <h3 className="text-ukrYellow text-center bg-ukrBlue h-20 flex fill-window justify-center items-center m-0 mb-4 ">Your
                     location has been submitted!
                     Would you like to add more details?
                 </h3>
