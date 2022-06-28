@@ -6,6 +6,7 @@ import {Home} from "./Home";
 import {Connection} from "./Connection";
 import {Report} from "./Report";
 import {Login} from "./Login";
+import Header from "./Header";
 
 export function Register() {
     const [username, setUsername] = useState('');
@@ -24,6 +25,7 @@ export function Register() {
     };
     return (
         <>
+            <Header/>
             <main className="index">
                 <div className="w-full max-w-xs mt-20">
 
@@ -102,15 +104,6 @@ export function Register() {
 
 
             </main>
-
-
-            <nav className="flex items-center justify-between w-1/2 mx-auto my-10">
-
-                <Link to="/">Home</Link>
-                <Link to="/connection">Connection</Link>
-                <Link to="/report">Report</Link>
-            </nav>
-
         </>
     );
 }

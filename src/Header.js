@@ -1,27 +1,68 @@
 import React from "react";
 import bomblogo from "./Mapbox/LogoWeb.png";
-import {Link} from "react-router-dom";
+import {Link, Route} from "react-router-dom";
+import {CgMenu} from 'react-icons/cg';
+import {useState} from "react";
+import {CgClose} from 'react-icons/cg';
 
 function Header() {
+    const [open, setOpen] = useState(false);
+
+    // ----- All Nav links -----
+    const navLinks = () => {
+        return (
+            <ul className="flex flex-col absolute top-[52px] list-none right-0 bg-ukrBlue m-0 pl-4
+            leading-9 w-full">
+                <li className= "w-full">
+                    <Link to="/connection">
+                        Home
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/report">
+                        Report UXO
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/login">
+                        Login
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/register">
+                        Register
+                    </Link>
+                </li>
+            </ul>
+        )
+    }
+
+    const HamburgerMenu = <CgMenu size='30px' color='#FFDD00' className="absolute right-4 cursor-pointer"
+                                  onClick={() =>
+                                      setOpen(!open)}/>
+
+    const CloseHamburgerButton = <CgClose size='30px' color='#FFDD00' className="absolute right-4 cursor-pointer"
+                                          onClick={() =>
+                                              setOpen(!open)}/>
 
 
+    // ----- JSX -----
     return (
-        <nav id="header" className="relative sticky top-0 z-50 sticky bg-ukrBlue p-2 md:px-3">
+        <nav id="header" className="absolute right-2 sticky top-0 z-50 sticky bg-ukrBlue p-2 flex items-center">
 
             {/*Left*/}
             <Link className="no-underline" to="/">
-                <div className="relative flex items-center my-auto h-10 px-10">
-                    <img id="bombLogo" className="h-10 cursor-pointer" src={bomblogo} alt="bomb logo with ukraine colors"/>
-                    <div className="pl-4 z-50"><p id="nav-text" className="sm:text-3xl dropshadowtext font-lato text-ukrYellow">Bomb Reporter</p></div>
+                <div className="relative flex items-center my-auto h-10 left-2">
+                    <img id="bombLogo" className="h-10 cursor-pointer" src={bomblogo}
+                         alt="bomb logo with ukraine colors"/>
+                    <div className="pl-4 z-50 font-lato text-ukrYellow text-xl"><p id="nav-text">Bomb
+                        Reporter</p></div>
                 </div>
             </Link>
 
-            {/*right*/}
-            {/*<div className="flex items-center justify-end">*/}
-            {/*    <svg id="dropDownDots" xmlns="http://www.w3.org/2000/svg" className="cursor-pointer h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="#FFDD00" strokeWidth={2}>*/}
-            {/*        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />*/}
-            {/*    </svg>*/}
-            {/*</div>*/}
+            {/*Hamburger Menu Open and Close*/}
+            {open ? CloseHamburgerButton : HamburgerMenu}
+            {open && navLinks()}
 
         </nav>
     )
