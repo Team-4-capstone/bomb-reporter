@@ -19,7 +19,6 @@ export function Register() {
         // 👇️ access input values here
         console.log('username 👉️', username);
         console.log('password 👉️', password);
-
         console.log('password 👉️', email);
 
     };
@@ -28,12 +27,8 @@ export function Register() {
             <Header/>
             <main className="index">
                 <div className="w-full max-w-xs mt-20">
-
-
                     <h1>register</h1>
                     <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
-
-
                         <div className="mb-4">
                             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
                                 Username
@@ -46,7 +41,6 @@ export function Register() {
                                 type="text"
                                 name="username"
                                 placeholder="Username"
-
                                 required
                             />
                         </div>
@@ -68,7 +62,6 @@ export function Register() {
                             />
                         </div>
 
-
                         <div className="mb-6">
                             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
                                 Password
@@ -84,7 +77,6 @@ export function Register() {
                                 placeholder="password"
                                 onChange={event => setPassword(event.target.value)}
                                 required
-
                             />
                         </div>
                         <div className="flex items-center justify-center">
@@ -98,11 +90,9 @@ export function Register() {
                         </div>
                     </form>
                     <p className="text-center text-gray-500 text-xs">
-                        &copy;2022 Bomb Reported. All rights reserved
+                        &copy;2022 Bomb Reporter. All rights reserved
                     </p>
                 </div>
-
-
             </main>
         </>
     );

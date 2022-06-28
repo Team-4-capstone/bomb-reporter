@@ -7,9 +7,6 @@ import {IconContext} from "react-icons";
 import {HiChevronDoubleDown} from "react-icons/hi";
 import CollapsibleAbout from "./CollapsibleAbout";
 
-
-
-
 export function Report() {
 
     return (

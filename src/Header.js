@@ -4,6 +4,7 @@ import {Link, Route} from "react-router-dom";
 import {CgMenu} from 'react-icons/cg';
 import {useState} from "react";
 import {CgClose} from 'react-icons/cg';
+import {GiFrenchFries} from 'react-icons/gi';
 
 function Header() {
     const [open, setOpen] = useState(false);
@@ -63,7 +64,7 @@ function Header() {
             {/*Hamburger Menu Open and Close*/}
             {open ? CloseHamburgerButton : HamburgerMenu}
             {open && navLinks()}
-
+            <GiFrenchFries className={"absolute right-0"}/>
         </nav>
     )
 }
