@@ -11,7 +11,7 @@ import CollapsibleAbout from "./CollapsibleAbout";
 export default function App() {
 
     return (
-        <div className="App fill-window">
+        <div className="App">
 
             {/*<Header className=""/>*/}
             <Routes>
