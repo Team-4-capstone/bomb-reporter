@@ -283,7 +283,9 @@ export const SelectDropdownMenu = () => {
 
                 {responseAwsLocation ? <div className="relative mt-2 h-[250px]"><img className="fill-window"
                                                                                      src={responseAwsLocation}
-                                                                                     alt="responseAWS"/>
+                                                                                     alt="responseAWS"
+                                                                                     style={{height: 250, width: 200}}
+                    />
                     </div>
                     : ""}
 
