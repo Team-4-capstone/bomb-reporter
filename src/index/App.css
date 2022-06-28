@@ -8,7 +8,8 @@
 html, body {
     /*background-image: url(360_F_489358243_oJKsX627y6lcR6vyRb9pjYFUgfsiIgV1.jpg);*/
     background-size: cover;
-    background-color: rgba(220,220,220, .5);
+    /*background-color: #9D8D8F;*/
+    background-color: rgba(210,210,210, .7);
     font-family: Roboto, serif;
     height: 100%;
     width: 100%;
@@ -103,4 +104,8 @@ html, body {
         left: 90px;
         color: #eee;
     }
+}
+
+.poweredBy {
+    margin-top: -30px;
 }
