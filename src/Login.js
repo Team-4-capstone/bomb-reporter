@@ -2,6 +2,13 @@ import {Link, Route} from "react-router-dom"
 import React, {useState} from "react";
 import './index/App.css';
 import Header from "./Header";
+import fbLogo from './fb-logo.png';
+import googleLogo from './google-logo.png';
+import githubLogo from './github-logo.png';
+import bomblogo from "./Mapbox/LogoWeb.png";
+
+
+
 
 export function Login() {
     const [username, setUsername] = useState('');
@@ -83,6 +90,14 @@ export function Login() {
                     <p className="text-center text-gray-500 text-xs">
                         &copy;2022 Bomb Reporter. All rights reserved
                     </p>
+                </div>
+                <div className="social-login">
+                    <a className="btn btn-block social-btn facebook  h-10" href={<a href="#"></a>}>
+                        <img src={fbLogo} alt="Facebook" /></a>
+                    <a className="btn btn-block social-btn google " href={<a href="#"></a>}>
+                        <img src={googleLogo} alt="Google" /></a>
+                    <a className="btn btn-block social-btn github h-10"  href={<a href="#"></a>}>
+                        <img src={githubLogo} alt="Github"  /></a>
                 </div>
             </main>
         </>
