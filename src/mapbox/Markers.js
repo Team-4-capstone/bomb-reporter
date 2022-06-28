@@ -1,5 +1,5 @@
 import {Marker} from "react-map-gl";
-import bomblogo from "../Mapbox/LogoWeb.png";
+import bomblogo from "../photos/LogoWeb.png";
 
 export const Markers = (report) => {
     const {category, description, id, location, moreDetails, status} = report || undefined;

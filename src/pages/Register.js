@@ -1,12 +1,12 @@
 import {Link, Route} from "react-router-dom"
 import React from "react";
-import './index/App.css';
+import '../css/App.css';
 import {useState} from "react";
 import {Home} from "./Home";
 import {Connection} from "./Connection";
 import {Report} from "./Report";
 import {Login} from "./Login";
-import Header from "./Header";
+import Header from "../utils/Header";
 
 export function Register() {
     const [username, setUsername] = useState('');

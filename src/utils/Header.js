@@ -1,5 +1,5 @@
 import React from "react";
-import bomblogo from "./Mapbox/LogoWeb.png";
+import bomblogo from "../photos/LogoWeb.png";
 import {Link, Route} from "react-router-dom";
 import {CgMenu} from 'react-icons/cg';
 import {useState} from "react";

@@ -1,6 +1,6 @@
 import useCollapse from 'react-collapsed';
 import React from "react";
-import './index/App.css';
+import '../css/App.css';
 
 function Collapsible() {
     const {getCollapseProps, getToggleProps, isExpanded} = useCollapse();

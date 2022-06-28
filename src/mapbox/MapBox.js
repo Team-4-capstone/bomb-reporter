@@ -3,8 +3,8 @@ import mapboxgl from 'mapbox-gl';  // eslint-disable-line import/no-webpack-load
 import Map, {GeolocateControl, Marker} from "react-map-gl";
 import {MAPBOX} from "../Config";
 import axios from "axios";
-import {DataSource} from "../DataSource";
-import {Markers} from "../coordinatesForm/Markers";
+import {DataSource} from "../utils/DataSource";
+import {Markers} from "./Markers";
 mapboxgl.accessToken = MAPBOX;
 
 export const getServerData = url => async () => {

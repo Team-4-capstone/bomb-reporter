@@ -1,11 +1,11 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import './index/App.css';
-import './index/button.css';
-import Geolocator from "./coordinatesForm/Geolocator";
+import '../css/App.css';
+import '../css/button.css';
+import Geolocator from "../utils/Geolocator";
 import {IconContext} from "react-icons";
 import {HiChevronDoubleDown} from "react-icons/hi";
-import CollapsibleAbout from "./CollapsibleAbout";
+import CollapsibleAbout from "../utils/CollapsibleAbout";
 
 export function Report() {
 

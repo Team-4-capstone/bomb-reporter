@@ -1,10 +1,10 @@
 import {Link} from "react-router-dom"
 import React from "react";
-import './index/App.css';
+import '../css/App.css';
 import { HiChevronDoubleDown } from 'react-icons/hi';
 import { IconContext } from "react-icons";
-import Geolocator from "./coordinatesForm/Geolocator";
-import {Splash} from './splash';
+import Geolocator from "../utils/Geolocator";
+import {Splash} from '../utils/splash';
 import {DiMongodb} from "react-icons/di";
 
 export function Home() {
