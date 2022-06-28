@@ -39,55 +39,55 @@ export const SelectDropdownMenu = () => {
     const lon = useDataSource(localStorageResource('lon'));
     const categories = [
         {
-            value: "aerial_bombs",
-            label: "aerial bombs",
+            value: "Aerial Bombs",
+            label: "Aerial Bombs",
             icon: <GiFallingBomb/>
         },
         {
-            value: "landmines",
-            label: "landmines",
+            value: "Landmines",
+            label: "Landmines",
             icon: <GiLandMine/>
         },
         {
-            value: "grenades",
-            label: "grenades",
+            value: "Grenades",
+            label: "Grenades",
             icon: <GiGrenade/>
         },
         {
-            value: "missiles_rockets",
-            label: "missiles/rockets",
+            value: "Missiles/Rockets",
+            label: "Missiles/Rockets",
             icon: <GiMissileLauncher/>
         },
         {
-            value: "projectiles_mortars",
-            label: "projectiles/mortars",
+            value: "Projectiles/Mortars",
+            label: "Projectiles/Mortars",
             icon: <GiMortar/>
         },
         {
-            value: "miscellaneous",
-            label: "miscellaneous",
+            value: "Miscellaneous",
+            label: "Miscellaneous",
             icon: <FaBomb/>
         }
     ];
 
     const sizes = [
         {
-            value: "S",
+            value: "Small",
             label: "Small",
             icon: <IoIosBaseball/>
         },
         {
-            value: "M",
+            value: "Medum",
             label: "Medium",
             icon: <GiSoccerBall/>
         },
         {
-            value: "L",
+            value: "Large",
             label: "Large",
             icon: <FaTruckMonster/>
         },
         {
-            value: "XL",
+            value: "X-Large",
             label: "Extra Large/rockets",
             icon: <CgAirplane/>
         }
@@ -95,84 +95,84 @@ export const SelectDropdownMenu = () => {
 
     const colors = [
         {
-            value: "green",
+            value: "Green",
             label: "Green",
             icon: <AiFillCreditCard style={{color: "green", background: "green"}}/>
         },
         {
-            value: "tan",
+            value: "Tan",
             label: "Tan",
             icon: <AiFillCreditCard style={{color: "#DBAE86", background: "#DBAE86"}}/>
         },
         {
-            value: "gray",
+            value: "Gray",
             label: "Gray",
             icon: <AiFillCreditCard style={{color: "gray", background: "gray"}}/>
         },
         {
-            value: "brown",
+            value: "Brown",
             label: "Brown",
             icon: <AiFillCreditCard style={{color: "#8B572A", background: "#8B572A"}}/>
         },
         {
-            value: "black",
+            value: "Black",
             label: "Black",
             icon: <AiFillCreditCard style={{color: "black", background: "black"}}/>
         },
         {
-            value: "white",
+            value: "White",
             label: "White",
             icon: <AiFillCreditCard style={{color: "white", background: "white"}}/>
         },
         {
-            value: "yellow",
+            value: "Yellow",
             label: "Yellow",
             icon: <AiFillCreditCard style={{color: "yellow", background: "yellow"}}/>
         },
         {
-            value: "other",
+            value: "Other",
             label: "Other"
         }
     ];
 
     const secondaryColor = [
         {
-            value: "green",
+            value: "Green",
             label: "Green",
             icon: <AiFillCreditCard style={{color: "green", background: "green"}}/>
         },
         {
-            value: "tan",
+            value: "Tan",
             label: "Tan",
             icon: <AiFillCreditCard style={{color: "#DBAE86", background: "#DBAE86"}}/>
         },
         {
-            value: "gray",
+            value: "Gray",
             label: "Gray",
             icon: <AiFillCreditCard style={{color: "gray", background: "gray"}}/>
         },
         {
-            value: "brown",
+            value: "Brown",
             label: "Brown",
             icon: <AiFillCreditCard style={{color: "#8B572A", background: "#8B572A"}}/>
         },
         {
-            value: "black",
+            value: "Black",
             label: "Black",
             icon: <AiFillCreditCard style={{color: "black", background: "black"}}/>
         },
         {
-            value: "white",
+            value: "White",
             label: "White",
             icon: <AiFillCreditCard style={{color: "white", background: "white"}}/>
         },
         {
-            value: "yellow",
+            value: "Yellow",
             label: "Yellow",
             icon: <AiFillCreditCard style={{color: "yellow", background: "yellow"}}/>
         },
         {
-            value: "other",
+            value: "Other",
             label: "Other"
         }
     ];
@@ -268,15 +268,22 @@ export const SelectDropdownMenu = () => {
     return (
         <div className="dropdowns-container upload flex justify-between mt-4">
             <div className="mb-5">
-                <input
-                    type="file"
-                       onChange={handleFileInput} crossOrigin="anonymous" required/>
-                <button
-                    className="bg-ukrBlue text-white shadow-btn"
-                    onClick={() => handleUpload(selectedFile)}> upload photo</button>
+
+                <div className="container">
+                    <div className="button-wrap">
+                        <label className="button" htmlFor="upload">{selectedFile ? selectedFile.name : "upload"}</label>
+                        <input id="upload" type="file"
+                               onChange={handleFileInput} crossOrigin="anonymous" required/>
+                        <button
+                            className="text-white shadow-btn"
+                            onClick={() => handleUpload(selectedFile)}> upload photo
+                        </button>
+                    </div>
+                </div>
 
                 {responseAwsLocation ? <div className="relative mt-2 h-[250px]"><img className="fill-window"
-                       src={responseAwsLocation} alt="responseAWS"/>
+                                                                                     src={responseAwsLocation}
+                                                                                     alt="responseAWS"/>
                     </div>
                     : ""}
 

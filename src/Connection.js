@@ -1,57 +1,51 @@
-import React from "react";
 import {Link} from "react-router-dom";
 import MapBox from "./Mapbox/MapBox";
 import {IconContext} from "react-icons";
 import {HiChevronDoubleDown} from "react-icons/hi";
-import {Carousel, Card} from "flowbite-react";
+import InfoCard from "./InfoCard";
+import Header from "./Header";
+import React , { useState, useEffect } from "react";
+import PacmanLoader from "react-spinners/PacmanLoader";
 
 export function Connection() {
+    // Loading state
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+
+        // Wait for 3 seconds
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 1000);
+    }, []);
+
+    // Custom css for loader
+    const override = `
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
     return (
+        isLoading ?
+            <div className="grid h-screen place-items-center mr-80">
+            {/*If page is still loading then splash screen*/}
+            <PacmanLoader color={'#36D7B7'} isLoading={isLoading}
+                          css={override} size={150} />
+            </div>:
         <>
+            <Header/>
             <main>
                 <div className="m-10">
                     <h1 className="text-ukrYellow text-center bg-ukrBlue h-20 flex justify-center items-center m-0">Previously Reported Explosive Hazards:</h1>
                     <MapBox/>
                 </div>
                 <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-                        <Card className="rounded overflow-hidden shadow-lg"
-                            imgAlt="Meaningful alt text for an image that is not purely decorative"
-                            imgSrc="https://flowbite.com/docs/images/blog/image-1.jpg"
-                        >
-                            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                Noteworthy technology acquisitions 2021
-                            </h5>
-                            <p className="font-normal text-gray-700 dark:text-gray-400">
-                                Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-                            </p>
-                        </Card>
-                        <Card className="rounded overflow-hidden shadow-lg"
-                              imgAlt="Meaningful alt text for an image that is not purely decorative"
-                              imgSrc="https://flowbite.com/docs/images/blog/image-1.jpg"
-                        >
-                            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                Noteworthy technology acquisitions 2021
-                            </h5>
-                            <p className="font-normal text-gray-700 dark:text-gray-400">
-                                Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-                            </p>
-                        </Card>
-                    <Card className="rounded overflow-hidden shadow-lg"
-                          imgAlt="Meaningful alt text for an image that is not purely decorative"
-                          imgSrc="https://flowbite.com/docs/images/blog/image-1.jpg"
-                    >
-                        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                            Noteworthy technology acquisitions 2021
-                        </h5>
-                        <p className="font-normal text-gray-700 dark:text-gray-400">
-                            Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-                        </p>
-                    </Card>
+                    <InfoCard/>
                 </div>
             </main>
-            <div className="fill-window flex justify-center">
+            <div className="flex justify-center">
                 <nav className="fixed bottom-10">
-                    <button className="noselectRep">
+                    <button className="h-20 w-20 rounded-full border-solid border-solid bg-gradient-to-r from-yellow-400 to-blue-600 text-gray-600 font-bold">REPORT
                         <IconContext.Provider value={{ color: "#5A5560", className: "global-class-name", size: "2em"}}>
                             <Link to="/report">
                                 <HiChevronDoubleDown/>
@@ -60,6 +54,7 @@ export function Connection() {
                     </button>
                 </nav>
             </div>
+
         </>
     );
 }

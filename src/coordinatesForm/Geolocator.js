@@ -57,6 +57,25 @@ export default function Geolocator() {
         }
     }
 
+    const placheHolderText = ['швидкий звіт', 'швидкий звіт', 'Rapid Report', 'Rapid Report']
+    const [index, setindex] = useState(0);
+
+    useEffect(() => {
+        const timer = () => {
+            setindex(prevIndex => {
+                if (prevIndex === placheHolderText.length - 1) {
+                    return 0;
+                }
+                return prevIndex + 1;
+            })
+        };
+        setInterval(timer, 3000);
+        return () => {
+            clearInterval(timer)
+        }
+    }, [placheHolderText.length]);
+
+
     return lat ? (
             <>
                 <ControlledModal
@@ -64,14 +83,14 @@ export default function Geolocator() {
                     onClose={() => setShouldShowModal(false)}
                 />
 
-                <h4 className="bg-ukrBlue text-ukrYellow">Submitted report by current location successfully!
-                    Would you like to add extra details?
-                </h4>
+                <h3 className="text-ukrYellow text-center bg-ukrBlue h-20 flex fill-window justify-center items-center m-0 mb-4 ">Your
+                    location has been submitted!
+                    Would you like to add more details?
+                </h3>
                 {lat ? <div className="add-deets mb-3">
-
-                        <button className="wave" disabled={false}
+                        <button className="wave cursor-pointer" disabled={false}
                                 onClick={() => setShouldShowModal(!shouldShowModal)}>
-                            <span className="btnText">ADD MORE DETAILS</span>
+                            <span className="btnText">ADD DETAILS</span>
                         </button>
                     </div>
                     :
@@ -81,12 +100,13 @@ export default function Geolocator() {
             </>
         ) :
         <>
-
-
-            <button onClick={getLocation} className="inline-block h-72 w-72 rounded-full text-gray-700  border-solid bg-gradient-to-r from-yellow-400 to-blue-600
+            <div className="grid h-screen place-content-center place-items-center">
+                <div className="text-3xl mb-5"> Submit your location below <br/> if you have found a bomb. </div>
+                <button onClick={getLocation} className="cursor-pointer inline-block h-72 w-72 rounded-full text-gray-700  border-solid bg-gradient-to-r from-yellow-400 to-blue-600
                 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium
-    text-2xl px-5 py-2.5 text-center mr-2 mb-2"><h2>Rapid Report</h2>
-            </button>
+    text-2xl px-5 py-2.5 text-center mb-2"><h2>{placheHolderText[index]}</h2>
+                </button>
+            </div>
         </>
 
 }

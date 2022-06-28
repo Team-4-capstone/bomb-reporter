@@ -6,8 +6,10 @@
 /*Yellow background #FBC02D*/
 
 html, body {
-    background-image: url(360_F_489358243_oJKsX627y6lcR6vyRb9pjYFUgfsiIgV1.jpg);
+    /*background-image: url(360_F_489358243_oJKsX627y6lcR6vyRb9pjYFUgfsiIgV1.jpg);*/
     background-size: cover;
+    /*background-color: #9D8D8F;*/
+    background-color: rgba(210,210,210, .7);
     font-family: Roboto, serif;
     height: 100%;
     width: 100%;
@@ -48,9 +50,9 @@ html, body {
 }
 
 .fill-window {
-    height: 100%;
+    height: 100vh;
     /*position: absolute;*/
-    width: 100%;
+    width: 100vw;
     overflow: hidden;
 }
 
@@ -69,3 +71,67 @@ html, body {
 /*#header {*/
 /*    filter: drop-shadow(0.50em 0.20em 0.3em);*/
 /*}*/
+
+/* SPLASH SCREEN */
+
+.splash-screen {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.splash-screen .loading-dot {
+    font-size: 100px;
+    margin-top: -30px;
+    position: relative;
+    animation: ease-in-out infinite alternate;
+    animation-name: run;
+    animation-duration: 1.2s;
+}
+
+@keyframes run {
+    0% {
+        left: -90px;
+        color: #eee;
+    }
+    50% {
+        color: #666;
+    }
+    100% {
+        left: 90px;
+        color: #eee;
+    }
+}
+
+.poweredBy {
+    margin-top: -30px;
+}
+
+/*Hamburger Menu*/
+nav ul {
+    border-top: 2px solid #FFDD00;
+}
+
+nav ul li {
+    color: #FFDD00;
+    padding-left: 5px;
+    opacity: 1;
+
+}
+nav ul a:visited {
+    color: #FFDD00;
+    text-decoration-line: none;
+}
+
+nav ul a:hover {
+    /*color: rgba(220,220,220, .5);*/
+    border-bottom: 2px solid #FFDD00;
+}
+nav ul a {
+    text-decoration: none;
+    font-family: font-lato;
+}
+/*----------------------------------------*/
