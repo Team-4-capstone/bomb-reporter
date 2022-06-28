@@ -6,6 +6,7 @@ import {Login} from "../Login"
 import {Register} from "../pages/Register"
 import React from "react";
 import CollapsibleAbout from "../utils/CollapsibleAbout";
+import {About} from "../pages/About";
 
 
 export default function App() {
@@ -21,6 +22,8 @@ export default function App() {
                 <Route path="login" element={<Login/>}/>
                 <Route path="register" element={<Register/>}/>
                 <Route path="CollapsibleAbout" element={<CollapsibleAbout/>}/>
+                <Route path="about" element={<About/>}/>
+
                 <Route
                     path="*"
                     element={
