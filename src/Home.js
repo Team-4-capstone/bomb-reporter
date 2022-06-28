@@ -26,7 +26,6 @@ export function Home() {
                 </nav>
                 <p className="fixed poweredBy text-sm ">Powered by<DiMongodb/>MongoDB</p>
             </div>
-
         </>
     );
 }

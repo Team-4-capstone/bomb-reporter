@@ -18,13 +18,9 @@ export function Login() {
         <>
             <Header/>
             <main className="index">
-
                 <div className="w-full max-w-xs mt-20">
-
                     <h1>Log in</h1>
                     <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
-
-
                         <div className="mb-4">
                             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
                                 Username
@@ -42,7 +38,6 @@ export function Login() {
                             />
                         </div>
 
-
                         <div className="mb-6">
                             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
                                 Password
@@ -58,11 +53,9 @@ export function Login() {
                                 placeholder="password"
                                 onChange={event => setPassword(event.target.value)}
                                 required
-
                             />
                             <p className="text-red-500 text-xs italic">Please choose a password.</p>
                         </div>
-
 
                         <div className="flex items-center justify-between">
                             <button
@@ -79,7 +72,6 @@ export function Login() {
                                     Forgot Password?
                                 </a>
 
-
                                 <a className="inline-block align-baseline font-bold
                                 text-sm text-blue-500 hover:text-blue-800"
                                    href="register">
@@ -89,7 +81,7 @@ export function Login() {
                         </div>
                     </form>
                     <p className="text-center text-gray-500 text-xs">
-                        &copy;2022 Bomb Reported. All rights reserved
+                        &copy;2022 Bomb Reporter. All rights reserved
                     </p>
                 </div>
             </main>

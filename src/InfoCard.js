@@ -91,7 +91,6 @@ function InfoCard() {
                 <div className="text-center mt-35 border-solid border-black w-1/2 mx-auto p-4">
                     <h3>Comments:</h3>
 
-
                     {report.posts ? (
                         <>
                             {
@@ -138,7 +137,6 @@ function InfoCard() {
                             zoom: 10
                         }
                         }
-
 
                         style={{height: 400}}
                         mapStyle="mapbox://styles/mapbox/streets-v9">

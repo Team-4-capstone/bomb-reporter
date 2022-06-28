@@ -7,14 +7,10 @@ function LoadingMessage() {
             Welcome to Bomb Reporter <br/><br/><br/><br/>
             This is an Unexploded Ordnance (UXO) Reporting App <br/><br/>
             We want to help individuals that are exposed to explosive hazards in Ukraine by recording UXOs submitted by you<br/>
-            {/*First - Record the location of the explosive hazard. <br/>*/}
-            {/*Second - Be able to locate other explosives in your area. <br/>*/}
-            {/*Lastly - Get the heck outta there.*/}
             <div className="loading-dot">.</div>
         </div>
     );
 }
-
 
 export function Splash() {
     const [isLoading, setIsLoading] = useState(true);
