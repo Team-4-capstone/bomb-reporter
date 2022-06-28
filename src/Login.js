@@ -88,12 +88,8 @@ export function Login() {
                     </p>
                 </div>
                 <div className="social-login">
-                    <a className="btn btn-block social-btn facebook  h-10" href={<a href="#"></a>}>
-                        <img src={fbLogo} alt="Facebook" /></a>
                     <a className="btn btn-block social-btn google " href={<a href="#"></a>}>
                         <img src={googleLogo} alt="Google" /></a>
-                    <a className="btn btn-block social-btn github h-10"  href={<a href="#"></a>}>
-                        <img src={githubLogo} alt="Github"  /></a>
                 </div>
             </main>
         </>
