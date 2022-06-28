@@ -6,6 +6,7 @@ import {Login} from "./Login"
 import {Register} from "./Register"
 import React from "react";
 import CollapsibleAbout from "./CollapsibleAbout";
+import {About} from "./About";
 
 
 export default function App() {
@@ -15,16 +16,15 @@ export default function App() {
 
             {/*<Header className=""/>*/}
             <Routes>
-                <Route path="/" element={<Home/> }/>
+                <Route path="/" element={<Home/>}/>
                 <Route path="connection" element={<Connection/>}/>
                 <Route path="report" element={<Report/>}/>
                 <Route path="login" element={<Login/>}/>
                 <Route path="register" element={<Register/>}/>
                 <Route path="CollapsibleAbout" element={<CollapsibleAbout/>}/>
-                <Route
-                    path="*"
-                    element={
-                        <main style={{ padding: "1rem" }}>
+                <Route path="about" element={<About/>}/>
+                <Route path="*" element={
+                        <main style={{padding: "1rem"}}>
                             <p>There's nothing here!</p>
                         </main>
                     }
