@@ -1,14 +1,11 @@
 import {Link, Route} from "react-router-dom"
 import React, {useState} from "react";
-import './index/App.css';
-import Header from "./Header";
+import './css/App.css';
+import Header from "./utils/Header";
 import fbLogo from './fb-logo.png';
 import googleLogo from './google-logo.png';
 import githubLogo from './github-logo.png';
 import bomblogo from "./Mapbox/LogoWeb.png";
-
-
-
 
 export function Login() {
     const [username, setUsername] = useState('');

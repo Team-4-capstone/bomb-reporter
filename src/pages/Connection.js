@@ -1,9 +1,9 @@
 import {Link} from "react-router-dom";
-import MapBox from "./Mapbox/MapBox";
+import MapBox from "../mapbox/MapBox";
 import {IconContext} from "react-icons";
 import {HiChevronDoubleDown} from "react-icons/hi";
-import InfoCard from "./InfoCard";
-import Header from "./Header";
+import InfoCard from "../utils/InfoCard";
+import Header from "../utils/Header";
 import React , { useState, useEffect } from "react";
 import PacmanLoader from "react-spinners/PacmanLoader";
 

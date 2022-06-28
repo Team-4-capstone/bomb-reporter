@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState} from "react";
-import {useDataSource} from "../useDataSource";
+import {useDataSource} from "./useDataSource";
 
 
 const localStorageResource = key => () => {
