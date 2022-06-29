@@ -56,6 +56,8 @@ function InfoCard() {
                     .then(res =>
                             //if successfully POST alert("successfully"), else  alert("unsuccessfully")
                         {
+
+                            document.getElementById("moreDetails").value = "";
                             if (res.status === 200) {
                                 axios.get(url)
                                     .then(res => {
@@ -105,7 +107,7 @@ function InfoCard() {
                             } </>) : <p>{report.posts.content}</p>}
 
                     <form className="upload mt-4 mb-4" onSubmit={event => event.preventDefault()}>
-            <textarea className="mb-4 mt-4" id=" moreDetails" name="moreDetails" rows="4" cols="50"
+            <textarea className="mb-4 mt-4" id="moreDetails" name="moreDetails" rows="4" cols="50"
                       onChange={event => setComments(event.target.value)}
                       placeholder="Add comments... ex: Possible UXO identification"/>
                         <button className="cursor-pointer mx-auto w-1/4 bg-ukrBlue text-white shadow-btn" type="submit"
