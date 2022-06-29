@@ -297,10 +297,10 @@ export const SelectDropdownMenu = () => {
             </div>
 
             {responseAwsLocation ? <div className="flex justify-evenly mx-auto mb-4 cursor-pointer ">
-                    <span onClick={confirmPhoto}>Confirm Photo
-                        <GiConfirmed className="ml-2 cursor-pointer" style={{color: "green"}}/></span>
-                    <span className="ml-4" onClick={cancelConfirmPhoto}>Remove Photo
-                        <BsFillTrashFill className="ml-2" style={{color: "red"}}/></span>
+                    <button onClick={confirmPhoto}>Confirm Photo
+                        <GiConfirmed className="ml-2 cursor-pointer" style={{color: "green"}}/></button>
+                    <button className="ml-4" onClick={cancelConfirmPhoto}>Remove Photo
+                        <BsFillTrashFill className="ml-2" style={{color: "red"}}/></button>
 
                 </div>
                 : ""}

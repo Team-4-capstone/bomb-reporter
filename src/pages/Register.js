@@ -2,6 +2,7 @@ import React from "react";
 import '../css/App.css';
 import {useState} from "react";
 import Header from "../utils/Header";
+import googleLogo from "../photos/google-logo.png";
 
 export function Register() {
     const [username, setUsername] = useState('');
@@ -87,6 +88,10 @@ export function Register() {
                     <p className="text-center text-gray-500 text-xs">
                         &copy;2022 Bomb Reporter. All rights reserved
                     </p>
+                </div>
+                <div className="social-login">
+                    <a className="btn btn-block social-btn google " href={<a href="#"></a>}>
+                        <img src={googleLogo} alt="Google" /></a>
                 </div>
             </main>
         </>
