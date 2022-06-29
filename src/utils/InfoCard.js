@@ -10,6 +10,7 @@ import Modal from "./Modal";
 import {MAPQUEST} from "../Config";
 import bomblogo from "../photos/LogoWeb.png";
 import log from "tailwindcss/lib/util/log";
+import placeholderPhoto from "../photos/placeHolderWeb.png"
 
 const QUESTKEY = MAPQUEST;
 const layerStyle = {
@@ -119,11 +120,20 @@ function InfoCard() {
     }
 
     return (
-        reports.map((report) => (
+        <>
+            {reports.map((report) => (
             <div key={report.id} style={{border: "outset"}}
                  className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <img className="rounded-t-lg h-64 w-full" src={report.description.img_path}
-                     alt="photo of reported UXO"/>
+                {/*<img className="rounded-t-lg h-64 w-full" src={report.description.img_path}*/}
+                {/*     alt="photo of reported UXO"/>*/}
+                {
+                    report.description.img_path !== "N/A" ?
+                         <img className="rounded-t-lg h-64 w-full" src={report.description.img_path}
+                                    alt="photo of reported UXO"/>
+                        :
+                        <img className="rounded-t-lg h-64 w-full" src={placeholderPhoto}
+                             alt="place holder for UXO card"/>
+                    }
                 <div className="p-5">
                     {/*<DataSource*/}
                     {/*    getDataFunc={getServerData(`https://www.mapquestapi.com/geocoding/v1/reverse?key=${QUESTKEY}&location=` + report.location.latitude + '%2C' + report.location.longitude + '&outFormat=json&thumbMaps=false')}*/}
@@ -165,7 +175,9 @@ function InfoCard() {
                     </Modal>
                 </div>
             </div>
-        )))
+        ))}
+        </>
+    )
 }
 
 export default InfoCard;
