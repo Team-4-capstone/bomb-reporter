@@ -24,7 +24,7 @@ export function Home() {
                         </IconContext.Provider>
                     </button>
                 </nav>
-                <p className="fixed poweredBy text-sm ">Powered by<DiMongodb/>MongoDB</p>
+                {/*<p className="fixed poweredBy text-sm ">Powered by<DiMongodb/>MongoDB</p>*/}
             </div>
         </>
     );
