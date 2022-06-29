@@ -1,12 +1,7 @@
-import {Link, Route} from "react-router-dom"
 import React from "react";
-import './index/App.css';
+import '../css/App.css';
 import {useState} from "react";
-import {Home} from "./Home";
-import {Connection} from "./Connection";
-import {Report} from "./Report";
-import {Login} from "./Login";
-import Header from "./Header";
+import Header from "../utils/Header";
 
 export function Register() {
     const [username, setUsername] = useState('');
@@ -27,7 +22,7 @@ export function Register() {
             <Header/>
             <main className="index">
                 <div className="w-full max-w-xs mt-20">
-                    <h1>register</h1>
+                    <h1>Register</h1>
                     <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
                         <div className="mb-4">
                             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">

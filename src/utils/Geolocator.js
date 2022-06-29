@@ -1,9 +1,9 @@
 import React, {useEffect} from "react";
 import {useState} from "react";
-import './form.css';
-import '../index/button.css';
-import {ControlledModal} from "../index/ControlledModal";
-import MapBox from "../Mapbox/MapBox";
+import '../css/form.css';
+import '../css/button.css';
+import {ControlledModal} from "./ControlledModal";
+import MapBox from "../mapbox/MapBox";
 import './Lesser_Coat_of_Arms_of_Ukraine.svg'
 
 export default function Geolocator() {

@@ -1,11 +1,12 @@
 import {Routes, Route} from "react-router-dom";
-import {Home} from "./Home.js";
-import {Connection} from "./Connection";
-import {Report} from "./Report";
-import {Login} from "./Login"
-import {Register} from "./Register"
+import {Home} from "../pages/Home.js";
+import {Connection} from "../pages/Connection";
+import {Report} from "../pages/Report";
+import {Login} from "../Login"
+import {Register} from "../pages/Register"
 import React from "react";
-import CollapsibleAbout from "./CollapsibleAbout";
+import CollapsibleAbout from "../utils/CollapsibleAbout";
+import {About} from "../pages/About";
 
 
 export default function App() {
@@ -21,6 +22,8 @@ export default function App() {
                 <Route path="login" element={<Login/>}/>
                 <Route path="register" element={<Register/>}/>
                 <Route path="CollapsibleAbout" element={<CollapsibleAbout/>}/>
+                <Route path="about" element={<About/>}/>
+
                 <Route
                     path="*"
                     element={

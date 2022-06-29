@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState} from "react";
-import {useDataSource} from "../useDataSource";
+import {useDataSource} from "./useDataSource";
 
 
 const localStorageResource = key => () => {
@@ -64,10 +64,10 @@ export const FileUploadPage = ({lat, lon, onClose, category, size, color, quanti
                     //if successfully POST alert("successfully"), else  alert("unsuccessfully")
                 {
                     if (res.status === 200) {
-                        alert("report submitted successfully")
+                        alert("Your report has been submitted successfully")
                         window.location = 'connection'
                     } else {
-                        alert("error saving your report")
+                        alert("Error saving your report")
                         window.location = '/'
                     }
                 }

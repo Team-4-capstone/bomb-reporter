@@ -1,9 +1,9 @@
 import {Link} from "react-router-dom";
-import MapBox from "./Mapbox/MapBox";
+import MapBox from "../mapbox/MapBox";
 import {IconContext} from "react-icons";
 import {HiChevronDoubleDown} from "react-icons/hi";
-import InfoCard from "./InfoCard";
-import Header from "./Header";
+import InfoCard from "../utils/InfoCard";
+import Header from "../utils/Header";
 import React , { useState, useEffect } from "react";
 import PacmanLoader from "react-spinners/PacmanLoader";
 
@@ -43,17 +43,17 @@ export function Connection() {
                     <InfoCard/>
                 </div>
             </main>
-            <div className="flex justify-center">
-                <nav className="fixed bottom-10">
-                    <button className="h-20 w-20 rounded-full border-solid border-solid bg-gradient-to-r from-yellow-400 to-blue-600 text-gray-600 font-bold">REPORT
-                        <IconContext.Provider value={{ color: "#5A5560", className: "global-class-name", size: "2em"}}>
-                            <Link to="/report">
-                                <HiChevronDoubleDown/>
-                            </Link>
-                        </IconContext.Provider>
-                    </button>
-                </nav>
-            </div>
+            {/*<div className="flex justify-center">*/}
+            {/*    <nav className="fixed bottom-10">*/}
+            {/*        <button className="h-20 w-20 rounded-full border-solid border-solid bg-gradient-to-r from-yellow-400 to-blue-600 text-gray-600 font-bold">REPORT*/}
+            {/*            <IconContext.Provider value={{ color: "#5A5560", className: "global-class-name", size: "2em"}}>*/}
+            {/*                <Link to="/report">*/}
+            {/*                    <HiChevronDoubleDown/>*/}
+            {/*                </Link>*/}
+            {/*            </IconContext.Provider>*/}
+            {/*        </button>*/}
+            {/*    </nav>*/}
+            {/*</div>*/}
 
         </>
     );

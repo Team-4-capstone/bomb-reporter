@@ -5,7 +5,8 @@ function LoadingMessage() {
         <div className="splash-screen text-center text-2xl">
             Welcome to Bomb Reporter <br/><br/><br/><br/>
             This is an Unexploded Ordnance (UXO) Reporting App <br/><br/>
-            We want to help individuals that are exposed to explosive hazards in Ukraine by recording UXOs submitted by you<br/>
+            We want to help individuals that are exposed to explosive hazards in
+            <br/> Ukraine by recording UXO submitted by you<br/>
             <div className="loading-dot">.</div>
         </div>
     );

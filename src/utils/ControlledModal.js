@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import {SelectDropdownMenu} from "../coordinatesForm/SelectDropdownMenu";
+import {SelectDropdownMenu} from "./SelectDropdownMenu";
 
 const ModalBackground = styled.div`
 position: fixed;
-z-index: 1;
+z-index: 4;
 left: 0;
 top: 0;
 width: 100%;

@@ -1,14 +1,10 @@
 import {Link, Route} from "react-router-dom"
 import React, {useState} from "react";
-import './index/App.css';
-import Header from "./Header";
-import fbLogo from './fb-logo.png';
-import googleLogo from './google-logo.png';
-import githubLogo from './github-logo.png';
-import bomblogo from "./Mapbox/LogoWeb.png";
-
-
-
+import './css/App.css';
+import Header from "./utils/Header";
+import fbLogo from './photos/fb-logo.png';
+import googleLogo from './photos/google-logo.png';
+import githubLogo from './photos/github-logo.png';
 
 export function Login() {
     const [username, setUsername] = useState('');
@@ -69,7 +65,8 @@ export function Login() {
                                 className="bg-blue-500 hover:bg-blue-700
                                  text-white font-bold py-2 px-4 rounded focus:outline-none
                                  focus:shadow-outline"
-                                type="submit">
+                                type="submit"
+                                id="login-btn">
                                 Sign In
                             </button>
                             <div className="w-40">
@@ -92,12 +89,8 @@ export function Login() {
                     </p>
                 </div>
                 <div className="social-login">
-                    <a className="btn btn-block social-btn facebook  h-10" href={<a href="#"></a>}>
-                        <img src={fbLogo} alt="Facebook" /></a>
                     <a className="btn btn-block social-btn google " href={<a href="#"></a>}>
                         <img src={googleLogo} alt="Google" /></a>
-                    <a className="btn btn-block social-btn github h-10"  href={<a href="#"></a>}>
-                        <img src={githubLogo} alt="Github"  /></a>
                 </div>
             </main>
         </>
