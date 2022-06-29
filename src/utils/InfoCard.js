@@ -8,8 +8,6 @@ import Map, {Marker, Source, Layer, GeolocateControl} from "react-map-gl";
 import {AiTwotoneCheckCircle} from "react-icons/ai";
 import Modal from "./Modal";
 import {MAPQUEST} from "../Config";
-import bomblogo from "../photos/LogoWeb.png";
-import log from "tailwindcss/lib/util/log";
 import placeholderPhoto from "../photos/placeHolderWeb.png"
 
 const QUESTKEY = MAPQUEST;
@@ -79,10 +77,16 @@ function InfoCard() {
         return report ? (
 
             <div>
-                <div className="flex justify-center">
-                    <img className="w-auto h-60" src={report.description.img_path} alt="picture of reported UXO"/>
+                <div className="flex justify-center"> {
+                    report.description.img_path !== "N/A" ?
+                        <img className="h-64" src={report.description.img_path}
+                             alt="photo of reported UXO"/>
+                        :
+                        <img className="h-64" src={placeholderPhoto}
+                             alt="place holder for UXO card"/>
+                }
                 </div>
-                <ul className="more_details_list mb-20">
+                <ul className="more_details_list mb-20 leading-7">
                     <li>Report Status: {report.status.status}</li>
                     <li>Nomenclature:</li>
                     <li>Category: {report.category.category}</li>
@@ -137,11 +141,11 @@ function InfoCard() {
                              alt="place holder for UXO card"/>
                     }
                 <div className="p-5">
-                    {/*<DataSource*/}
-                    {/*    getDataFunc={getServerData(`https://www.mapquestapi.com/geocoding/v1/reverse?key=${QUESTKEY}&location=` + report.location.latitude + '%2C' + report.location.longitude + '&outFormat=json&thumbMaps=false')}*/}
-                    {/*    resourceName="prop">*/}
-                    {/*    <Cities/>*/}
-                    {/*</DataSource>*/}
+                    <DataSource
+                        getDataFunc={getServerData(`https://www.mapquestapi.com/geocoding/v1/reverse?key=${QUESTKEY}&location=` + report.location.latitude + '%2C' + report.location.longitude + '&outFormat=json&thumbMaps=false')}
+                        resourceName="prop">
+                        <Cities/>
+                    </DataSource>
                     <Map
                         viewState={{
                             latitude: report.location.latitude,
