@@ -3,7 +3,7 @@ export const Cities = (props) => {
     console.log(props)
 
     return props.prop ? (
-        <h1>{props.prop.results[0].locations[0].adminArea5}</h1>
+        <p className="flex justify-center m-0"><h4>{props.prop.results[0].locations[0].adminArea5}</h4></p>
     ) : (
         <p>loading</p>
     )

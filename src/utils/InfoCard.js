@@ -140,7 +140,7 @@ function InfoCard() {
                         <img className="rounded-t-lg h-64 w-full" src={placeholderPhoto}
                              alt="place holder for UXO card"/>
                     }
-                <div className="p-5">
+                <div className="pt-0 pr-5 pb-5 pl-5">
                     <DataSource
                         getDataFunc={getServerData(`https://www.mapquestapi.com/geocoding/v1/reverse?key=${QUESTKEY}&location=` + report.location.latitude + '%2C' + report.location.longitude + '&outFormat=json&thumbMaps=false')}
                         resourceName="prop">
