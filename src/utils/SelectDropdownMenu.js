@@ -271,12 +271,12 @@ export const SelectDropdownMenu = () => {
 
                 <div className="container">
                     <div className="button-wrap">
-                        <label className="button" htmlFor="upload">{selectedFile ? selectedFile.name : "upload"}</label>
+                        <label className="button" htmlFor="upload">{selectedFile ? selectedFile.name : "Choose File"}</label>
                         <input id="upload" type="file"
                                onChange={handleFileInput} crossOrigin="anonymous" required/>
                         <button
                             className="text-white shadow-btn"
-                            onClick={() => handleUpload(selectedFile)}> upload photo
+                            onClick={() => handleUpload(selectedFile)}>Submit photo
                         </button>
                     </div>
                 </div>
@@ -291,9 +291,9 @@ export const SelectDropdownMenu = () => {
 
             </div>
 
-            {responseAwsLocation ? <div className="flex justify-evenly mx-auto mb-4">
+            {responseAwsLocation ? <div className="flex justify-evenly mx-auto mb-4 cursor-pointer ">
                     <span onClick={confirmPhoto}>Confirm Photo
-                        <GiConfirmed className="ml-2" style={{color: "green"}}/></span>
+                        <GiConfirmed className="ml-2 cursor-pointer" style={{color: "green"}}/></span>
                     <span className="ml-4" onClick={cancelConfirmPhoto}>Remove Photo
                         <BsFillTrashFill className="ml-2" style={{color: "red"}}/></span>
 
