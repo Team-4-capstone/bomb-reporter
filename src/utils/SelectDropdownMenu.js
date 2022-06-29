@@ -244,10 +244,12 @@ export const SelectDropdownMenu = () => {
     }
 
     const handleUpload = async (file) => {
+        setLoading(true)
         uploadFile(file, config)
             .then(data => {
                 setResponseAwsKey(data.key)
                 setResponseAwsLocation(data.location)
+                setLoading(false)
             })
             .catch(err => console.error(err))
     }
@@ -260,6 +262,8 @@ export const SelectDropdownMenu = () => {
         setResponseAwsLocation("");
         setResponseAwsKey("");
     }
+    const [loading, setLoading] = useState(false)
+
 
     // <button className="wave" disabled={false}
     //         onClick={() => setShouldShowModal(!shouldShowModal)}>
@@ -278,6 +282,7 @@ export const SelectDropdownMenu = () => {
                             className="text-white shadow-btn"
                             onClick={() => handleUpload(selectedFile)}>Submit photo
                         </button>
+                        {loading ? <div className="ml-2">Loading</div> : ""}
                     </div>
                 </div>
 
