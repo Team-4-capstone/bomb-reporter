@@ -9,6 +9,7 @@ import {AiTwotoneCheckCircle} from "react-icons/ai";
 import Modal from "./Modal";
 import {MAPQUEST} from "../Config";
 import placeholderPhoto from "../photos/placeHolderWeb.png"
+import log from "tailwindcss/lib/util/log";
 
 const QUESTKEY = MAPQUEST;
 const layerStyle = {
@@ -87,13 +88,14 @@ function InfoCard() {
                 }
                 </div>
                 <ul className="more_details_list mb-20 leading-7">
-                    <li>Report Status: {report.status.status}</li>
-                    <li>Nomenclature:</li>
-                    <li>Category: {report.category.category}</li>
-                    <li>Location (Latitude, Longitude): ({report.location.latitude}, {report.location.longitude})</li>
-                    <li>Description: {report.description.size}, {report.description.color}</li>
-                    <li>Quantity: {report.description.quantity}</li>
-                    <li>Secondary Color: {report.description.secondaryColor}</li>
+                    <li>Report Status: <span>{report.status.status}</span></li>
+                    <li>Nomenclature:<span></span></li>
+                    <li>Category: <span>{report.category.category}</span></li>
+                    <li>Location (Latitude, Longitude): <span>({report.location.latitude}, {report.location.longitude})</span></li>
+                    <li>Description: <span>{report.description.size}, {report.description.color}</span></li>
+                    <li>Quantity: <span>{report.description.quantity}</span></li>
+                    <li>Secondary Color: <span>{report.description.secondaryColor}</span></li>
+                    <li>More Details: <p className="m-0">{report.moreDetails}</p></li>
                 </ul>
                 <div className="text-center mt-35 border-solid border-black w-1/2 mx-auto p-4">
                     <h3>Comments:</h3>
@@ -130,8 +132,6 @@ function InfoCard() {
             {reports.map((report) => (
             <div key={report.id} style={{border: "outset"}}
                  className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                {/*<img className="rounded-t-lg h-64 w-full" src={report.description.img_path}*/}
-                {/*     alt="photo of reported UXO"/>*/}
                 {
                     report.description.img_path !== "N/A" ?
                          <img className="rounded-t-lg h-64 w-full" src={report.description.img_path}
