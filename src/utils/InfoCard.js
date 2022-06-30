@@ -37,6 +37,12 @@ function InfoCard() {
                 console.log(err);
             })
     }, []);
+
+    const nomenclatureTestData = (report) => {
+        if (report.id === 3) {
+            return "PG-16"
+        }
+    }
     const modalContent = (report) => {
 
         const handleChange = () => {
@@ -86,10 +92,12 @@ function InfoCard() {
                         <img className="h-64" src={placeholderPhoto}
                              alt="place holder for UXO card"/>
                 }
+
+
                 </div>
                 <ul className="more_details_list mb-20 leading-7">
                     <li>Report Status: <span>{report.status.status}</span></li>
-                    <li>Nomenclature:<span></span></li>
+                    <li>Nomenclature:<span> {nomenclatureTestData(report)}</span></li>
                     <li>Category: <span>{report.category.category}</span></li>
                     <li>Location (Latitude, Longitude): <span>({report.location.latitude}, {report.location.longitude})</span></li>
                     <li>Description: <span>{report.description.size}, {report.description.color}</span></li>
