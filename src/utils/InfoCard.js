@@ -92,11 +92,12 @@ function InfoCard() {
                         <img className="h-64" src={placeholderPhoto}
                              alt="place holder for UXO card"/>
                 }
-
+                    {report.status.status}
 
                 </div>
                 <ul className="more_details_list mb-20 leading-7">
-                    <li>Report Status: <span>{report.status.status}</span></li>
+                    <li>Report Status: {report.status.status === "Verified" ? <span className="text-[#3adb3a]">{report.status.status.toUpperCase()}</span> :
+                    <span className="text-red-700">{report.status.status.toUpperCase()}</span>}</li>
                     <li>Nomenclature:<span> {nomenclatureTestData(report)}</span></li>
                     <li>Category: <span>{report.category.category}</span></li>
                     <li>Location (Latitude, Longitude): <span>({report.location.latitude}, {report.location.longitude})</span></li>
