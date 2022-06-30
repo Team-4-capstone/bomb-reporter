@@ -7,7 +7,7 @@ import {Cities} from "../mapbox/Cities";
 import Map, {Marker, Source, Layer, GeolocateControl} from "react-map-gl";
 import {AiTwotoneCheckCircle} from "react-icons/ai";
 import Modal from "./Modal";
-import {MAPQUEST} from "../Config";
+import {DEV_URL, MAPQUEST} from "../Config";
 import placeholderPhoto from "../photos/placeHolderWeb.png"
 import log from "tailwindcss/lib/util/log";
 
@@ -23,7 +23,7 @@ const layerStyle = {
 
 function InfoCard() {
     const [reports, setreports] = useState([])
-    const url = 'http://localhost:8081/api/reports';
+    const url = `${DEV_URL}}/api/reports`;
     const [isOpen, setIsOpen] = useState(false);
     const [comments, setComments] = useState(null);
     const [reportId, setReportId] = useState(null);
@@ -58,7 +58,7 @@ function InfoCard() {
                     },
                     body: JSON.stringify(objectToFetch),
                 };
-                const res = fetch(`http://localhost:8081/api/reports/posts?id=${report.id}`, options)
+                const res = fetch(`${DEV_URL}/api/reports/posts?id=${report.id}`, options)
                     .then(res =>
                             //if successfully POST alert("successfully"), else  alert("unsuccessfully")
                         {

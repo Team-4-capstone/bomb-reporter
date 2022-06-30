@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState} from "react";
 import {useDataSource} from "./useDataSource";
+import {DEV_URL} from "../Config";
 
 
 const localStorageResource = key => () => {
@@ -59,7 +60,7 @@ export const FileUploadPage = ({lat, lon, onClose, category, size, color, quanti
         };
 
         //TODO: Need to create a success response after form submit (Alert or setState)
-        const res = await fetch(`http://localhost:8081/api/reports/${put}`, options)
+        const res = await fetch(`${DEV_URL}/${put}`, options)
             .then(res =>
                     //if successfully POST alert("successfully"), else  alert("unsuccessfully")
                 {

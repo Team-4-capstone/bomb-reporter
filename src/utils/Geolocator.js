@@ -5,6 +5,7 @@ import '../css/button.css';
 import {ControlledModal} from "./ControlledModal";
 import MapBox from "../mapbox/MapBox";
 import './Lesser_Coat_of_Arms_of_Ukraine.svg'
+import {DEV_URL} from "../Config";
 
 export default function Geolocator() {
     const [lat, setLat] = useState(null);
@@ -46,7 +47,7 @@ export default function Geolocator() {
                     body: JSON.stringify(objectToFetch),
                 };
 
-                const res = fetch(`http://localhost:8081/api/reports`, options)
+                const res = fetch(`${DEV_URL}/api/reports`, options)
                     .then(res => res.json())
                     .then(json => {
                         localStorage.setItem("PUT", JSON.stringify(json));

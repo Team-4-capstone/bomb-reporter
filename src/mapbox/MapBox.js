@@ -1,7 +1,7 @@
 import React, {useRef, useEffect, useState} from 'react';
 import mapboxgl from 'mapbox-gl';  // eslint-disable-line import/no-webpack-loader-syntax
 import Map, {GeolocateControl, Marker} from "react-map-gl";
-import {MAPBOX} from "../Config";
+import {DEV_URL, MAPBOX} from "../Config";
 import axios from "axios";
 import {DataSource} from "../utils/DataSource";
 import {Markers} from "./Markers";
@@ -40,7 +40,7 @@ export default function MapBox(props) {
             {...viewport}
             style={{height: 400}}
             mapStyle="mapbox://styles/mapbox/streets-v9">
-            <DataSource getDataFunc={getServerData('http://localhost:8081/api/reports')} resourceName="reports">
+            <DataSource getDataFunc={getServerData(`${DEV_URL}/api/reports`)} resourceName="reports">
                 <Markers/>
             </DataSource>
 
@@ -56,7 +56,7 @@ export default function MapBox(props) {
 
             style={{height: 400}}
             mapStyle="mapbox://styles/mapbox/streets-v9">
-            <DataSource getDataFunc={getServerData('http://localhost:8081/api/reports')} resourceName="reports">
+            <DataSource getDataFunc={getServerData(`${DEV_URL}/api/reports`)} resourceName="reports">
                 <Markers/>
             </DataSource>
 
