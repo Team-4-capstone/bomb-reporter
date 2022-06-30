@@ -92,7 +92,6 @@ function InfoCard() {
                         <img className="h-64" src={placeholderPhoto}
                              alt="place holder for UXO card"/>
                 }
-                    {report.status.status}
 
                 </div>
                 <ul className="more_details_list mb-20 leading-7">
