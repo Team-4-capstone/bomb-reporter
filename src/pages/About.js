@@ -7,8 +7,8 @@ export function About() {
         <>
             <Header/>
             <main className="flex items-center justify-center h-screen">
-                <div className="w-1/2 p-4 leading-8 border-solid border-2 bg-ukrBlue">
-                    <p className="text-ukrYellow">Welcome,<br/>
+                <div className="w-3/4 p-4 leading-8 border-solid border-2 bg-ukrBlue">
+                    <p className="text-ukrYellow text-sm leading-6">Welcome,<br/>
                         The <em>Bomb Reporter</em> is a tool used to report any type of UXO (unexploded ordnance) found
                         within Ukraine. UXO is any type of military explosive hazard, such as aerial bombs,
                         artillery rounds, landmines, grenades, bomblets, missiles, and rockets.

@@ -135,3 +135,15 @@ nav ul a {
     font-family: font-lato;
 }
 /*----------------------------------------*/
+
+/*More Details Page*/
+.more_details_list li span {
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.more_details_list li p {
+    font-size: 12px;
+    text-decoration: none;
+}
+/*----------------------------------------*/
