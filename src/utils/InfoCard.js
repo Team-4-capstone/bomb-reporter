@@ -23,7 +23,7 @@ const layerStyle = {
 
 function InfoCard() {
     const [reports, setreports] = useState([])
-    const url = `${DEV_URL}}/api/reports`;
+    const url = `${DEV_URL}/api/reports`;
     const [isOpen, setIsOpen] = useState(false);
     const [comments, setComments] = useState(null);
     const [reportId, setReportId] = useState(null);
@@ -92,7 +92,6 @@ function InfoCard() {
                         <img className="h-64" src={placeholderPhoto}
                              alt="place holder for UXO card"/>
                 }
-                    {report.status.status}
 
                 </div>
                 <ul className="more_details_list mb-20 leading-7">

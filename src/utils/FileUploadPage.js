@@ -60,7 +60,8 @@ export const FileUploadPage = ({lat, lon, onClose, category, size, color, quanti
         };
 
         //TODO: Need to create a success response after form submit (Alert or setState)
-        const res = await fetch(`${DEV_URL}/${put}`, options)
+        const res = await fetch(`${DEV_URL}/api/reports/${put}`, options)
+
             .then(res =>
                     //if successfully POST alert("successfully"), else  alert("unsuccessfully")
                 {
