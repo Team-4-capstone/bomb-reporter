@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import ReactDom from 'react-dom';
 import {useState} from "react";
 
 const ModalBackground = styled.div`

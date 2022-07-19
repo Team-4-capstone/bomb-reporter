@@ -13,11 +13,8 @@ module.exports = {
       }
     },
     colors: {
-      'ukrBlue':'#0057B7',
-      'ukrYellow':'#FFDD00',
     }
   },
   plugins: [
-    require('flowbite/plugin')
   ],
 }

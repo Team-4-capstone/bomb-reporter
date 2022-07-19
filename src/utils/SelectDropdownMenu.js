@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import Select from 'react-select';
 import {FileUploadPage} from "./FileUploadPage";
 import {ACCESS_KEY, REGION, S3_BUCKET, SECRET_ACCESS_KEY} from "../Config";
@@ -265,10 +265,6 @@ export const SelectDropdownMenu = () => {
     const [loading, setLoading] = useState(false)
 
 
-    // <button className="wave" disabled={false}
-    //         onClick={() => setShouldShowModal(!shouldShowModal)}>
-    //     <span className="btnText">ADD MORE DETAILS</span>
-    // </button>
     return (
         <div className="dropdowns-container upload flex justify-between mt-4">
             <div className="mb-5">
@@ -297,9 +293,9 @@ export const SelectDropdownMenu = () => {
             </div>
 
             {responseAwsLocation ? <div className="flex justify-evenly mx-auto mb-4 cursor-pointer ">
-                    <button onClick={confirmPhoto}>Confirm Photo
+                    <button style={{color: "black"}} onClick={confirmPhoto}>Confirm Photo
                         <GiConfirmed className="ml-2 cursor-pointer" style={{color: "green"}}/></button>
-                    <button className="ml-4" onClick={cancelConfirmPhoto}>Remove Photo
+                    <button style={{color: "black"}} className="ml-4" onClick={cancelConfirmPhoto}>Remove Photo
                         <BsFillTrashFill className="ml-2" style={{color: "red"}}/></button>
 
                 </div>

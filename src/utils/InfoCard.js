@@ -4,12 +4,11 @@ import {DataSource} from "./DataSource";
 import React from "react";
 import {getServerData} from "../mapbox/MapBox";
 import {Cities} from "../mapbox/Cities";
-import Map, {Marker, Source, Layer, GeolocateControl} from "react-map-gl";
+import Map, {Source, Layer} from "react-map-gl";
 import {AiTwotoneCheckCircle} from "react-icons/ai";
 import Modal from "./Modal";
 import {MAPQUEST} from "../Config";
 import placeholderPhoto from "../photos/placeHolderWeb.png"
-import log from "tailwindcss/lib/util/log";
 
 const QUESTKEY = MAPQUEST;
 const layerStyle = {
@@ -149,18 +148,16 @@ function InfoCard() {
                              alt="place holder for UXO card"/>
                     }
                 <div className="pt-0 pr-5 pb-5 pl-5">
-                    <DataSource
-                        getDataFunc={getServerData(`https://www.mapquestapi.com/geocoding/v1/reverse?key=${QUESTKEY}&location=` + report.location.latitude + '%2C' + report.location.longitude + '&outFormat=json&thumbMaps=false')}
-                        resourceName="prop">
-                        <Cities/>
-                    </DataSource>
+                    {/*<DataSource*/}
+                    {/*    getDataFunc={getServerData(`https://www.mapquestapi.com/geocoding/v1/reverse?key=${QUESTKEY}&location=` + report.location.latitude + '%2C' + report.location.longitude + '&outFormat=json&thumbMaps=false')}*/}
+                    {/*    resourceName="prop">*/}
+                    {/*    <Cities/>*/}
+                    {/*</DataSource>*/}
                     <Map
                         viewState={{
                             latitude: report.location.latitude,
                             longitude: report.location.longitude,
-                            zoom: 10
-                        }
-                        }
+                            zoom: 10}}
 
                         style={{height: 400}}
                         mapStyle="mapbox://styles/mapbox/streets-v9">

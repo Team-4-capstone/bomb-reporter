@@ -1,10 +1,10 @@
 import {Link, Route} from "react-router-dom"
 import React, {useState} from "react";
-import './css/App.css';
-import Header from "./utils/Header";
-import fbLogo from './photos/fb-logo.png';
-import googleLogo from './photos/google-logo.png';
-import githubLogo from './photos/github-logo.png';
+import '../css/App.css';
+import Header from "../utils/Header";
+import fbLogo from '../photos/fb-logo.png';
+import googleLogo from '../photos/google-logo.png';
+import githubLogo from '../photos/github-logo.png';
 
 export function Login() {
     const [username, setUsername] = useState('');

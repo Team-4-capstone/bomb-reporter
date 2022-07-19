@@ -46,7 +46,7 @@ html, body {
     color: #fff;
 }
 .close-modal:hover{
-    @apply bg-red-800
+    color: red;
 }
 
 .fill-window {
@@ -147,3 +147,8 @@ nav ul a {
     text-decoration: none;
 }
 /*----------------------------------------*/
+
+
+button{
+    color: white;
+}

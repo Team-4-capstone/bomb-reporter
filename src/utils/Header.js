@@ -56,7 +56,6 @@ function Header() {
     return (
         <nav id="header" className="absolute right-2 sticky top-0 z-50 sticky bg-ukrBlue p-2 flex items-center">
 
-            {/*Left*/}
             <Link className="no-underline" to="/report">
                 <div className="relative flex items-center my-auto h-10 left-2">
                     <img id="bombLogo" className="h-10 cursor-pointer" src={bomblogo}
@@ -65,8 +64,6 @@ function Header() {
                         Reporter</p></div>
                 </div>
             </Link>
-
-            {/*Hamburger Menu Open and Close*/}
             {open ? CloseHamburgerButton : HamburgerMenu}
             {open && navLinks()}
             <GiFrenchFries className={"absolute right-0 fill-yellow-300 text-2xl"}/>
