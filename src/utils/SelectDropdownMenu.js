@@ -20,6 +20,11 @@ import {useDataSource} from "./useDataSource";
 import {BsFillTrashFill} from "react-icons/bs";
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
+// render file upload Component
+// Does AWS bucket server
+
+
+
 
 // AWS configuration
 const config = {
@@ -37,6 +42,8 @@ export const SelectDropdownMenu = () => {
 
     const lat = useDataSource(localStorageResource('lat'));
     const lon = useDataSource(localStorageResource('lon'));
+
+    //using library to add dropdown menus that we can add images to the fields
     const categories = [
         {
             value: "Aerial Bombs",
@@ -192,6 +199,8 @@ export const SelectDropdownMenu = () => {
         }
     ];
 
+
+    //using use state to manage the changes
     const [selectedOptionCategory, setSelectedOptionCategory] = useState(null);
 
     const [selectedSize, setSelectedSize] = useState(null);
@@ -216,7 +225,7 @@ export const SelectDropdownMenu = () => {
     const [show2ndPartForm, setShow2ndPartForm] = useState(false);
 
 
-    // handle onChange event of the dropdown
+    // handle onChange event of the dropdown menus
     const handleChange = e => {
         setSelectedOptionCategory(e);
     }
@@ -238,11 +247,11 @@ export const SelectDropdownMenu = () => {
         setSelectedSecondaryColor(e);
     }
 
-    //get photo values from input field and passed on to hook selectedFile (line 35)
+    //get photo values from input field and passed on to hook selectedFile
     const handleFileInput = (e) => {
         setSelectedFile(e.target.files[0]);
     }
-
+    //submit to AWS Bucket
     const handleUpload = async (file) => {
         setLoading(true)
         uploadFile(file, config)
@@ -253,6 +262,8 @@ export const SelectDropdownMenu = () => {
             })
             .catch(err => console.error(err))
     }
+
+    //cancel and confirm photo
     const confirmPhoto = () => {
         setShow2ndPartForm(true)
     }
@@ -265,6 +276,7 @@ export const SelectDropdownMenu = () => {
     const [loading, setLoading] = useState(false)
 
 
+    // step by step form based on user choice
     return (
         <div className="dropdowns-container upload flex justify-between mt-4">
             <div className="mb-5">

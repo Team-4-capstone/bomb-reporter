@@ -6,6 +6,10 @@ import {ControlledModal} from "./ControlledModal";
 import MapBox from "../mapbox/MapBox";
 import './Lesser_Coat_of_Arms_of_Ukraine.svg'
 
+//gets current location
+//sets locations lat and lon to local storage
+//makes a POST request to back end only location
+//renders map based on location
 export default function Geolocator() {
     const [lat, setLat] = useState(null);
     const [lng, setLng] = useState(null);

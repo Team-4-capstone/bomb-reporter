@@ -1,7 +1,8 @@
 import React from 'react';
 import {useState} from "react";
 import {useDataSource} from "./useDataSource";
-
+//submits extra details form
+//render by Geolocator
 
 const localStorageResource = key => () => {
     return localStorage.getItem(key)
